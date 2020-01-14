@@ -1,7 +1,6 @@
 <template>
   <b-container>
-      <img class="logo" src="../assets/logo.svg" />
-      <h1>dmriprep Viewer</h1>
+      <!-- <h1>dmriprep Viewer</h1>
       <p class="lead">Upload your report.json file from dmriprep</p>
       <b-form-file class="mt-3" v-model="file"
        :state="Boolean(file)" placeholder="Choose a file...">
@@ -25,9 +24,9 @@
             variant="primary"
             @click="s3">Go</b-btn>
          </b-input-group-append>
-       </b-input-group>
+       </b-input-group> -->
 
-      <report v-if="report.b0" :reportProp="report"></report>
+      <report :report="report"></report>
   </b-container>
 </template>
 
@@ -35,7 +34,9 @@
 // import vueSlider from 'vue-slider-component';
 // import sprite4d from './Sprite4D';
 // import lineChart from './LineChart';
-import report from './Report';
+import report from './ReportStandalone';
+
+const reportFile = require('../../example/report.json')
 
 
 export default {
@@ -50,7 +51,7 @@ export default {
     return {
       file: null,
       msg: 'Welcome to Your Vue.js App',
-      report: {},
+      report: reportFile,
       time: 0,
       spriteSlice: 0,
       url: null,
