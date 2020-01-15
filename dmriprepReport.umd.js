@@ -25455,13 +25455,6 @@ module.exports = function (name) {
 
 /***/ }),
 
-/***/ "b659":
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"color\":[[0.5,0,1,1],[0.5,0,1,1],[0.5,0,1,1],[0.5,0,1,1],[0.5,0,1,1],[0.5,0,1,1],[0.5,0,1,1],[0.5,0,1,1],[0.5,0,1,1],[0.5,0,1,1],[0.5,0,1,1],[0.5,0,1,1],[0.0019607843137254832,0.7092813076058534,0.9232891061054893,1],[0.0019607843137254832,0.7092813076058534,0.9232891061054893,1],[0.0019607843137254832,0.7092813076058534,0.9232891061054893,1],[0.0019607843137254832,0.7092813076058534,0.9232891061054893,1],[0.0019607843137254832,0.7092813076058534,0.9232891061054893,1],[0.0019607843137254832,0.7092813076058534,0.9232891061054893,1],[0.0019607843137254832,0.7092813076058534,0.9232891061054893,1],[0.0019607843137254832,0.7092813076058534,0.9232891061054893,1],[0.0019607843137254832,0.7092813076058534,0.9232891061054893,1],[0.0019607843137254832,0.7092813076058534,0.9232891061054893,1],[0.0019607843137254832,0.7092813076058534,0.9232891061054893,1],[0.0019607843137254832,0.7092813076058534,0.9232891061054893,1],[0.503921568627451,0.9999810273487268,0.7049255469061473,1],[0.503921568627451,0.9999810273487268,0.7049255469061473,1],[0.503921568627451,0.9999810273487268,0.7049255469061473,1],[0.503921568627451,0.9999810273487268,0.7049255469061473,1],[0.503921568627451,0.9999810273487268,0.7049255469061473,1],[0.503921568627451,0.9999810273487268,0.7049255469061473,1],[0.503921568627451,0.9999810273487268,0.7049255469061473,1],[0.503921568627451,0.9999810273487268,0.7049255469061473,1],[0.503921568627451,0.9999810273487268,0.7049255469061473,1],[0.503921568627451,0.9999810273487268,0.7049255469061473,1],[0.503921568627451,0.9999810273487268,0.7049255469061473,1],[0.503921568627451,0.9999810273487268,0.7049255469061473,1],[1,0.7005430375932911,0.37841105004231035,1],[1,0.7005430375932911,0.37841105004231035,1],[1,0.7005430375932911,0.37841105004231035,1],[1,0.7005430375932911,0.37841105004231035,1],[1,0.7005430375932911,0.37841105004231035,1],[1,0.7005430375932911,0.37841105004231035,1],[1,0.7005430375932911,0.37841105004231035,1],[1,0.7005430375932911,0.37841105004231035,1],[1,0.7005430375932911,0.37841105004231035,1],[1,0.7005430375932911,0.37841105004231035,1],[1,0.7005430375932911,0.37841105004231035,1],[1,0.7005430375932911,0.37841105004231035,1],[1,1.2246467991473532e-16,6.123233995736766e-17,1],[1,1.2246467991473532e-16,6.123233995736766e-17,1],[1,1.2246467991473532e-16,6.123233995736766e-17,1],[1,1.2246467991473532e-16,6.123233995736766e-17,1],[1,1.2246467991473532e-16,6.123233995736766e-17,1],[1,1.2246467991473532e-16,6.123233995736766e-17,1],[1,1.2246467991473532e-16,6.123233995736766e-17,1],[1,1.2246467991473532e-16,6.123233995736766e-17,1],[1,1.2246467991473532e-16,6.123233995736766e-17,1],[1,1.2246467991473532e-16,6.123233995736766e-17,1],[1,1.2246467991473532e-16,6.123233995736766e-17,1],[1,1.2246467991473532e-16,6.123233995736766e-17,1],[1,1.2246467991473532e-16,6.123233995736766e-17,1],[0.5,0,1,1],[0.5,0,1,1],[0.5,0,1,1],[0.5,0,1,1],[0.5,0,1,1],[0.5,0,1,1],[0.5,0,1,1],[0.5,0,1,1],[0.5,0,1,1],[0.5,0,1,1],[0.5,0,1,1],[0.5,0,1,1],[0.0019607843137254832,0.7092813076058534,0.9232891061054893,1],[0.0019607843137254832,0.7092813076058534,0.9232891061054893,1],[0.0019607843137254832,0.7092813076058534,0.9232891061054893,1],[0.0019607843137254832,0.7092813076058534,0.9232891061054893,1],[0.0019607843137254832,0.7092813076058534,0.9232891061054893,1],[0.0019607843137254832,0.7092813076058534,0.9232891061054893,1],[0.0019607843137254832,0.7092813076058534,0.9232891061054893,1],[0.0019607843137254832,0.7092813076058534,0.9232891061054893,1],[0.0019607843137254832,0.7092813076058534,0.9232891061054893,1],[0.0019607843137254832,0.7092813076058534,0.9232891061054893,1],[0.0019607843137254832,0.7092813076058534,0.9232891061054893,1],[0.0019607843137254832,0.7092813076058534,0.9232891061054893,1],[0.503921568627451,0.9999810273487268,0.7049255469061473,1],[0.503921568627451,0.9999810273487268,0.7049255469061473,1],[0.503921568627451,0.9999810273487268,0.7049255469061473,1],[0.503921568627451,0.9999810273487268,0.7049255469061473,1],[0.503921568627451,0.9999810273487268,0.7049255469061473,1],[0.503921568627451,0.9999810273487268,0.7049255469061473,1],[0.503921568627451,0.9999810273487268,0.7049255469061473,1],[0.503921568627451,0.9999810273487268,0.7049255469061473,1],[0.503921568627451,0.9999810273487268,0.7049255469061473,1],[0.503921568627451,0.9999810273487268,0.7049255469061473,1],[0.503921568627451,0.9999810273487268,0.7049255469061473,1],[0.503921568627451,0.9999810273487268,0.7049255469061473,1],[1,0.7005430375932911,0.37841105004231035,1],[1,0.7005430375932911,0.37841105004231035,1],[1,0.7005430375932911,0.37841105004231035,1],[1,0.7005430375932911,0.37841105004231035,1],[1,0.7005430375932911,0.37841105004231035,1],[1,0.7005430375932911,0.37841105004231035,1],[1,0.7005430375932911,0.37841105004231035,1],[1,0.7005430375932911,0.37841105004231035,1],[1,0.7005430375932911,0.37841105004231035,1],[1,0.7005430375932911,0.37841105004231035,1],[1,0.7005430375932911,0.37841105004231035,1],[1,0.7005430375932911,0.37841105004231035,1],[1,1.2246467991473532e-16,6.123233995736766e-17,1],[1,1.2246467991473532e-16,6.123233995736766e-17,1],[1,1.2246467991473532e-16,6.123233995736766e-17,1],[1,1.2246467991473532e-16,6.123233995736766e-17,1],[1,1.2246467991473532e-16,6.123233995736766e-17,1],[1,1.2246467991473532e-16,6.123233995736766e-17,1],[1,1.2246467991473532e-16,6.123233995736766e-17,1],[1,1.2246467991473532e-16,6.123233995736766e-17,1],[1,1.2246467991473532e-16,6.123233995736766e-17,1],[1,1.2246467991473532e-16,6.123233995736766e-17,1],[1,1.2246467991473532e-16,6.123233995736766e-17,1],[1,1.2246467991473532e-16,6.123233995736766e-17,1],[1,1.2246467991473532e-16,6.123233995736766e-17,1]],\"q_coords\":[[0,0,0],[0,0,0],[42.36481222986831,-14.324296185223204,-0.19082425234545006],[-42.391081983433494,-14.327143103653986,-42.16310782279243],[-42.373627059148475,42.563491010439925,-13.886267203788066],[-42.37182264605193,-28.435837418378945,-42.14303296398564],[42.39067521135038,-14.327873093044726,-13.883165042206876],[14.140477981064855,-42.56902113791349,-13.889819232923083],[14.13015336695961,56.69909306667259,-28.027712950253363],[14.115037194542918,14.31221046859394,-56.266560472739755],[-0.014543487934054885,28.481219116335595,-13.921943718266498],[-14.140588287168255,42.593368291540415,-28.032952186332423],[-14.137568034476086,42.57658474523807,-42.1587568278965],[42.382083996830076,28.436691155305674,-28.01986764038599],[0,0,0],[-14.130442597501325,-56.67877931053213,-13.886973697793374],[-56.517272798378904,-0.19167228703262765,-28.03142770007122],[28.243604058784264,-0.19692351003868863,-42.1575314166944],[-14.130442597501325,56.67877931053213,-13.886973697793374],[-56.500755985295235,-28.450934642721226,-13.900101155804409],[14.115037194542918,-14.31221046859394,-56.266560472739755],[14.120537534414192,28.43013633482435,-56.27906758159889],[-28.255889877720445,28.4477700005576,-42.15841348973636],[-56.47860049819536,-14.322578225054139,-0.17895196553237966],[56.517860027757465,14.324590972924321,-28.027495900887036],[28.270097754655097,-28.45909915777158,-28.03357683770482],[70.60403820068838,-0.19832036510408732,-0.18412320572257723],[0,0,0],[-28.248732060639465,28.444996618825606,-13.888496421319337],[28.248732060639465,-28.444996618825606,-13.888496421319337],[-42.391081983433494,14.327143103653986,-42.16310782279243],[28.27502742120138,-28.469111104415603,-0.1764925673246355],[-0.014184080216919248,-56.69533774920121,-28.029227514221652],[-28.24553368208025,14.317171495671902,-56.277968091519796],[14.12633521918406,-14.315892808718218,-28.026822660628333],[14.126830926945363,-28.436045684753005,-42.15240744605982],[-0.017653280002707713,-56.7006865044893,-0.17647099596976693],[14.138911216808738,-0.21412324705178556,-0.21305834423931866],[-0.007232343490632894,14.325680564147728,-42.18737831519944],[56.517272798378904,-0.19167228703262765,-28.03142770007122],[0,0,0],[56.49519824088403,-0.19190455875333967,-13.901650900723444],[28.248107745662544,42.56042318086117,-42.138539813347116],[0,-0.18471572364678515,-70.39154970622963],[-14.16024005973045,-0.17949154996489392,-13.94471982235122],[-0.00715338081678866,-28.42545227317896,-56.27603651985096],[-42.382083996830076,28.436691155305674,-28.01986764038599],[-28.242580648792792,-0.1847507227108151,-56.2790032602938],[-28.252148040688077,-42.56750120380476,-28.014711529437175],[-0.06981842038548638,-14.316131560390886,-0.20843883903917718],[-28.255889877720445,-28.4477700005576,-42.15841348973636],[-28.248107745662544,-42.56042318086117,-42.138539813347116],[-0.014132173608613787,-70.81645225542674,-0.18364389941403855],[-0.014456571401407737,-14.298652253138755,-28.027643980393897],[28.248732060639465,28.444996618825606,-13.888496421319337],[-14.144831897318895,-28.4585771370652,-0.18310873709571862],[14.12633521918406,14.315892808718218,-28.026822660628333],[-42.38060439220022,-28.440318565869212,-0.18476241663893797],[-42.39067521135038,-14.327873093044726,-13.883165042206876],[42.37182264605193,-28.435837418378945,-42.14303296398564],[0,0,0],[0,0,0],[0,0,0],[-42.36481222986831,14.324296185223204,0.19082425234545006],[42.391081983433494,14.327143103653986,42.16310782279243],[42.373627059148475,-42.563491010439925,13.886267203788066],[42.37182264605193,28.435837418378945,42.14303296398564],[-42.39067521135038,14.327873093044726,13.883165042206876],[-14.140477981064855,42.56902113791349,13.889819232923083],[-14.13015336695961,-56.69909306667259,28.027712950253363],[-14.115037194542918,-14.31221046859394,56.266560472739755],[0.014543487934054885,-28.481219116335595,13.921943718266498],[14.140588287168255,-42.593368291540415,28.032952186332423],[14.137568034476086,-42.57658474523807,42.1587568278965],[-42.382083996830076,-28.436691155305674,28.01986764038599],[0,0,0],[14.130442597501325,56.67877931053213,13.886973697793374],[56.517272798378904,0.19167228703262765,28.03142770007122],[-28.243604058784264,0.19692351003868863,42.1575314166944],[14.130442597501325,-56.67877931053213,13.886973697793374],[56.500755985295235,28.450934642721226,13.900101155804409],[-14.115037194542918,14.31221046859394,56.266560472739755],[-14.120537534414192,-28.43013633482435,56.27906758159889],[28.255889877720445,-28.4477700005576,42.15841348973636],[56.47860049819536,14.322578225054139,0.17895196553237966],[-56.517860027757465,-14.324590972924321,28.027495900887036],[-28.270097754655097,28.45909915777158,28.03357683770482],[-70.60403820068838,0.19832036510408732,0.18412320572257723],[0,0,0],[28.248732060639465,-28.444996618825606,13.888496421319337],[-28.248732060639465,28.444996618825606,13.888496421319337],[42.391081983433494,-14.327143103653986,42.16310782279243],[-28.27502742120138,28.469111104415603,0.1764925673246355],[0.014184080216919248,56.69533774920121,28.029227514221652],[28.24553368208025,-14.317171495671902,56.277968091519796],[-14.12633521918406,14.315892808718218,28.026822660628333],[-14.126830926945363,28.436045684753005,42.15240744605982],[0.017653280002707713,56.7006865044893,0.17647099596976693],[-14.138911216808738,0.21412324705178556,0.21305834423931866],[0.007232343490632894,-14.325680564147728,42.18737831519944],[-56.517272798378904,0.19167228703262765,28.03142770007122],[0,0,0],[-56.49519824088403,0.19190455875333967,13.901650900723444],[-28.248107745662544,-42.56042318086117,42.138539813347116],[0,0.18471572364678515,70.39154970622963],[14.16024005973045,0.17949154996489392,13.94471982235122],[0.00715338081678866,28.42545227317896,56.27603651985096],[42.382083996830076,-28.436691155305674,28.01986764038599],[28.242580648792792,0.1847507227108151,56.2790032602938],[28.252148040688077,42.56750120380476,28.014711529437175],[0.06981842038548638,14.316131560390886,0.20843883903917718],[28.255889877720445,28.4477700005576,42.15841348973636],[28.248107745662544,42.56042318086117,42.138539813347116],[0.014132173608613787,70.81645225542674,0.18364389941403855],[0.014456571401407737,14.298652253138755,28.027643980393897],[-28.248732060639465,-28.444996618825606,13.888496421319337],[14.144831897318895,28.4585771370652,0.18310873709571862],[-14.12633521918406,-14.315892808718218,28.026822660628333],[42.38060439220022,28.440318565869212,0.18476241663893797],[42.39067521135038,14.327873093044726,13.883165042206876],[-42.37182264605193,28.435837418378945,42.14303296398564],[0,0,0]],\"marker\":[\"x\",\"x\",\"x\",\"x\",\"x\",\"x\",\"x\",\"x\",\"x\",\"x\",\"x\",\"x\",\"x\",\"x\",\"x\",\"x\",\"x\",\"x\",\"x\",\"x\",\"x\",\"x\",\"x\",\"x\",\"x\",\"x\",\"x\",\"x\",\"x\",\"x\",\"x\",\"x\",\"x\",\"x\",\"x\",\"x\",\"x\",\"x\",\"x\",\"x\",\"x\",\"x\",\"x\",\"x\",\"x\",\"x\",\"x\",\"x\",\"x\",\"x\",\"x\",\"x\",\"x\",\"x\",\"x\",\"x\",\"x\",\"x\",\"x\",\"x\",\"x\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\"]}");
-
-/***/ }),
-
 /***/ "b727":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -29812,25 +29805,28 @@ if (typeof window !== 'undefined') {
 // Indicate to webpack that this file can be concatenated
 /* harmony default export */ var setPublicPath = (null);
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"16559bc6-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/ReportStandalone.vue?vue&type=template&id=6d22d03b&
-var ReportStandalonevue_type_template_id_6d22d03b_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"mt-3 container"},[(_vm.report)?_c('div',[_c('h2',{staticClass:"mt-3 pt-3"},[_vm._v("Corrected dwi")]),_c('p',{staticClass:"lead"},[_vm._v("Motion and distortion corrected file")]),_vm._l((_vm.report.dwi_corrected),function(view){return _c('sprite4d',{key:view.orientation,attrs:{"M":view.M,"N":view.N,"img":view.img,"num_slices":view.num_slices,"pix":view.pix,"id":view.orientation,"time":_vm.time,"overlayMode":false,"opacity":"1"}})}),_c('vue-slider',{ref:"timeSlider",attrs:{"min":0,"max":_vm.report.dwi_corrected[0].num_slices-1},model:{value:(_vm.time),callback:function ($$v) {_vm.time=$$v},expression:"time"}}),_c('div',{staticStyle:{"height":"200px","width":"100%","display":"inline-flex"}},[_c('line-chart',{attrs:{"id":"motion_params","data":_vm.report.eddy_params,"outlier_indices":_vm.report.outlier_volumes,"xlabel":"TR","ylabel":"RMS","highlightIdx":_vm.time}})],1),_c('CarpetPlot',{attrs:{"data":_vm.carpetData.carpetplot}}),_c('h2',{staticClass:"mt-3 pt-3"},[_vm._v("Registration + Brain Mask")]),_c('p',{staticClass:"lead"},[_vm._v("Brain mask computed on T1w, and mapped to B0")]),_c('BrainSprite',{ref:"brainMaskSprite",attrs:{"id":"brainMaskSprite","base_dim_x":_vm.report.b0.pix,"base_dim_y":_vm.report.b0.pix,"overlay_dim_x":_vm.report.anat_mask.pix,"overlay_dim_y":_vm.report.anat_mask.pix,"base":_vm.report.b0.img,"overlay":_vm.report.anat_mask.img}}),_c('h2',{staticClass:"mt-3 pt-3"},[_vm._v("DTI: ColorFA")]),_c('p',{staticClass:"lead"},[_vm._v("Color FA mapped on B0")]),_c('BrainSprite',{ref:"colorFASprite",attrs:{"id":"colorFASprite","base_dim_x":_vm.report.b0.pix,"base_dim_y":_vm.report.b0.pix,"overlay_dim_x":_vm.report.colorFA.pix,"overlay_dim_y":_vm.report.colorFA.pix,"base":_vm.report.b0.img,"overlay":_vm.report.colorFA.img}}),_c('b-row',[_c('b-col',[_c('Sampling',{attrs:{"elementId":"samplingWidgetPre","data":_vm.samplingScheme,"cameraPosition":_vm.globalPosition},on:{"updateCameraPosition":_vm.updateGlobalPosition}})],1),_c('b-col',[_c('Sampling',{attrs:{"elementId":"samplingWidgetPost","data":_vm.samplingScheme,"cameraPosition":_vm.globalPosition},on:{"updateCameraPosition":_vm.updateGlobalPosition}})],1)],1)],2):_vm._e()])}
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"be6c4f94-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/ReportStandalone.vue?vue&type=template&id=183f2fb6&
+var ReportStandalonevue_type_template_id_183f2fb6_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"mt-3 container"},[(_vm.report)?_c('div',[_c('h2',{staticClass:"mt-3 pt-3"},[_vm._v("Corrected dwi")]),_c('p',{staticClass:"lead"},[_vm._v("Motion and distortion corrected file")]),_c('div',{staticStyle:{"background-color":"black"}},_vm._l((_vm.report.dwi_corrected),function(view){return _c('sprite4d',{key:view.orientation,attrs:{"M":view.M,"N":view.N,"img":view.img,"num_slices":view.num_slices,"pix":view.pix,"id":view.orientation,"time":_vm.time,"overlayMode":false,"opacity":"1"}})}),1),_c('vue-slider',{ref:"timeSlider",attrs:{"min":0,"max":_vm.report.dwi_corrected[0].num_slices-1},model:{value:(_vm.time),callback:function ($$v) {_vm.time=$$v},expression:"time"}}),_c('div',{staticStyle:{"height":"200px","width":"100%","display":"inline-flex"}},[_c('line-chart',{attrs:{"id":"motion_params","data":_vm.report.eddy_params,"outlier_indices":_vm.report.outlier_volumes,"xlabel":"TR","ylabel":"RMS","highlightIdx":_vm.time}})],1),_c('CarpetPlot',{attrs:{"data":_vm.report.carpetplot,"highlightIdx":_vm.time}}),_c('b-row',[_c('b-col',[_c('b-checkbox',{model:{value:(_vm.autoRotate),callback:function ($$v) {_vm.autoRotate=$$v},expression:"autoRotate"}},[_vm._v(" auto rotate ")])],1),_c('b-col',[_c('b-checkbox',{model:{value:(_vm.showReflection),callback:function ($$v) {_vm.showReflection=$$v},expression:"showReflection"}},[_vm._v(" show reflected points ")])],1)],1),_c('b-row',[_c('b-col',[_c('Sampling',{attrs:{"elementId":"samplingWidgetPre","qcoords":_vm.report.q_coords,"colors":_vm.report.color,"cameraPosition":_vm.globalPosition,"autoRotate":_vm.autoRotate,"showReflectedPoints":_vm.showReflection},on:{"updateCameraPosition":_vm.updateGlobalPosition}})],1),_c('b-col',[_c('Sampling',{attrs:{"elementId":"samplingWidgetPost","qcoords":_vm.report.q_coords,"colors":_vm.report.color,"cameraPosition":_vm.globalPosition,"autoRotate":_vm.autoRotate,"showReflectedPoints":_vm.showReflection},on:{"updateCameraPosition":_vm.updateGlobalPosition}})],1)],1),_c('h2',{staticClass:"mt-3 pt-3"},[_vm._v("Registration + Brain Mask")]),_c('p',{staticClass:"lead"},[_vm._v("Brain mask computed on T1w, and mapped to B0")]),_c('BrainSprite',{ref:"brainMaskSprite",attrs:{"id":"brainMaskSprite","base_dim_x":_vm.report.b0.pix,"base_dim_y":_vm.report.b0.pix,"overlay_dim_x":_vm.report.anat_mask.pix,"overlay_dim_y":_vm.report.anat_mask.pix,"base":_vm.report.b0.img,"overlay":_vm.report.anat_mask.img}}),_c('h2',{staticClass:"mt-3 pt-3"},[_vm._v("DTI: ColorFA")]),_c('p',{staticClass:"lead"},[_vm._v("Color FA mapped on B0")]),_c('BrainSprite',{ref:"colorFASprite",attrs:{"id":"colorFASprite","base_dim_x":_vm.report.b0.pix,"base_dim_y":_vm.report.b0.pix,"overlay_dim_x":_vm.report.colorFA.pix,"overlay_dim_y":_vm.report.colorFA.pix,"base":_vm.report.b0.img,"overlay":_vm.report.colorFA.img}})],1):_vm._e()])}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/ReportStandalone.vue?vue&type=template&id=6d22d03b&
+// CONCATENATED MODULE: ./src/components/ReportStandalone.vue?vue&type=template&id=183f2fb6&
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"16559bc6-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/CarpetPlot.vue?vue&type=template&id=30a1b3ae&
-var CarpetPlotvue_type_template_id_30a1b3ae_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('resize-observer',{on:{"notify":_vm.handleResize}}),_c('svg',{ref:"chart",staticClass:"carpetplot",attrs:{"id":"carpetsvg"}})],1)}
-var CarpetPlotvue_type_template_id_30a1b3ae_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"be6c4f94-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/CarpetPlot.vue?vue&type=template&id=1ca98e8a&
+var CarpetPlotvue_type_template_id_1ca98e8a_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('resize-observer',{on:{"notify":_vm.handleResize}}),_c('svg',{ref:"chart",staticClass:"carpetplot",attrs:{"id":"carpetsvg"}})],1)}
+var CarpetPlotvue_type_template_id_1ca98e8a_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/CarpetPlot.vue?vue&type=template&id=30a1b3ae&
+// CONCATENATED MODULE: ./src/components/CarpetPlot.vue?vue&type=template&id=1ca98e8a&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.iterator.js
 var es_array_iterator = __webpack_require__("e260");
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.map.js
 var es_array_map = __webpack_require__("d81d");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.number.constructor.js
+var es_number_constructor = __webpack_require__("a9e3");
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.to-string.js
 var es_object_to_string = __webpack_require__("d3b7");
@@ -29839,6 +29835,7 @@ var es_object_to_string = __webpack_require__("d3b7");
 var web_dom_collections_iterator = __webpack_require__("ddb0");
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/CarpetPlot.vue?vue&type=script&lang=js&
+
 
 
 
@@ -29858,6 +29855,9 @@ var d3 = __webpack_require__("5698");
   props: {
     data: {
       type: Array
+    },
+    highlightIdx: {
+      type: Number
     }
   },
   data: function data() {
@@ -29894,7 +29894,18 @@ var d3 = __webpack_require__("5698");
       return output;
     }
   },
-  watch: {},
+  watch: {
+    highlightIdx: function highlightIdx() {
+      var self = this;
+      d3.select("#carpetsvg").selectAll('rect').style("opacity", function (d) {
+        if (d.i == self.highlightIdx) {
+          return 1;
+        }
+
+        return 0.5;
+      });
+    }
+  },
   mounted: function mounted() {
     this.mounted = true;
     this.width = this.$refs.chart.clientWidth;
@@ -29918,17 +29929,22 @@ var d3 = __webpack_require__("5698");
 
       var y = d3.scaleBand().range([height, 0]).domain(myVars).padding(0.05);
       this.y = y; // Build color scale
+      // const maxVal = d3.max(this.dataFlattened, d => d.value)
+      // const minVal = d3.min(this.dataFlattened, d => d.value)
 
-      var myColor = d3.scaleSequential().interpolator(d3.interpolateInferno).domain([0, 1]);
+      var myColor = d3.scaleSequential().interpolator(d3.interpolateInferno) // .domain([minVal, maxVal])
+      .domain([0, 1]); // const mouseover = function() {
+      //   d3.select(this)
+      //     .style("stroke", "black")
+      //     .style("opacity", 1)
+      // }
+      // const mouseleave = function() {
+      //   d3.select(this)
+      //     .style("stroke", "none")
+      //     .style("opacity", 0.8)
+      // }
 
-      var mouseover = function mouseover() {
-        d3.select(this).style("stroke", "black").style("opacity", 1);
-      };
-
-      var mouseleave = function mouseleave() {
-        d3.select(this).style("stroke", "none").style("opacity", 0.8);
-      };
-
+      var self = this;
       svg.selectAll().data(this.dataFlattened, function (d) {
         return d.i + ':' + d.j;
       }).enter().append("rect").attr("x", function (d) {
@@ -29937,8 +29953,15 @@ var d3 = __webpack_require__("5698");
         return y(d.j);
       }).attr("rx", 4).attr("ry", 4).attr("width", x.bandwidth()).attr("height", y.bandwidth()).style("fill", function (d) {
         return myColor(d.value);
-      }).style("stroke-width", 4).style("stroke", "none").style("opacity", 0.8).on("mouseover", mouseover) // .on("mousemove", mousemove)
-      .on("mouseleave", mouseleave);
+      }).style("stroke-width", 4).style("stroke", "none").style("opacity", function (d) {
+        if (d.i == self.highlightIdx) {
+          return 1;
+        }
+
+        return 0.5;
+      }); //  .on("mouseover", mouseover)
+      // .on("mousemove", mousemove)
+      //  .on("mouseleave", mouseleave)
     },
     handleResize: function handleResize() {
       // eslint-disable-next-line
@@ -30064,8 +30087,8 @@ function normalizeComponent (
 
 var component = normalizeComponent(
   components_CarpetPlotvue_type_script_lang_js_,
-  CarpetPlotvue_type_template_id_30a1b3ae_render,
-  CarpetPlotvue_type_template_id_30a1b3ae_staticRenderFns,
+  CarpetPlotvue_type_template_id_1ca98e8a_render,
+  CarpetPlotvue_type_template_id_1ca98e8a_staticRenderFns,
   false,
   null,
   null,
@@ -30074,12 +30097,12 @@ var component = normalizeComponent(
 )
 
 /* harmony default export */ var CarpetPlot = (component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"16559bc6-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Sampling.vue?vue&type=template&id=22241e36&
-var Samplingvue_type_template_id_22241e36_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":_vm.elementId}})}
-var Samplingvue_type_template_id_22241e36_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"be6c4f94-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Sampling.vue?vue&type=template&id=64a2f7d2&
+var Samplingvue_type_template_id_64a2f7d2_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":_vm.elementId}})}
+var Samplingvue_type_template_id_64a2f7d2_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/Sampling.vue?vue&type=template&id=22241e36&
+// CONCATENATED MODULE: ./src/components/Sampling.vue?vue&type=template&id=64a2f7d2&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array-buffer.slice.js
 var es_array_buffer_slice = __webpack_require__("ace4");
@@ -81660,20 +81683,28 @@ Stats.Panel = function ( name, fg, bg ) {
 
 
 
-var disc = __webpack_require__("fe15"); // const snowflake = require('three/examples/textures/sprites/snowflake2.png');
-
+var disc = __webpack_require__("fe15");
 
 /* harmony default export */ var Samplingvue_type_script_lang_js_ = ({
   name: 'sampling',
   props: {
-    data: {
-      type: Object
+    qcoords: {
+      type: Array
+    },
+    colors: {
+      type: Array
     },
     elementId: {
       type: String
     },
     cameraPosition: {
       type: Object
+    },
+    autoRotate: {
+      type: Boolean
+    },
+    showReflectedPoints: {
+      type: Boolean
     }
   },
   data: function data() {
@@ -81687,7 +81718,9 @@ var disc = __webpack_require__("fe15"); // const snowflake = require('three/exam
       particles: null,
       showStats: false,
       stats: null,
-      container: null
+      container: null // autoRotate: false,
+      // showReflectedPoints: true,
+
     };
   },
   mounted: function mounted() {
@@ -81698,15 +81731,14 @@ var disc = __webpack_require__("fe15"); // const snowflake = require('three/exam
     init: function init() {
       this.container = document.getElementById(this.elementId);
       this.scene = new Scene();
-      var xyz = this.data['q_coords'];
-      var rgb = this.data['color'];
+      var xyz = this.qcoords;
+      var rgb = this.colors;
       var positions = [];
       var colors = [];
       var vertex;
       var color = new Color();
       var absMax = 0;
       var npoints = xyz.length;
-      var sizes = new Float32Array(npoints);
 
       for (var i = 0, l = npoints; i < l; i++) {
         vertex = xyz[i];
@@ -81719,16 +81751,19 @@ var disc = __webpack_require__("fe15"); // const snowflake = require('three/exam
 
         color.setRGB(rgb[i][0], rgb[i][1], rgb[i][2]);
         colors.push(color.r, color.g, color.b);
-        sizes[i] = 10;
+      }
+
+      var sizes = new Float32Array(npoints);
+
+      for (var _i = 0, _l = npoints; _i < _l; _i++) {
+        sizes[_i] = absMax * 0.15;
       }
 
       var geometry = new BufferGeometry();
       geometry.setAttribute('position', new Float32BufferAttribute(positions, 3));
       geometry.setAttribute('customColor', new Float32BufferAttribute(colors, 3));
-      geometry.setAttribute('size', new BufferAttribute(sizes, 1)); // geometry.setAttribute( 'size', 1 ) // absMax * 0.05 );
-
-      geometry.computeBoundingSphere();
-      this.camera = new PerspectiveCamera(75, 1, 0.001, absMax * 3);
+      geometry.setAttribute('size', new BufferAttribute(sizes, 1));
+      this.camera = new PerspectiveCamera(75, 1, 0.001, absMax * 10);
       this.camera.position.z = absMax * 2; // Use ambient light
 
       this.ambient = new AmbientLight(0x111111);
@@ -81737,10 +81772,6 @@ var disc = __webpack_require__("fe15"); // const snowflake = require('three/exam
       this.directionalLight = new DirectionalLight(0xffeedd, 1);
       this.directionalLight.position.set(this.camera.position.x, this.camera.position.y, this.camera.position.z);
       this.scene.add(this.directionalLight); //
-      // const material = new THREE.PointsMaterial({
-      //   size: absMax * 0.05,
-      //   vertexColors: THREE.VertexColors
-      // });
 
       var vertexShader = "\n      attribute float size;\n      attribute vec3 customColor;\n      varying vec3 vColor;\n\n      void main() {\n        vColor = customColor;\n        vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );\n        gl_PointSize = size * ( 300.0 / -mvPosition.z );\n        gl_Position = projectionMatrix * mvPosition;\n      }\n      ";
       var fragmentShader = "\n      uniform vec3 color;\n      uniform sampler2D pointTexture;\n      varying vec3 vColor;\n\n      void main() {\n        gl_FragColor = vec4( color * vColor, 1.0 );\n        gl_FragColor = gl_FragColor * texture2D( pointTexture, gl_PointCoord );\n        if ( gl_FragColor.a < ALPHATEST ) discard;\n      }\n      ";
@@ -81757,9 +81788,41 @@ var disc = __webpack_require__("fe15"); // const snowflake = require('three/exam
         vertexShader: vertexShader,
         fragmentShader: fragmentShader,
         alphaTest: 0.9
-      }); //
-
+      });
       this.particles = new Points(geometry, material);
+
+      if (this.showReflectedPoints) {
+        var reflectedPositions = [];
+
+        for (var _i2 = 0, _l2 = npoints; _i2 < _l2; _i2++) {
+          vertex = xyz[_i2];
+          reflectedPositions.push(-vertex[0], -vertex[1], -vertex[2]);
+        }
+
+        var reflectedGeometry = new BufferGeometry();
+        reflectedGeometry.setAttribute('position', new Float32BufferAttribute(reflectedPositions, 3));
+        reflectedGeometry.setAttribute('customColor', new Float32BufferAttribute(colors, 3));
+        reflectedGeometry.setAttribute('size', new BufferAttribute(sizes, 1));
+
+        var _material = new ShaderMaterial({
+          uniforms: {
+            color: {
+              value: new Color(0xFFFFFF)
+            },
+            pointTexture: {
+              value: discTexture
+            }
+          },
+          vertexShader: vertexShader,
+          fragmentShader: fragmentShader,
+          alphaTest: 0.9
+        });
+
+        var reflectedParticles = new Points(reflectedGeometry, _material);
+        this.particles.add(reflectedParticles);
+      } //
+
+
       var axesGroup = new Group();
       var axesPoints = {
         x: [[0, 0, 0], [1.25 * absMax, 0, 0]],
@@ -81824,6 +81887,7 @@ var disc = __webpack_require__("fe15"); // const snowflake = require('three/exam
       this.controls.dampingFactor = 0.25;
       this.controls.enableZoom = true;
       this.controls.autoRotate = false;
+      this.controls.maxDistance = absMax * 5;
       this.controls.addEventListener('change', this.updateCameras);
       this.controls.enableKeys = false; //
 
@@ -81846,9 +81910,12 @@ var disc = __webpack_require__("fe15"); // const snowflake = require('three/exam
       }
     },
     render: function render() {
-      var time = Date.now() * 0.0005;
-      this.particles.rotation.x = time * 0.25;
-      this.particles.rotation.y = time * 0.5;
+      if (this.autoRotate) {
+        var time = Date.now() * 0.0005;
+        this.particles.rotation.x = time * 0.25;
+        this.particles.rotation.y = time * 0.5;
+      }
+
       this.renderer.render(this.scene, this.camera);
 
       if (this.cameraPosition) {
@@ -81878,8 +81945,8 @@ var disc = __webpack_require__("fe15"); // const snowflake = require('three/exam
 
 var Sampling_component = normalizeComponent(
   components_Samplingvue_type_script_lang_js_,
-  Samplingvue_type_template_id_22241e36_render,
-  Samplingvue_type_template_id_22241e36_staticRenderFns,
+  Samplingvue_type_template_id_64a2f7d2_render,
+  Samplingvue_type_template_id_64a2f7d2_staticRenderFns,
   false,
   null,
   null,
@@ -81892,12 +81959,12 @@ var Sampling_component = normalizeComponent(
 var vue_slider_component_umd_min = __webpack_require__("4971");
 var vue_slider_component_umd_min_default = /*#__PURE__*/__webpack_require__.n(vue_slider_component_umd_min);
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"16559bc6-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Sprite4D.vue?vue&type=template&id=79a8d518&
-var Sprite4Dvue_type_template_id_79a8d518_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('span',{staticClass:"mt-3"},[_c('div',{staticClass:"sprite",style:(_vm.style),attrs:{"id":_vm.id}})])}
-var Sprite4Dvue_type_template_id_79a8d518_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"be6c4f94-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Sprite4D.vue?vue&type=template&id=3a01448e&
+var Sprite4Dvue_type_template_id_3a01448e_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('span',{staticClass:"mt-3"},[_c('div',{staticClass:"sprite",style:(_vm.style),attrs:{"id":_vm.id}})])}
+var Sprite4Dvue_type_template_id_3a01448e_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/Sprite4D.vue?vue&type=template&id=79a8d518&
+// CONCATENATED MODULE: ./src/components/Sprite4D.vue?vue&type=template&id=3a01448e&
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Sprite4D.vue?vue&type=script&lang=js&
 //
@@ -81920,7 +81987,7 @@ var Sprite4Dvue_type_template_id_79a8d518_staticRenderFns = []
       var output = {
         width: "".concat(this.pix, "px"),
         height: "".concat(this.pix, "px"),
-        zoom: 3,
+        zoom: 1.5,
         'background-position-x': "-".concat(this.col_idx * this.pix, "px"),
         'background-position-y': "-".concat(this.row_idx * this.pix, "px"),
         'background-image': "url('data:image/png;base64,".concat(this.img, "')"),
@@ -81962,8 +82029,8 @@ var Sprite4Dvue_type_style_index_0_lang_css_ = __webpack_require__("9784");
 
 var Sprite4D_component = normalizeComponent(
   components_Sprite4Dvue_type_script_lang_js_,
-  Sprite4Dvue_type_template_id_79a8d518_render,
-  Sprite4Dvue_type_template_id_79a8d518_staticRenderFns,
+  Sprite4Dvue_type_template_id_3a01448e_render,
+  Sprite4Dvue_type_template_id_3a01448e_staticRenderFns,
   false,
   null,
   null,
@@ -81972,7 +82039,7 @@ var Sprite4D_component = normalizeComponent(
 )
 
 /* harmony default export */ var Sprite4D = (Sprite4D_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"16559bc6-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/LineChart.vue?vue&type=template&id=297df38a&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"be6c4f94-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/LineChart.vue?vue&type=template&id=297df38a&
 var LineChartvue_type_template_id_297df38a_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticStyle:{"height":"200px","width":"100%","display":"inline-flex"}},[_c('resize-observer',{on:{"notify":_vm.handleResize}}),_c('svg',{ref:"chart",staticClass:"lineChart",attrs:{"id":_vm.id,"width":_vm.width,"height":_vm.height}})],1)}
 var LineChartvue_type_template_id_297df38a_staticRenderFns = []
 
@@ -82182,15 +82249,12 @@ var LineChart_component = normalizeComponent(
 )
 
 /* harmony default export */ var LineChart = (LineChart_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"16559bc6-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/BrainSprite.vue?vue&type=template&id=b1edb06c&scoped=true&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"be6c4f94-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/BrainSprite.vue?vue&type=template&id=b1edb06c&scoped=true&
 var BrainSpritevue_type_template_id_b1edb06c_scoped_true_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"brainsprite"},[(!_vm.done)?_c('div',[_vm._v("Hold on...")]):_vm._e(),_c('canvas',{attrs:{"id":_vm.id}}),(_vm.showOrig)?_c('img',{staticClass:"hidden",attrs:{"id":_vm.id+'_spriteImg',"src":'data:image/png;base64,' + _vm.base}}):_vm._e(),(_vm.overlay && _vm.showOrig)?_c('img',{staticClass:"hidden",attrs:{"id":_vm.id+'_overlayImg',"src":'data:image/png;base64,' + _vm.overlay}}):_vm._e()])}
 var BrainSpritevue_type_template_id_b1edb06c_scoped_true_staticRenderFns = []
 
 
 // CONCATENATED MODULE: ./src/components/BrainSprite.vue?vue&type=template&id=b1edb06c&scoped=true&
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.number.constructor.js
-var es_number_constructor = __webpack_require__("a9e3");
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.number.parse-float.js
 var es_number_parse_float = __webpack_require__("c35a");
@@ -108433,6 +108497,29 @@ var vue_resize = __webpack_require__("6eb0");
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 // import axios from 'axios';
 
 
@@ -108449,9 +108536,6 @@ var vue_resize = __webpack_require__("6eb0");
 
 
 external_commonjs_vue_commonjs2_vue_root_Vue_default.a.use(vue_resize_esm["a" /* default */]);
-
-var samplingScheme = __webpack_require__("b659");
-
 external_commonjs_vue_commonjs2_vue_root_Vue_default.a.use(esm);
 
 var carpetData = __webpack_require__("8a76");
@@ -108475,10 +108559,10 @@ var carpetData = __webpack_require__("8a76");
     return {
       time: 0,
       spriteSlice: 0,
-      samplingScheme: samplingScheme,
       globalPosition: null,
-      // report: null,
-      carpetData: carpetData
+      carpetData: carpetData,
+      autoRotate: true,
+      showReflection: false
     };
   },
   methods: {
@@ -108519,7 +108603,7 @@ var carpetData = __webpack_require__("8a76");
 
 var ReportStandalone_component = normalizeComponent(
   components_ReportStandalonevue_type_script_lang_js_,
-  ReportStandalonevue_type_template_id_6d22d03b_render,
+  ReportStandalonevue_type_template_id_183f2fb6_render,
   staticRenderFns,
   false,
   null,
