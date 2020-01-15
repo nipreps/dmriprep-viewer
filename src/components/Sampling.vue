@@ -39,11 +39,10 @@
         ambient: null,
         directionalLight: null,
         particles: null,
+        reflectedParticles: null,
         showStats: false,
         stats: null,
         container: null,
-        // autoRotate: false,
-        // showReflectedPoints: true,
       };
     },
     mounted() {
@@ -146,32 +145,22 @@
 
         this.particles = new THREE.Points( geometry, material );
 
-        if (this.showReflectedPoints) {
-          let reflectedPositions = [];
+        let reflectedPositions = [];
 
-          for ( let i = 0, l = npoints; i < l; i++ ) {
-            vertex = xyz[ i ];
-            reflectedPositions.push( -vertex[0], -vertex[1], -vertex[2] );
-          }
-
-          const reflectedGeometry = new THREE.BufferGeometry();
-          reflectedGeometry.setAttribute( 'position', new THREE.Float32BufferAttribute( reflectedPositions, 3 ) );
-          reflectedGeometry.setAttribute( 'customColor', new THREE.Float32BufferAttribute( colors, 3 ) );
-          reflectedGeometry.setAttribute( 'size', new THREE.BufferAttribute( sizes, 1 ) );
-
-          const material = new THREE.ShaderMaterial({
-            uniforms: {
-              color: { value: new THREE.Color( 0xFFFFFF ) },
-              pointTexture: { value: discTexture }
-            },
-            vertexShader: vertexShader,
-            fragmentShader: fragmentShader,
-            alphaTest: 0.9
-          });
-
-          const reflectedParticles = new THREE.Points( reflectedGeometry, material );
-          this.particles.add( reflectedParticles );
+        for ( let i = 0, l = npoints; i < l; i++ ) {
+          vertex = xyz[ i ];
+          reflectedPositions.push( -vertex[0], -vertex[1], -vertex[2] );
         }
+
+        const reflectedGeometry = new THREE.BufferGeometry();
+        reflectedGeometry.setAttribute( 'position', new THREE.Float32BufferAttribute( reflectedPositions, 3 ) );
+        reflectedGeometry.setAttribute( 'customColor', new THREE.Float32BufferAttribute( colors, 3 ) );
+        reflectedGeometry.setAttribute( 'size', new THREE.BufferAttribute( sizes, 1 ) );
+
+        this.reflectedParticles = new THREE.Points( reflectedGeometry, material );
+        this.particles.add( this.reflectedParticles );
+
+        this.reflectedParticles.visible = this.showReflectedPoints
 
         //
 
@@ -236,7 +225,7 @@
         this.controls.enableDamping = true;
         this.controls.dampingFactor = 0.25;
         this.controls.enableZoom = true;
-        this.controls.autoRotate = false;
+        this.controls.autoRotate = this.autoRotate;
         this.controls.maxDistance = absMax * 5;
 
         this.controls.addEventListener('change', this.updateCameras);
@@ -262,11 +251,8 @@
         }
       },
       render: function() {
-        if (this.autoRotate) {
-          const time = Date.now() * 0.0005;
-          this.particles.rotation.x = time * 0.25;
-          this.particles.rotation.y = time * 0.5;
-        }
+        this.controls.autoRotate = this.autoRotate;
+        this.reflectedParticles.visible = this.showReflectedPoints;
 
         this.renderer.render( this.scene, this.camera );
         if (this.cameraPosition) {
