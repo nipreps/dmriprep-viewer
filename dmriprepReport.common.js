@@ -29796,12 +29796,12 @@ if (typeof window !== 'undefined') {
 // Indicate to webpack that this file can be concatenated
 /* harmony default export */ var setPublicPath = (null);
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"be6c4f94-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/ReportStandalone.vue?vue&type=template&id=5a7a47f6&
-var ReportStandalonevue_type_template_id_5a7a47f6_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"mt-3 container"},[(_vm.report)?_c('div',[_c('h2',{staticClass:"mt-3 pt-3"},[_vm._v("Corrected dwi")]),_c('p',{staticClass:"lead"},[_vm._v("Motion and distortion corrected file")]),_c('div',{staticStyle:{"background-color":"black"}},_vm._l((_vm.report.dwi_corrected),function(view){return _c('sprite4d',{key:view.orientation,attrs:{"M":view.M,"N":view.N,"img":view.img,"num_slices":view.num_slices,"pix":view.pix,"id":view.orientation,"time":_vm.time,"overlayMode":false,"opacity":"1"}})}),1),_c('vue-slider',{ref:"timeSlider",attrs:{"min":0,"max":_vm.report.dwi_corrected[0].num_slices-1},model:{value:(_vm.time),callback:function ($$v) {_vm.time=$$v},expression:"time"}}),_c('div',{staticStyle:{"height":"200px","width":"100%","display":"inline-flex"}},[_c('line-chart',{attrs:{"id":"motion_params","data":_vm.report.eddy_params,"outlier_indices":_vm.report.outlier_volumes,"xlabel":"TR","ylabel":"RMS","highlightIdx":_vm.time}})],1),_c('CarpetPlot',{attrs:{"data":_vm.report.carpetplot,"highlightIdx":_vm.time}}),_c('b-row',[_c('b-col',[_c('b-checkbox',{model:{value:(_vm.autoRotate),callback:function ($$v) {_vm.autoRotate=$$v},expression:"autoRotate"}},[_vm._v(" auto rotate ")])],1),_c('b-col',[_c('b-checkbox',{model:{value:(_vm.showReflection),callback:function ($$v) {_vm.showReflection=$$v},expression:"showReflection"}},[_vm._v(" show reflected points ")])],1)],1),_c('b-row',[_c('b-col',[_c('Sampling',{attrs:{"elementId":"samplingWidgetPre","qcoords":_vm.report.q_coords,"colors":_vm.report.color,"cameraPosition":_vm.globalPosition,"autoRotate":_vm.autoRotate,"showReflectedPoints":_vm.showReflection,"highlightIdx":_vm.time},on:{"updateCameraPosition":_vm.updateGlobalPosition}})],1),_c('b-col',[_c('Sampling',{attrs:{"elementId":"samplingWidgetPost","qcoords":_vm.report.q_coords,"colors":_vm.report.color,"cameraPosition":_vm.globalPosition,"autoRotate":_vm.autoRotate,"showReflectedPoints":_vm.showReflection,"highlightIdx":_vm.time},on:{"updateCameraPosition":_vm.updateGlobalPosition}})],1)],1),_c('h2',{staticClass:"mt-3 pt-3"},[_vm._v("Registration + Brain Mask")]),_c('p',{staticClass:"lead"},[_vm._v("Brain mask computed on T1w, and mapped to B0")]),_c('BrainSprite',{ref:"brainMaskSprite",attrs:{"id":"brainMaskSprite","base_dim_x":_vm.report.b0.pix,"base_dim_y":_vm.report.b0.pix,"overlay_dim_x":_vm.report.anat_mask.pix,"overlay_dim_y":_vm.report.anat_mask.pix,"base":_vm.report.b0.img,"overlay":_vm.report.anat_mask.img}}),_c('h2',{staticClass:"mt-3 pt-3"},[_vm._v("DTI: ColorFA")]),_c('p',{staticClass:"lead"},[_vm._v("Color FA mapped on B0")]),_c('BrainSprite',{ref:"colorFASprite",attrs:{"id":"colorFASprite","base_dim_x":_vm.report.b0.pix,"base_dim_y":_vm.report.b0.pix,"overlay_dim_x":_vm.report.colorFA.pix,"overlay_dim_y":_vm.report.colorFA.pix,"base":_vm.report.b0.img,"overlay":_vm.report.colorFA.img}})],1):_vm._e()])}
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"be6c4f94-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/ReportStandalone.vue?vue&type=template&id=2d9fb722&
+var ReportStandalonevue_type_template_id_2d9fb722_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"mt-3 container"},[(_vm.report)?_c('div',[_c('h2',{staticClass:"mt-3 pt-3"},[_vm._v("Corrected dwi")]),_c('p',{staticClass:"lead"},[_vm._v("Motion and distortion corrected file")]),_c('div',{staticStyle:{"background-color":"black"}},_vm._l((_vm.report.dwi_corrected),function(view){return _c('sprite4d',{key:view.orientation,attrs:{"M":view.M,"N":view.N,"img":view.img,"num_slices":view.num_slices,"pix":view.pix,"id":view.orientation,"time":_vm.time,"overlayMode":false,"opacity":"1"}})}),1),_c('vue-slider',{ref:"timeSlider",attrs:{"min":0,"max":_vm.report.dwi_corrected[0].num_slices-1},model:{value:(_vm.time),callback:function ($$v) {_vm.time=$$v},expression:"time"}}),_c('div',{staticStyle:{"height":"200px","width":"100%","display":"inline-flex"}},[_c('line-chart',{attrs:{"id":"motion_params","data":_vm.report.eddy_params,"outlier_indices":_vm.report.outlier_volumes,"xlabel":"TR","ylabel":"RMS","highlightIdx":_vm.time}})],1),_c('CarpetPlot',{attrs:{"data":_vm.report.carpetplot,"highlightIdx":_vm.time}}),_c('vue-slider',{ref:"timeSlider",attrs:{"min":0,"max":_vm.report.dwi_corrected[0].num_slices-1},model:{value:(_vm.time),callback:function ($$v) {_vm.time=$$v},expression:"time"}}),_c('b-row',[_c('b-col',[_c('b-checkbox',{model:{value:(_vm.autoRotate),callback:function ($$v) {_vm.autoRotate=$$v},expression:"autoRotate"}},[_vm._v(" auto rotate ")])],1),_c('b-col',[_c('b-checkbox',{model:{value:(_vm.showReflection),callback:function ($$v) {_vm.showReflection=$$v},expression:"showReflection"}},[_vm._v(" show reflected points ")])],1)],1),_c('b-row',[_c('b-col',[_c('Sampling',{attrs:{"elementId":"samplingWidgetPre","qcoords":_vm.report.q_coords,"colors":_vm.report.color,"cameraPosition":_vm.globalPosition,"autoRotate":_vm.autoRotate,"showReflectedPoints":_vm.showReflection,"highlightIdx":_vm.time},on:{"updateCameraPosition":_vm.updateGlobalPosition}})],1),_c('b-col',[_c('Sampling',{attrs:{"elementId":"samplingWidgetPost","qcoords":_vm.report.q_coords,"colors":_vm.report.color,"cameraPosition":_vm.globalPosition,"autoRotate":_vm.autoRotate,"showReflectedPoints":_vm.showReflection,"highlightIdx":_vm.time},on:{"updateCameraPosition":_vm.updateGlobalPosition}})],1)],1),_c('h2',{staticClass:"mt-3 pt-3"},[_vm._v("Registration + Brain Mask")]),_c('p',{staticClass:"lead"},[_vm._v("Brain mask computed on T1w, and mapped to B0")]),_c('BrainSprite',{ref:"brainMaskSprite",attrs:{"id":"brainMaskSprite","base_dim_x":_vm.report.b0.pix,"base_dim_y":_vm.report.b0.pix,"overlay_dim_x":_vm.report.anat_mask.pix,"overlay_dim_y":_vm.report.anat_mask.pix,"base":_vm.report.b0.img,"overlay":_vm.report.anat_mask.img}}),_c('h2',{staticClass:"mt-3 pt-3"},[_vm._v("DTI: ColorFA")]),_c('p',{staticClass:"lead"},[_vm._v("Color FA mapped on B0")]),_c('BrainSprite',{ref:"colorFASprite",attrs:{"id":"colorFASprite","base_dim_x":_vm.report.b0.pix,"base_dim_y":_vm.report.b0.pix,"overlay_dim_x":_vm.report.colorFA.pix,"overlay_dim_y":_vm.report.colorFA.pix,"base":_vm.report.b0.img,"overlay":_vm.report.colorFA.img}})],1):_vm._e()])}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/ReportStandalone.vue?vue&type=template&id=5a7a47f6&
+// CONCATENATED MODULE: ./src/components/ReportStandalone.vue?vue&type=template&id=2d9fb722&
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"be6c4f94-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/CarpetPlot.vue?vue&type=template&id=1ca98e8a&
 var CarpetPlotvue_type_template_id_1ca98e8a_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('resize-observer',{on:{"notify":_vm.handleResize}}),_c('svg',{ref:"chart",staticClass:"carpetplot",attrs:{"id":"carpetsvg"}})],1)}
@@ -30088,12 +30088,12 @@ var component = normalizeComponent(
 )
 
 /* harmony default export */ var CarpetPlot = (component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"be6c4f94-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Sampling.vue?vue&type=template&id=6c4f370e&
-var Samplingvue_type_template_id_6c4f370e_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":_vm.elementId}})}
-var Samplingvue_type_template_id_6c4f370e_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"be6c4f94-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Sampling.vue?vue&type=template&id=fdf88614&
+var Samplingvue_type_template_id_fdf88614_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":_vm.elementId}})}
+var Samplingvue_type_template_id_fdf88614_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/Sampling.vue?vue&type=template&id=6c4f370e&
+// CONCATENATED MODULE: ./src/components/Sampling.vue?vue&type=template&id=fdf88614&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array-buffer.slice.js
 var es_array_buffer_slice = __webpack_require__("ace4");
@@ -81714,12 +81714,18 @@ var disc = __webpack_require__("fe15");
       reflectedParticles: null,
       showStats: false,
       stats: null,
-      container: null
+      container: null,
+      unhighlightedSize: null
     };
   },
   mounted: function mounted() {
     this.init();
     this.animate();
+  },
+  watch: {
+    highlightIdx: function highlightIdx() {
+      this.updateAlphas();
+    }
   },
   methods: {
     init: function init() {
@@ -81747,16 +81753,20 @@ var disc = __webpack_require__("fe15");
         colors.push(color.r, color.g, color.b);
       }
 
+      this.unhighlightedSize = absMax * 0.15;
       var sizes = new Float32Array(npoints);
+      var alphas = new Float32Array(npoints);
 
       for (var _i = 0, _l = npoints; _i < _l; _i++) {
-        sizes[_i] = absMax * 0.15;
+        sizes[_i] = this.unhighlightedSize;
+        alphas[_i] = _i === this.highlightIdx ? 1.0 : 0.25;
       }
 
       var geometry = new BufferGeometry();
       geometry.setAttribute('position', new Float32BufferAttribute(positions, 3));
       geometry.setAttribute('customColor', new Float32BufferAttribute(colors, 3));
       geometry.setAttribute('size', new BufferAttribute(sizes, 1));
+      geometry.setAttribute('alpha', new BufferAttribute(alphas, 1));
       this.camera = new PerspectiveCamera(75, 1, 0.001, absMax * 10);
       this.camera.position.z = absMax * 2; // Use ambient light
 
@@ -81767,8 +81777,8 @@ var disc = __webpack_require__("fe15");
       this.directionalLight.position.set(this.camera.position.x, this.camera.position.y, this.camera.position.z);
       this.scene.add(this.directionalLight); //
 
-      var vertexShader = "\n      attribute float size;\n      attribute vec3 customColor;\n      varying vec3 vColor;\n\n      void main() {\n        vColor = customColor;\n        vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );\n        gl_PointSize = size * ( 300.0 / -mvPosition.z );\n        gl_Position = projectionMatrix * mvPosition;\n      }\n      ";
-      var fragmentShader = "\n      uniform vec3 color;\n      uniform sampler2D pointTexture;\n      varying vec3 vColor;\n\n      void main() {\n        gl_FragColor = vec4( color * vColor, 1.0 );\n        gl_FragColor = gl_FragColor * texture2D( pointTexture, gl_PointCoord );\n        if ( gl_FragColor.a < ALPHATEST ) discard;\n      }\n      ";
+      var vertexShader = "\n      attribute float alpha;\n      attribute float size;\n      attribute vec3 customColor;\n      varying vec3 vColor;\n      varying float vAlpha;\n\n      void main() {\n        vColor = customColor;\n        vAlpha = alpha;\n        vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );\n        gl_PointSize = size * ( 300.0 / -mvPosition.z );\n        gl_Position = projectionMatrix * mvPosition;\n      }\n      ";
+      var fragmentShader = "\n      uniform vec3 color;\n      uniform sampler2D pointTexture;\n      varying vec3 vColor;\n      varying float vAlpha;\n\n      void main() {\n        gl_FragColor = vec4( color * vColor, vAlpha );\n        gl_FragColor = gl_FragColor * texture2D( pointTexture, gl_PointCoord );\n      }\n      ";
       var discTexture = new TextureLoader().load(disc);
       var material = new ShaderMaterial({
         uniforms: {
@@ -81781,7 +81791,7 @@ var disc = __webpack_require__("fe15");
         },
         vertexShader: vertexShader,
         fragmentShader: fragmentShader,
-        alphaTest: 0.9
+        transparent: true
       });
       this.particles = new Points(geometry, material);
       var reflectedPositions = [];
@@ -81795,8 +81805,9 @@ var disc = __webpack_require__("fe15");
       reflectedGeometry.setAttribute('position', new Float32BufferAttribute(reflectedPositions, 3));
       reflectedGeometry.setAttribute('customColor', new Float32BufferAttribute(colors, 3));
       reflectedGeometry.setAttribute('size', new BufferAttribute(sizes, 1));
+      reflectedGeometry.setAttribute('alpha', new BufferAttribute(alphas, 1));
       this.reflectedParticles = new Points(reflectedGeometry, material);
-      this.particles.add(this.reflectedParticles);
+      this.scene.add(this.reflectedParticles);
       this.reflectedParticles.visible = this.showReflectedPoints; //
 
       var axesGroup = new Group();
@@ -81885,6 +81896,25 @@ var disc = __webpack_require__("fe15");
         this.stats.update();
       }
     },
+    updateAlphas: function updateAlphas() {
+      var alphas = this.particles.geometry.attributes.alpha;
+
+      for (var i = 0; i < alphas.count; i++) {
+        alphas.array[i] = i === this.highlightIdx ? 1.0 : 0.25;
+      }
+
+      alphas.needsUpdate = true;
+      var alphasRef = this.reflectedParticles.geometry.attributes.alpha;
+
+      for (var _i3 = 0; _i3 < alphasRef.count; _i3++) {
+        alphasRef.array[_i3] = _i3 === this.highlightIdx ? 1.0 : 0.25;
+      }
+
+      alphasRef.needsUpdate = true; // eslint-disable-next-line
+
+      console.log('updating alphas.', this.particles.geometry.attributes.alpha, this.highlightIdx);
+      this.renderer.render(this.scene, this.camera);
+    },
     render: function render() {
       this.controls.autoRotate = this.autoRotate;
       this.reflectedParticles.visible = this.showReflectedPoints;
@@ -81917,8 +81947,8 @@ var disc = __webpack_require__("fe15");
 
 var Sampling_component = normalizeComponent(
   components_Samplingvue_type_script_lang_js_,
-  Samplingvue_type_template_id_6c4f370e_render,
-  Samplingvue_type_template_id_6c4f370e_staticRenderFns,
+  Samplingvue_type_template_id_fdf88614_render,
+  Samplingvue_type_template_id_fdf88614_staticRenderFns,
   false,
   null,
   null,
@@ -108494,6 +108524,10 @@ var vue_resize = __webpack_require__("6eb0");
 //
 //
 //
+//
+//
+//
+//
 // import axios from 'axios';
 
 
@@ -108535,8 +108569,8 @@ var carpetData = __webpack_require__("8a76");
       spriteSlice: 0,
       globalPosition: null,
       carpetData: carpetData,
-      autoRotate: true,
-      showReflection: false
+      autoRotate: false,
+      showReflection: true
     };
   },
   methods: {
@@ -108577,7 +108611,7 @@ var carpetData = __webpack_require__("8a76");
 
 var ReportStandalone_component = normalizeComponent(
   components_ReportStandalonevue_type_script_lang_js_,
-  ReportStandalonevue_type_template_id_5a7a47f6_render,
+  ReportStandalonevue_type_template_id_2d9fb722_render,
   staticRenderFns,
   false,
   null,
