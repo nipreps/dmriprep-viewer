@@ -4,19 +4,21 @@
       <h2 class="mt-3 pt-3">Corrected dwi</h2>
       <p class="lead">Motion and distortion corrected file</p>
 
-      <sprite4d v-for="view in report.dwi_corrected"
-                :key="view.orientation"
-                :M="view.M"
-                :N="view.N"
-                :img="view.img"
-                :num_slices="view.num_slices"
-                :pix="view.pix"
-                :id="view.orientation"
-                :time="time"
-                :overlayMode="false"
-                opacity="1"
-      >
-      </sprite4d>
+      <div style="background-color: black;">
+        <sprite4d v-for="view in report.dwi_corrected"
+                  :key="view.orientation"
+                  :M="view.M"
+                  :N="view.N"
+                  :img="view.img"
+                  :num_slices="view.num_slices"
+                  :pix="view.pix"
+                  :id="view.orientation"
+                  :time="time"
+                  :overlayMode="false"
+                  opacity="1"
+        >
+        </sprite4d>
+      </div>
       <vue-slider ref="timeSlider" v-model="time"
        :min="0" :max="report.dwi_corrected[0].num_slices-1">
      </vue-slider>
@@ -32,7 +34,7 @@
         </line-chart>
       </div>
 
-      <CarpetPlot :data="carpetData.carpetplot"/>
+      <CarpetPlot :data="report.carpetplot"/>
 
       <h2 class="mt-3 pt-3">Registration + Brain Mask</h2>
       <p class="lead">Brain mask computed on T1w, and mapped to B0</p>

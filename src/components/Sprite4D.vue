@@ -19,7 +19,7 @@ export default {
       const output = {
         width: `${this.pix}px`,
         height: `${this.pix}px`,
-        zoom: 3,
+        zoom: 1.5,
         'background-position-x': `-${this.col_idx * this.pix}px`,
         'background-position-y': `-${this.row_idx * this.pix}px`,
         'background-image': `url('data:image/png;base64,${this.img}')`,

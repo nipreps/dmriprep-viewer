@@ -65,6 +65,7 @@ export default {
       const myGroups = d3.map(this.dataFlattened, function(d){return d.i;}).keys()
       const myVars = d3.map(this.dataFlattened, function(d){return d.j;}).keys()
 
+
       // Build X scales and axis:
       const x = d3.scaleBand()
         .range([ 0, width ])
@@ -85,8 +86,13 @@ export default {
 
 
       // Build color scale
+
+      // const maxVal = d3.max(this.dataFlattened, d => d.value)
+      // const minVal = d3.min(this.dataFlattened, d => d.value)
+
       const myColor = d3.scaleSequential()
         .interpolator(d3.interpolateInferno)
+        // .domain([minVal, maxVal])
         .domain([0, 1])
 
       const mouseover = function() {
