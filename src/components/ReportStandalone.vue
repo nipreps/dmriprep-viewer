@@ -21,6 +21,10 @@
        :min="0" :max="report.dwi_corrected[0].num_slices-1">
      </vue-slider>
 
+
+        <CarpetPlot :data="carpetData.carpetplot"/>
+
+
       <div style="height: 200px; width: 100%; display: inline-flex;">
         <line-chart id="motion_params"
           :data="report.eddy_params"
@@ -31,6 +35,8 @@
         >
         </line-chart>
       </div>
+
+
 
       <h2 class="mt-3 pt-3">Registration + Brain Mask</h2>
       <p class="lead">Brain mask computed on T1w, and mapped to B0</p>
@@ -66,18 +72,27 @@
 
 <script>
 // import axios from 'axios';
+import CarpetPlot from './CarpetPlot'
 import vueSlider from 'vue-slider-component';
 import sprite4d from './Sprite4D';
 import lineChart from './LineChart';
 import BrainSprite from './BrainSprite.vue';
 import Vue from 'vue';
 import BootstrapVue from 'bootstrap-vue';
+import VueResize from 'vue-resize'
+
 // eslint-disable-next-line
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 import 'vue-slider-component/theme/antd.css'
+import 'vue-resize/dist/vue-resize.css'
+
+
+Vue.use(VueResize)
 
 Vue.use(BootstrapVue);
+
+const carpetData = require('./carpetplot.json')
 
 export default {
   name: 'report',
@@ -86,6 +101,7 @@ export default {
     vueSlider,
     lineChart,
     BrainSprite,
+    CarpetPlot,
   },
   props: {
     report: {
@@ -97,6 +113,7 @@ export default {
       time: 0,
       spriteSlice: 0,
       // report: null,
+      carpetData,
     };
   },
   methods: {
@@ -105,54 +122,25 @@ export default {
     },
   },
   created() {
-    // console.log('in created', this.$route.query);
-    // if (this.$route.query) {
-    //   // load the json
-    //   if (!this.$route.query.url && this.$route.name === 'Report') {
-    //     this.$router.push('/');
-    //   } else if (this.$route.query.url) {
-    //     axios.get(this.$route.query.url).then((resp) => {
-    //       this.report = resp.data;
-    //     });
-    //   }
-    // }
+
   },
   mounted() {
-    // if (this.reportProp) {
-    //   this.report = this.reportProp;
-    // }
+
     this.$nextTick(() => {
       if (this.report) {
         this.spriteSlice = this.get_mid_slice();
-        // this.$refs.brainMaskSprite.initBrainSprite();
-        // this.$refs.colorFASprite.initBrainSprite();
+
       }
     });
   },
   watch: {
-    // reportProp() {
-    //   if (this.reportProp) {
-    //     this.report = this.reportProp;
-    //   }
-    // },
+
     report() {
       if (this.report) {
         this.spriteSlice = this.get_mid_slice();
       }
     },
-    // $route() {
-    //   if (this.$route.query) {
-    //     // load the json
-    //     if (!this.$route.query.url && this.$route.name === 'Report') {
-    //       this.$router.push('/');
-    //     } else {
-    //       console.log('getting axios?', this.$route.query.url);
-    //       axios.get(this.$route.query.url).then((resp) => {
-    //         this.report = resp.data;
-    //       });
-    //     }
-    //   }
-    // },
+
   },
 };
 </script>

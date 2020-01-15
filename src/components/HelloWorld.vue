@@ -1,6 +1,5 @@
 <template>
   <b-container>
-
       <report :report="report"></report>
   </b-container>
 </template>
