@@ -1,5 +1,10 @@
 <template>
-  <svg ref="chart" :id="id" class="lineChart"></svg>
+  <div style="height: 200px; width: 100%; display: inline-flex;">
+    <resize-observer @notify="handleResize" />
+    <svg ref="chart" :id="id" class="lineChart" :width="width" :height="height">
+    </svg>
+  </div>
+    
 </template>
 
 <script>
@@ -19,15 +24,17 @@ export default {
       yDomain: [0, 1],
       margin: { top: 20, right: 20, bottom: 30, left: 50 },
       lines: [],
+      width: null,
+      height: null,
     };
   },
   computed: {
-    width() {
-      return this.$refs.chart.clientWidth - this.margin.left - this.margin.right;
-    },
-    height() {
-      return this.$refs.chart.clientHeight - this.margin.top - this.margin.bottom;
-    },
+    // width() {
+    //   return this.$refs.chart.clientWidth - this.margin.left - this.margin.right;
+    // },
+    // height() {
+    //   return this.$refs.chart.clientHeight - this.margin.top - this.margin.bottom;
+    // },
   },
   watch: {
     highlightIdx() {
@@ -38,6 +45,8 @@ export default {
   methods: {
     initAx() {
       // console.log(this.$refs.chart.clientWidth);
+      this.width = this.$refs.chart.clientWidth - this.margin.left - this.margin.right;
+      this.height = this.$refs.chart.clientHeight - this.margin.top - this.margin.bottom;
       const svg = d3.select(`#${this.id}`);
 
       // const width = this.$refs.chart.clientWidth - margin.left - margin.right
@@ -172,7 +181,25 @@ export default {
         // console.log(x0, self.x(0));
       });
     },
+    handleResize() {
+      // eslint-disable-next-line
+      this.width = this.$refs.chart.clientWidth - this.margin.left - this.margin.right;
+      // this.height = this.$refs.chart.clientHeight - this.margin.top - this.margin.bottom;
+      this.updateXaxis()
+      // this.updateYaxis()
+      this.updateHighlightPoints()
+      const self = this;
+      this.g.selectAll('.outlier')
+        .attr('x', i => self.x(i) - 1.5)
+        .attr('height', () => `${self.height}px`)
 
+      this.g.selectAll('.series-1')
+          .attr('d', this.lines[0]);
+
+      this.g.selectAll('.series-2')
+          .attr('d', this.lines[1]);
+
+    }
 
   },
   mounted() {

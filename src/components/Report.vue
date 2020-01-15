@@ -21,7 +21,7 @@
        :min="0" :max="report.dwi_corrected[0].num_slices-1">
      </vue-slider>
 
-      <div style="height: 200px; width: 100%; display: inline-flex;">
+      <div>
         <line-chart id="motion_params"
           :data="report.eddy_params"
           :outlier_indices="report.outlier_volumes"
