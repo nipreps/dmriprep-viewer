@@ -22,6 +22,12 @@
       },
       cameraPosition: {
         type: Object
+      },
+      autoRotate: {
+        type: Boolean
+      },
+      showReflectedPoints: {
+        type: Boolean
       }
     },
     data () {
@@ -36,8 +42,8 @@
         showStats: false,
         stats: null,
         container: null,
-        autoRotate: false,
-        showReflectedPoints: true,
+        // autoRotate: false,
+        // showReflectedPoints: true,
       };
     },
     mounted() {

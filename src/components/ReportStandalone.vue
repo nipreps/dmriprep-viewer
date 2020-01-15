@@ -36,6 +36,44 @@
 
       <CarpetPlot :data="report.carpetplot" :highlightIdx="time"/>
 
+      <b-row>
+        <b-col>
+          <b-checkbox v-model="autoRotate">
+            auto rotate
+          </b-checkbox>
+        </b-col>
+        <b-col>
+          <b-checkbox v-model="showReflection">
+            show reflected points
+          </b-checkbox>
+        </b-col>
+      </b-row>
+
+      <b-row>
+        <b-col>
+          <Sampling
+                  elementId="samplingWidgetPre"
+                  :qcoords="report.q_coords"
+                  :colors="report.color"
+                  :cameraPosition="globalPosition"
+                  v-on:updateCameraPosition="updateGlobalPosition"
+                  :autoRotate="autoRotate"
+                  :showReflectedPoints="showReflection"
+          />
+        </b-col>
+        <b-col>
+          <Sampling
+                  elementId="samplingWidgetPost"
+                  :qcoords="report.q_coords"
+                  :colors="report.color"
+                  :cameraPosition="globalPosition"
+                  v-on:updateCameraPosition="updateGlobalPosition"
+                  :autoRotate="autoRotate"
+                  :showReflectedPoints="showReflection"
+          />
+        </b-col>
+      </b-row>
+
       <h2 class="mt-3 pt-3">Registration + Brain Mask</h2>
       <p class="lead">Brain mask computed on T1w, and mapped to B0</p>
 
@@ -64,26 +102,7 @@
         :overlay="report.colorFA.img"
       />
 
-      <b-row>
-        <b-col>
-          <Sampling
-                  elementId="samplingWidgetPre"
-                  :qcoords="report.q_coords"
-                  :colors="report.color"
-                  :cameraPosition="globalPosition"
-                  v-on:updateCameraPosition="updateGlobalPosition"
-          />
-        </b-col>
-        <b-col>
-          <Sampling
-                  elementId="samplingWidgetPost"
-                  :qcoords="report.q_coords"
-                  :colors="report.color"
-                  :cameraPosition="globalPosition"
-                  v-on:updateCameraPosition="updateGlobalPosition"
-          />
-        </b-col>
-      </b-row>
+
 
     </div>
   </div>
@@ -133,6 +152,8 @@ export default {
       spriteSlice: 0,
       globalPosition: null,
       carpetData,
+      autoRotate: true,
+      showReflection: false,
     };
   },
   methods: {
