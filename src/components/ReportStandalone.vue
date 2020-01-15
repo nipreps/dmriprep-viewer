@@ -21,10 +21,6 @@
        :min="0" :max="report.dwi_corrected[0].num_slices-1">
      </vue-slider>
 
-
-        <CarpetPlot :data="carpetData.carpetplot"/>
-
-
       <div style="height: 200px; width: 100%; display: inline-flex;">
         <line-chart id="motion_params"
           :data="report.eddy_params"
@@ -36,7 +32,7 @@
         </line-chart>
       </div>
 
-
+      <CarpetPlot :data="carpetData.carpetplot"/>
 
       <h2 class="mt-3 pt-3">Registration + Brain Mask</h2>
       <p class="lead">Brain mask computed on T1w, and mapped to B0</p>

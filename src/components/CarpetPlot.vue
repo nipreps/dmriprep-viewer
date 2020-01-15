@@ -18,7 +18,7 @@ export default {
   },
   data() {
     return {
-      margin: {top: 40, right: 25, bottom: 30, left: 40},
+      margin: {top: 10, right: 25, bottom: 10, left: 40},
       mounted: false,
       width: null,
       height: 500,
