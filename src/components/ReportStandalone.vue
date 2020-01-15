@@ -60,12 +60,28 @@
         :overlay="report.colorFA.img"
       />
 
+      <b-row>
+        <b-col>
+          <Sampling
+                  elementId="samplingWidgetPre"
+                  :data="samplingScheme"
+          />
+        </b-col>
+        <b-col>
+          <Sampling
+                  elementId="samplingWidgetPost"
+                  :data="samplingScheme"
+          />
+        </b-col>
+      </b-row>
+
     </div>
   </div>
 </template>
 
 <script>
 // import axios from 'axios';
+import Sampling from './Sampling';
 import vueSlider from 'vue-slider-component';
 import sprite4d from './Sprite4D';
 import lineChart from './LineChart';
@@ -76,12 +92,14 @@ import BootstrapVue from 'bootstrap-vue';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 import 'vue-slider-component/theme/antd.css'
+const samplingScheme = require('./sampling_scheme.json')
 
 Vue.use(BootstrapVue);
 
 export default {
   name: 'report',
   components: {
+    Sampling,
     sprite4d,
     vueSlider,
     lineChart,
@@ -96,6 +114,7 @@ export default {
     return {
       time: 0,
       spriteSlice: 0,
+      samplingScheme
       // report: null,
     };
   },
