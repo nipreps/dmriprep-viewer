@@ -68,7 +68,8 @@
         <b-col>
           <Sampling
                   elementId="samplingWidgetPre"
-                  :data="samplingScheme"
+                  :qcoords="report.q_coords"
+                  :colors="report.color"
                   :cameraPosition="globalPosition"
                   v-on:updateCameraPosition="updateGlobalPosition"
           />
@@ -76,7 +77,8 @@
         <b-col>
           <Sampling
                   elementId="samplingWidgetPost"
-                  :data="samplingScheme"
+                  :qcoords="report.q_coords"
+                  :colors="report.color"
                   :cameraPosition="globalPosition"
                   v-on:updateCameraPosition="updateGlobalPosition"
           />
@@ -105,10 +107,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css';
 import 'vue-slider-component/theme/antd.css'
 import 'vue-resize/dist/vue-resize.css'
 
-
 Vue.use(VueResize)
-const samplingScheme = require('./sampling_scheme.json')
-
 Vue.use(BootstrapVue);
 
 const carpetData = require('./carpetplot.json')
@@ -132,9 +131,7 @@ export default {
     return {
       time: 0,
       spriteSlice: 0,
-      samplingScheme,
       globalPosition: null,
-      // report: null,
       carpetData,
     };
   },
