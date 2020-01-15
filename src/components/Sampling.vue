@@ -17,6 +17,9 @@
       },
       elementId: {
         type: String
+      },
+      cameraPosition: {
+        type: Object
       }
     },
     data () {
@@ -121,8 +124,6 @@
 
         const discTexture = new THREE.TextureLoader().load(disc);
 
-        // eslint-disable-next-line
-        console.log(discTexture);
         const material = new THREE.ShaderMaterial({
           uniforms: {
             color: { value: new THREE.Color( 0x000000 ) },
@@ -200,6 +201,9 @@
         this.controls.enableZoom = true;
         this.controls.autoRotate = false;
 
+        this.controls.addEventListener('change', this.updateCameras);
+        this.controls.enableKeys = false;
+
         //
 
         if (this.showStats) {
@@ -224,10 +228,17 @@
         this.particles.rotation.x = time * 0.25;
         this.particles.rotation.y = time * 0.5;
         this.renderer.render( this.scene, this.camera );
+        if (this.cameraPosition) {
+          this.camera.position.copy(this.cameraPosition);
+        }
         this.controls.update();
       },
       onWindowResize: function() {
         this.renderer.setSize( this.container.clientWidth, this.container.clientWidth );
+      },
+      updateCameras: function() {
+        // this.cameraPosition = this.camera.position;
+        this.$emit( 'updateCameraPosition', this.camera.position );
       }
     }
   }

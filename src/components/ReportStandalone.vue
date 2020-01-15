@@ -65,12 +65,16 @@
           <Sampling
                   elementId="samplingWidgetPre"
                   :data="samplingScheme"
+                  :cameraPosition="globalPosition"
+                  v-on:updateCameraPosition="updateGlobalPosition"
           />
         </b-col>
         <b-col>
           <Sampling
                   elementId="samplingWidgetPost"
                   :data="samplingScheme"
+                  :cameraPosition="globalPosition"
+                  v-on:updateCameraPosition="updateGlobalPosition"
           />
         </b-col>
       </b-row>
@@ -114,7 +118,8 @@ export default {
     return {
       time: 0,
       spriteSlice: 0,
-      samplingScheme
+      samplingScheme,
+      globalPosition: null,
       // report: null,
     };
   },
@@ -122,6 +127,9 @@ export default {
     get_mid_slice() {
       return Math.floor(this.report.b0.num_slices / 2);
     },
+    updateGlobalPosition(position) {
+      this.globalPosition = position;
+    }
   },
   created() {
     // console.log('in created', this.$route.query);
