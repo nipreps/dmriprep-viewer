@@ -29796,12 +29796,12 @@ if (typeof window !== 'undefined') {
 // Indicate to webpack that this file can be concatenated
 /* harmony default export */ var setPublicPath = (null);
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"be6c4f94-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/ReportStandalone.vue?vue&type=template&id=183f2fb6&
-var ReportStandalonevue_type_template_id_183f2fb6_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"mt-3 container"},[(_vm.report)?_c('div',[_c('h2',{staticClass:"mt-3 pt-3"},[_vm._v("Corrected dwi")]),_c('p',{staticClass:"lead"},[_vm._v("Motion and distortion corrected file")]),_c('div',{staticStyle:{"background-color":"black"}},_vm._l((_vm.report.dwi_corrected),function(view){return _c('sprite4d',{key:view.orientation,attrs:{"M":view.M,"N":view.N,"img":view.img,"num_slices":view.num_slices,"pix":view.pix,"id":view.orientation,"time":_vm.time,"overlayMode":false,"opacity":"1"}})}),1),_c('vue-slider',{ref:"timeSlider",attrs:{"min":0,"max":_vm.report.dwi_corrected[0].num_slices-1},model:{value:(_vm.time),callback:function ($$v) {_vm.time=$$v},expression:"time"}}),_c('div',{staticStyle:{"height":"200px","width":"100%","display":"inline-flex"}},[_c('line-chart',{attrs:{"id":"motion_params","data":_vm.report.eddy_params,"outlier_indices":_vm.report.outlier_volumes,"xlabel":"TR","ylabel":"RMS","highlightIdx":_vm.time}})],1),_c('CarpetPlot',{attrs:{"data":_vm.report.carpetplot,"highlightIdx":_vm.time}}),_c('b-row',[_c('b-col',[_c('b-checkbox',{model:{value:(_vm.autoRotate),callback:function ($$v) {_vm.autoRotate=$$v},expression:"autoRotate"}},[_vm._v(" auto rotate ")])],1),_c('b-col',[_c('b-checkbox',{model:{value:(_vm.showReflection),callback:function ($$v) {_vm.showReflection=$$v},expression:"showReflection"}},[_vm._v(" show reflected points ")])],1)],1),_c('b-row',[_c('b-col',[_c('Sampling',{attrs:{"elementId":"samplingWidgetPre","qcoords":_vm.report.q_coords,"colors":_vm.report.color,"cameraPosition":_vm.globalPosition,"autoRotate":_vm.autoRotate,"showReflectedPoints":_vm.showReflection},on:{"updateCameraPosition":_vm.updateGlobalPosition}})],1),_c('b-col',[_c('Sampling',{attrs:{"elementId":"samplingWidgetPost","qcoords":_vm.report.q_coords,"colors":_vm.report.color,"cameraPosition":_vm.globalPosition,"autoRotate":_vm.autoRotate,"showReflectedPoints":_vm.showReflection},on:{"updateCameraPosition":_vm.updateGlobalPosition}})],1)],1),_c('h2',{staticClass:"mt-3 pt-3"},[_vm._v("Registration + Brain Mask")]),_c('p',{staticClass:"lead"},[_vm._v("Brain mask computed on T1w, and mapped to B0")]),_c('BrainSprite',{ref:"brainMaskSprite",attrs:{"id":"brainMaskSprite","base_dim_x":_vm.report.b0.pix,"base_dim_y":_vm.report.b0.pix,"overlay_dim_x":_vm.report.anat_mask.pix,"overlay_dim_y":_vm.report.anat_mask.pix,"base":_vm.report.b0.img,"overlay":_vm.report.anat_mask.img}}),_c('h2',{staticClass:"mt-3 pt-3"},[_vm._v("DTI: ColorFA")]),_c('p',{staticClass:"lead"},[_vm._v("Color FA mapped on B0")]),_c('BrainSprite',{ref:"colorFASprite",attrs:{"id":"colorFASprite","base_dim_x":_vm.report.b0.pix,"base_dim_y":_vm.report.b0.pix,"overlay_dim_x":_vm.report.colorFA.pix,"overlay_dim_y":_vm.report.colorFA.pix,"base":_vm.report.b0.img,"overlay":_vm.report.colorFA.img}})],1):_vm._e()])}
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"be6c4f94-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/ReportStandalone.vue?vue&type=template&id=5a7a47f6&
+var ReportStandalonevue_type_template_id_5a7a47f6_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"mt-3 container"},[(_vm.report)?_c('div',[_c('h2',{staticClass:"mt-3 pt-3"},[_vm._v("Corrected dwi")]),_c('p',{staticClass:"lead"},[_vm._v("Motion and distortion corrected file")]),_c('div',{staticStyle:{"background-color":"black"}},_vm._l((_vm.report.dwi_corrected),function(view){return _c('sprite4d',{key:view.orientation,attrs:{"M":view.M,"N":view.N,"img":view.img,"num_slices":view.num_slices,"pix":view.pix,"id":view.orientation,"time":_vm.time,"overlayMode":false,"opacity":"1"}})}),1),_c('vue-slider',{ref:"timeSlider",attrs:{"min":0,"max":_vm.report.dwi_corrected[0].num_slices-1},model:{value:(_vm.time),callback:function ($$v) {_vm.time=$$v},expression:"time"}}),_c('div',{staticStyle:{"height":"200px","width":"100%","display":"inline-flex"}},[_c('line-chart',{attrs:{"id":"motion_params","data":_vm.report.eddy_params,"outlier_indices":_vm.report.outlier_volumes,"xlabel":"TR","ylabel":"RMS","highlightIdx":_vm.time}})],1),_c('CarpetPlot',{attrs:{"data":_vm.report.carpetplot,"highlightIdx":_vm.time}}),_c('b-row',[_c('b-col',[_c('b-checkbox',{model:{value:(_vm.autoRotate),callback:function ($$v) {_vm.autoRotate=$$v},expression:"autoRotate"}},[_vm._v(" auto rotate ")])],1),_c('b-col',[_c('b-checkbox',{model:{value:(_vm.showReflection),callback:function ($$v) {_vm.showReflection=$$v},expression:"showReflection"}},[_vm._v(" show reflected points ")])],1)],1),_c('b-row',[_c('b-col',[_c('Sampling',{attrs:{"elementId":"samplingWidgetPre","qcoords":_vm.report.q_coords,"colors":_vm.report.color,"cameraPosition":_vm.globalPosition,"autoRotate":_vm.autoRotate,"showReflectedPoints":_vm.showReflection,"highlightIdx":_vm.time},on:{"updateCameraPosition":_vm.updateGlobalPosition}})],1),_c('b-col',[_c('Sampling',{attrs:{"elementId":"samplingWidgetPost","qcoords":_vm.report.q_coords,"colors":_vm.report.color,"cameraPosition":_vm.globalPosition,"autoRotate":_vm.autoRotate,"showReflectedPoints":_vm.showReflection,"highlightIdx":_vm.time},on:{"updateCameraPosition":_vm.updateGlobalPosition}})],1)],1),_c('h2',{staticClass:"mt-3 pt-3"},[_vm._v("Registration + Brain Mask")]),_c('p',{staticClass:"lead"},[_vm._v("Brain mask computed on T1w, and mapped to B0")]),_c('BrainSprite',{ref:"brainMaskSprite",attrs:{"id":"brainMaskSprite","base_dim_x":_vm.report.b0.pix,"base_dim_y":_vm.report.b0.pix,"overlay_dim_x":_vm.report.anat_mask.pix,"overlay_dim_y":_vm.report.anat_mask.pix,"base":_vm.report.b0.img,"overlay":_vm.report.anat_mask.img}}),_c('h2',{staticClass:"mt-3 pt-3"},[_vm._v("DTI: ColorFA")]),_c('p',{staticClass:"lead"},[_vm._v("Color FA mapped on B0")]),_c('BrainSprite',{ref:"colorFASprite",attrs:{"id":"colorFASprite","base_dim_x":_vm.report.b0.pix,"base_dim_y":_vm.report.b0.pix,"overlay_dim_x":_vm.report.colorFA.pix,"overlay_dim_y":_vm.report.colorFA.pix,"base":_vm.report.b0.img,"overlay":_vm.report.colorFA.img}})],1):_vm._e()])}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/ReportStandalone.vue?vue&type=template&id=183f2fb6&
+// CONCATENATED MODULE: ./src/components/ReportStandalone.vue?vue&type=template&id=5a7a47f6&
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"be6c4f94-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/CarpetPlot.vue?vue&type=template&id=1ca98e8a&
 var CarpetPlotvue_type_template_id_1ca98e8a_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('resize-observer',{on:{"notify":_vm.handleResize}}),_c('svg',{ref:"chart",staticClass:"carpetplot",attrs:{"id":"carpetsvg"}})],1)}
@@ -30088,12 +30088,12 @@ var component = normalizeComponent(
 )
 
 /* harmony default export */ var CarpetPlot = (component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"be6c4f94-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Sampling.vue?vue&type=template&id=64a2f7d2&
-var Samplingvue_type_template_id_64a2f7d2_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":_vm.elementId}})}
-var Samplingvue_type_template_id_64a2f7d2_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"be6c4f94-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Sampling.vue?vue&type=template&id=6c4f370e&
+var Samplingvue_type_template_id_6c4f370e_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":_vm.elementId}})}
+var Samplingvue_type_template_id_6c4f370e_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/Sampling.vue?vue&type=template&id=64a2f7d2&
+// CONCATENATED MODULE: ./src/components/Sampling.vue?vue&type=template&id=6c4f370e&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array-buffer.slice.js
 var es_array_buffer_slice = __webpack_require__("ace4");
@@ -81666,6 +81666,7 @@ Stats.Panel = function ( name, fg, bg ) {
 
 
 
+
 //
 //
 //
@@ -81696,6 +81697,9 @@ var disc = __webpack_require__("fe15");
     },
     showReflectedPoints: {
       type: Boolean
+    },
+    highlightIdx: {
+      type: Number
     }
   },
   data: function data() {
@@ -81707,11 +81711,10 @@ var disc = __webpack_require__("fe15");
       ambient: null,
       directionalLight: null,
       particles: null,
+      reflectedParticles: null,
       showStats: false,
       stats: null,
-      container: null // autoRotate: false,
-      // showReflectedPoints: true,
-
+      container: null
     };
   },
   mounted: function mounted() {
@@ -81781,38 +81784,20 @@ var disc = __webpack_require__("fe15");
         alphaTest: 0.9
       });
       this.particles = new Points(geometry, material);
+      var reflectedPositions = [];
 
-      if (this.showReflectedPoints) {
-        var reflectedPositions = [];
+      for (var _i2 = 0, _l2 = npoints; _i2 < _l2; _i2++) {
+        vertex = xyz[_i2];
+        reflectedPositions.push(-vertex[0], -vertex[1], -vertex[2]);
+      }
 
-        for (var _i2 = 0, _l2 = npoints; _i2 < _l2; _i2++) {
-          vertex = xyz[_i2];
-          reflectedPositions.push(-vertex[0], -vertex[1], -vertex[2]);
-        }
-
-        var reflectedGeometry = new BufferGeometry();
-        reflectedGeometry.setAttribute('position', new Float32BufferAttribute(reflectedPositions, 3));
-        reflectedGeometry.setAttribute('customColor', new Float32BufferAttribute(colors, 3));
-        reflectedGeometry.setAttribute('size', new BufferAttribute(sizes, 1));
-
-        var _material = new ShaderMaterial({
-          uniforms: {
-            color: {
-              value: new Color(0xFFFFFF)
-            },
-            pointTexture: {
-              value: discTexture
-            }
-          },
-          vertexShader: vertexShader,
-          fragmentShader: fragmentShader,
-          alphaTest: 0.9
-        });
-
-        var reflectedParticles = new Points(reflectedGeometry, _material);
-        this.particles.add(reflectedParticles);
-      } //
-
+      var reflectedGeometry = new BufferGeometry();
+      reflectedGeometry.setAttribute('position', new Float32BufferAttribute(reflectedPositions, 3));
+      reflectedGeometry.setAttribute('customColor', new Float32BufferAttribute(colors, 3));
+      reflectedGeometry.setAttribute('size', new BufferAttribute(sizes, 1));
+      this.reflectedParticles = new Points(reflectedGeometry, material);
+      this.particles.add(this.reflectedParticles);
+      this.reflectedParticles.visible = this.showReflectedPoints; //
 
       var axesGroup = new Group();
       var axesPoints = {
@@ -81877,7 +81862,7 @@ var disc = __webpack_require__("fe15");
       this.controls.enableDamping = true;
       this.controls.dampingFactor = 0.25;
       this.controls.enableZoom = true;
-      this.controls.autoRotate = false;
+      this.controls.autoRotate = this.autoRotate;
       this.controls.maxDistance = absMax * 5;
       this.controls.addEventListener('change', this.updateCameras);
       this.controls.enableKeys = false; //
@@ -81901,12 +81886,8 @@ var disc = __webpack_require__("fe15");
       }
     },
     render: function render() {
-      if (this.autoRotate) {
-        var time = Date.now() * 0.0005;
-        this.particles.rotation.x = time * 0.25;
-        this.particles.rotation.y = time * 0.5;
-      }
-
+      this.controls.autoRotate = this.autoRotate;
+      this.reflectedParticles.visible = this.showReflectedPoints;
       this.renderer.render(this.scene, this.camera);
 
       if (this.cameraPosition) {
@@ -81936,8 +81917,8 @@ var disc = __webpack_require__("fe15");
 
 var Sampling_component = normalizeComponent(
   components_Samplingvue_type_script_lang_js_,
-  Samplingvue_type_template_id_64a2f7d2_render,
-  Samplingvue_type_template_id_64a2f7d2_staticRenderFns,
+  Samplingvue_type_template_id_6c4f370e_render,
+  Samplingvue_type_template_id_6c4f370e_staticRenderFns,
   false,
   null,
   null,
@@ -108511,6 +108492,8 @@ var vue_resize = __webpack_require__("6eb0");
 //
 //
 //
+//
+//
 // import axios from 'axios';
 
 
@@ -108594,7 +108577,7 @@ var carpetData = __webpack_require__("8a76");
 
 var ReportStandalone_component = normalizeComponent(
   components_ReportStandalonevue_type_script_lang_js_,
-  ReportStandalonevue_type_template_id_183f2fb6_render,
+  ReportStandalonevue_type_template_id_5a7a47f6_render,
   staticRenderFns,
   false,
   null,
