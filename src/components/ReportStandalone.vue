@@ -40,45 +40,7 @@
                   :min="0" :max="report.dwi_corrected[0].num_slices-1">
       </vue-slider>
 
-      <b-row>
-        <b-col>
-          <b-checkbox v-model="autoRotate">
-            auto rotate
-          </b-checkbox>
-        </b-col>
-        <b-col>
-          <b-checkbox v-model="showReflection">
-            show reflected points
-          </b-checkbox>
-        </b-col>
-      </b-row>
-
-      <b-row>
-        <b-col>
-          <QSpaceViewer
-                  elementId="qSpaceViewerPre"
-                  :qcoords="report.q_coords"
-                  :colors="report.color"
-                  :cameraPosition="globalPosition"
-                  v-on:updateCameraPosition="updateGlobalPosition"
-                  :autoRotate="autoRotate"
-                  :showReflectedPoints="showReflection"
-                  :highlightIdx="time"
-          />
-        </b-col>
-        <b-col>
-          <QSpaceViewer
-                  elementId="qSpaceViewerPost"
-                  :qcoords="report.q_coords"
-                  :colors="report.color"
-                  :cameraPosition="globalPosition"
-                  v-on:updateCameraPosition="updateGlobalPosition"
-                  :autoRotate="autoRotate"
-                  :showReflectedPoints="showReflection"
-                  :highlightIdx="time"
-          />
-        </b-col>
-      </b-row>
+      <QSpaceGroup :report="report" :time="time"/>
 
       <h2 class="mt-3 pt-3">Registration + Brain Mask</h2>
       <p class="lead">Brain mask computed on T1w, and mapped to B0</p>
@@ -117,7 +79,7 @@
 <script>
 // import axios from 'axios';
 import CarpetPlot from './CarpetPlot'
-import QSpaceViewer from './QSpaceViewer';
+import QSpaceGroup from './QSpaceGroup';
 import vueSlider from 'vue-slider-component';
 import sprite4d from './Sprite4D';
 import lineChart from './LineChart';
@@ -138,7 +100,7 @@ Vue.use(BootstrapVue);
 export default {
   name: 'report',
   components: {
-    QSpaceViewer,
+    QSpaceGroup,
     sprite4d,
     vueSlider,
     lineChart,

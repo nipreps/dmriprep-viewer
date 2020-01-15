@@ -255,7 +255,7 @@ function brainsprite(params) {
       }
     } else {
       brain.voxelValue = NaN;
-    };
+    }
   };
 
 
