@@ -34,7 +34,7 @@
         </line-chart>
       </div>
 
-      <CarpetPlot :data="report.carpetplot"/>
+      <CarpetPlot :data="report.carpetplot" :highlightIdx="time"/>
 
       <h2 class="mt-3 pt-3">Registration + Brain Mask</h2>
       <p class="lead">Brain mask computed on T1w, and mapped to B0</p>

@@ -14,6 +14,9 @@ export default {
   props: {
     data: {
       type: Array,
+    },
+    highlightIdx: {
+      type: Number,
     }
   },
   data() {
@@ -41,7 +44,17 @@ export default {
     },
   },
   watch: {
-
+    highlightIdx() {
+      const self = this
+      d3.select("#carpetsvg")
+        .selectAll('rect')
+        .style("opacity", function(d) {
+          if (d.i == self.highlightIdx) {
+            return 1
+          }
+          return 0.5
+        })
+    }
   },
   mounted() {
     this.mounted = true
@@ -95,19 +108,19 @@ export default {
         // .domain([minVal, maxVal])
         .domain([0, 1])
 
-      const mouseover = function() {
-        d3.select(this)
-          .style("stroke", "black")
-          .style("opacity", 1)
-      }
+      // const mouseover = function() {
+      //   d3.select(this)
+      //     .style("stroke", "black")
+      //     .style("opacity", 1)
+      // }
 
-      const mouseleave = function() {
-        d3.select(this)
-          .style("stroke", "none")
-          .style("opacity", 0.8)
-      }
+      // const mouseleave = function() {
+      //   d3.select(this)
+      //     .style("stroke", "none")
+      //     .style("opacity", 0.8)
+      // }
 
-
+      const self = this;
 
       svg.selectAll()
         .data(this.dataFlattened, function(d) {return d.i+':'+d.j;})
@@ -122,10 +135,15 @@ export default {
           .style("fill", function(d) { return myColor(d.value)} )
           .style("stroke-width", 4)
           .style("stroke", "none")
-          .style("opacity", 0.8)
-          .on("mouseover", mouseover)
+          .style("opacity", function(d) {
+            if (d.i == self.highlightIdx) {
+              return 1
+            }
+            return 0.5
+          })
+        //  .on("mouseover", mouseover)
         // .on("mousemove", mousemove)
-          .on("mouseleave", mouseleave)
+        //  .on("mouseleave", mouseleave)
 
     },
     handleResize() {
