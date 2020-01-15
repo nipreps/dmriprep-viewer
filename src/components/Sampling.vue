@@ -47,6 +47,7 @@
         stats: null,
         container: null,
         unhighlightedSize: null,
+        unhighlightedAlpha: 0.3,
       };
     },
     mounted() {
@@ -55,7 +56,7 @@
     },
     watch: {
       highlightIdx() {
-        this.updateAlphas()
+        this.highlightPoint()
       }
     },
     methods: {
@@ -92,7 +93,7 @@
         const alphas = new Float32Array( npoints );
 
         for ( let i = 0, l = npoints; i < l; i++ ) {
-          sizes[i] = this.unhighlightedSize;
+          sizes[i] = i === this.highlightIdx ? 3.0 * this.unhighlightedSize : this.unhighlightedSize;
           alphas[i] = i === this.highlightIdx ? 1.0 : 0.25;
         }
 
@@ -268,23 +269,24 @@
           this.stats.update();
         }
       },
-      updateAlphas() {
-
+      highlightPoint() {
         const alphas = this.particles.geometry.attributes.alpha;
+        const sizes = this.particles.geometry.attributes.size;
         for (let i = 0; i < alphas.count; i++) {
           alphas.array[i] = i === this.highlightIdx ? 1.0 : 0.25;
+          sizes.array[i] = i === this.highlightIdx ? 3.0 * this.unhighlightedSize : this.unhighlightedSize;
         }
         alphas.needsUpdate = true;
-
+        sizes.needsUpdate = true;
 
         const alphasRef = this.reflectedParticles.geometry.attributes.alpha;
+        const sizesRef = this.reflectedParticles.geometry.attributes.size;
         for (let i = 0; i < alphasRef.count; i++) {
           alphasRef.array[i] = i === this.highlightIdx ? 1.0 : 0.25;
+          sizesRef.array[i] = i === this.highlightIdx ? 3.0 * this.unhighlightedSize : this.unhighlightedSize;
         }
         alphasRef.needsUpdate = true;
-        // eslint-disable-next-line
-        console.log('updating alphas.', this.particles.geometry.attributes.alpha, this.highlightIdx)
-        this.renderer.render( this.scene, this.camera );
+        sizesRef.needsUpdate = true;
       },
       render: function() {
         this.controls.autoRotate = this.autoRotate;
