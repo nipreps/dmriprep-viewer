@@ -158,8 +158,8 @@ export default {
       spriteSlice: 0,
       globalPosition: null,
       carpetData,
-      autoRotate: true,
-      showReflection: false,
+      autoRotate: false,
+      showReflection: true,
     };
   },
   methods: {

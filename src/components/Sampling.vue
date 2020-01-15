@@ -53,6 +53,11 @@
       this.init();
       this.animate();
     },
+    watch: {
+      highlightIdx() {
+        this.updateAlphas()
+      }
+    },
     methods: {
       init: function() {
         this.container = document.getElementById( this.elementId );
@@ -88,7 +93,7 @@
 
         for ( let i = 0, l = npoints; i < l; i++ ) {
           sizes[i] = this.unhighlightedSize;
-          alphas[i] = i === this.highlightIdx ? 1.0 : 0.5;
+          alphas[i] = i === this.highlightIdx ? 1.0 : 0.25;
         }
 
         const geometry = new THREE.BufferGeometry();
@@ -171,7 +176,7 @@
         reflectedGeometry.setAttribute( 'alpha', new THREE.BufferAttribute( alphas, 1 ) );
 
         this.reflectedParticles = new THREE.Points( reflectedGeometry, material );
-        this.particles.add( this.reflectedParticles );
+        this.scene.add( this.reflectedParticles );
 
         this.reflectedParticles.visible = this.showReflectedPoints
 
@@ -263,18 +268,27 @@
           this.stats.update();
         }
       },
-      render: function() {
-        this.controls.autoRotate = this.autoRotate;
-        this.reflectedParticles.visible = this.showReflectedPoints;
+      updateAlphas() {
 
         const alphas = this.particles.geometry.attributes.alpha;
         for (let i = 0; i < alphas.count; i++) {
-          alphas.array[i] = i === this.highlightIdx ? 1.0 : 0.5;
+          alphas.array[i] = i === this.highlightIdx ? 1.0 : 0.25;
         }
-        alphas.needUpdate = true;
+        alphas.needsUpdate = true;
 
+
+        const alphasRef = this.reflectedParticles.geometry.attributes.alpha;
+        for (let i = 0; i < alphasRef.count; i++) {
+          alphasRef.array[i] = i === this.highlightIdx ? 1.0 : 0.25;
+        }
+        alphasRef.needsUpdate = true;
         // eslint-disable-next-line
-        console.log(this.particles.geometry.attributes);
+        console.log('updating alphas.', this.particles.geometry.attributes.alpha, this.highlightIdx)
+        this.renderer.render( this.scene, this.camera );
+      },
+      render: function() {
+        this.controls.autoRotate = this.autoRotate;
+        this.reflectedParticles.visible = this.showReflectedPoints;
 
         this.renderer.render( this.scene, this.camera );
         if (this.cameraPosition) {
