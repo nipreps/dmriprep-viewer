@@ -9,7 +9,7 @@
   const disc = require('./disc.png');
 
   export default {
-    name: 'sampling',
+    name: 'qSpaceViewer',
     props: {
       qcoords: {
         type: Array

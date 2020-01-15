@@ -147,8 +147,6 @@ export default {
 
     },
     handleResize() {
-      // eslint-disable-next-line
-      console.log('resized window')
       this.width = this.$refs.chart.clientWidth
       
       const svg = d3.select("#carpetsvg")

@@ -38,13 +38,11 @@ export default {
   },
   watch: {
     highlightIdx() {
-      // console.log('watching', this.highlightIdx)
       this.updateHighlightPoints();
     },
   },
   methods: {
     initAx() {
-      // console.log(this.$refs.chart.clientWidth);
       this.width = this.$refs.chart.clientWidth - this.margin.left - this.margin.right;
       this.height = this.$refs.chart.clientHeight - this.margin.top - this.margin.bottom;
       const svg = d3.select(`#${this.id}`);
@@ -178,7 +176,6 @@ export default {
         // const x0 = self.x.invert(d3.mouse(this)[0]);
         // const bisect = d3.bisector(function(d){return d[0]}).left;
         // window.bisect = bisect;
-        // console.log(x0, self.x(0));
       });
     },
     handleResize() {

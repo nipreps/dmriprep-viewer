@@ -55,8 +55,8 @@
 
       <b-row>
         <b-col>
-          <Sampling
-                  elementId="samplingWidgetPre"
+          <QSpaceViewer
+                  elementId="qSpaceViewerPre"
                   :qcoords="report.q_coords"
                   :colors="report.color"
                   :cameraPosition="globalPosition"
@@ -67,8 +67,8 @@
           />
         </b-col>
         <b-col>
-          <Sampling
-                  elementId="samplingWidgetPost"
+          <QSpaceViewer
+                  elementId="qSpaceViewerPost"
                   :qcoords="report.q_coords"
                   :colors="report.color"
                   :cameraPosition="globalPosition"
@@ -117,7 +117,7 @@
 <script>
 // import axios from 'axios';
 import CarpetPlot from './CarpetPlot'
-import Sampling from './Sampling';
+import QSpaceViewer from './QSpaceViewer';
 import vueSlider from 'vue-slider-component';
 import sprite4d from './Sprite4D';
 import lineChart from './LineChart';
@@ -135,12 +135,10 @@ import 'vue-resize/dist/vue-resize.css'
 Vue.use(VueResize)
 Vue.use(BootstrapVue);
 
-const carpetData = require('./carpetplot.json')
-
 export default {
   name: 'report',
   components: {
-    Sampling,
+    QSpaceViewer,
     sprite4d,
     vueSlider,
     lineChart,
@@ -157,7 +155,6 @@ export default {
       time: 0,
       spriteSlice: 0,
       globalPosition: null,
-      carpetData,
       autoRotate: false,
       showReflection: true,
     };
