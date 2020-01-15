@@ -36,6 +36,10 @@
 
       <CarpetPlot :data="report.carpetplot" :highlightIdx="time"/>
 
+      <vue-slider ref="timeSlider" v-model="time"
+                  :min="0" :max="report.dwi_corrected[0].num_slices-1">
+      </vue-slider>
+
       <b-row>
         <b-col>
           <b-checkbox v-model="autoRotate">

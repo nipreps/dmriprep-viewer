@@ -46,6 +46,7 @@
         showStats: false,
         stats: null,
         container: null,
+        unhighlightedSize: null,
       };
     },
     mounted() {
@@ -81,15 +82,20 @@
           colors.push( color.r, color.g, color.b );
         }
 
+        this.unhighlightedSize = absMax * 0.15;
         const sizes = new Float32Array( npoints );
+        const alphas = new Float32Array( npoints );
+
         for ( let i = 0, l = npoints; i < l; i++ ) {
-          sizes[i] = absMax * 0.15;
+          sizes[i] = this.unhighlightedSize;
+          alphas[i] = i === this.highlightIdx ? 1.0 : 0.5;
         }
 
         const geometry = new THREE.BufferGeometry();
         geometry.setAttribute( 'position', new THREE.Float32BufferAttribute( positions, 3 ) );
         geometry.setAttribute( 'customColor', new THREE.Float32BufferAttribute( colors, 3 ) );
         geometry.setAttribute( 'size', new THREE.BufferAttribute( sizes, 1 ) );
+        geometry.setAttribute( 'alpha', new THREE.BufferAttribute( alphas, 1 ) );
 
         this.camera = new THREE.PerspectiveCamera( 75, 1, 0.001, absMax * 10 );
         this.camera.position.z = absMax * 2;
@@ -110,29 +116,32 @@
         //
 
         const vertexShader = `
+        attribute float alpha;
         attribute float size;
         attribute vec3 customColor;
         varying vec3 vColor;
+        varying float vAlpha;
 
         void main() {
           vColor = customColor;
+          vAlpha = alpha;
           vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );
           gl_PointSize = size * ( 300.0 / -mvPosition.z );
           gl_Position = projectionMatrix * mvPosition;
         }
-        `
+        `;
 
         const fragmentShader = `
         uniform vec3 color;
         uniform sampler2D pointTexture;
         varying vec3 vColor;
+        varying float vAlpha;
 
         void main() {
-          gl_FragColor = vec4( color * vColor, 1.0 );
+          gl_FragColor = vec4( color * vColor, vAlpha );
           gl_FragColor = gl_FragColor * texture2D( pointTexture, gl_PointCoord );
-          if ( gl_FragColor.a < ALPHATEST ) discard;
         }
-        `
+        `;
 
         const discTexture = new THREE.TextureLoader().load(disc);
 
@@ -143,7 +152,7 @@
           },
           vertexShader: vertexShader,
           fragmentShader: fragmentShader,
-          alphaTest: 0.9
+          transparent: true
         });
 
         this.particles = new THREE.Points( geometry, material );
@@ -159,6 +168,7 @@
         reflectedGeometry.setAttribute( 'position', new THREE.Float32BufferAttribute( reflectedPositions, 3 ) );
         reflectedGeometry.setAttribute( 'customColor', new THREE.Float32BufferAttribute( colors, 3 ) );
         reflectedGeometry.setAttribute( 'size', new THREE.BufferAttribute( sizes, 1 ) );
+        reflectedGeometry.setAttribute( 'alpha', new THREE.BufferAttribute( alphas, 1 ) );
 
         this.reflectedParticles = new THREE.Points( reflectedGeometry, material );
         this.particles.add( this.reflectedParticles );
@@ -256,6 +266,15 @@
       render: function() {
         this.controls.autoRotate = this.autoRotate;
         this.reflectedParticles.visible = this.showReflectedPoints;
+
+        const alphas = this.particles.geometry.attributes.alpha;
+        for (let i = 0; i < alphas.count; i++) {
+          alphas.array[i] = i === this.highlightIdx ? 1.0 : 0.5;
+        }
+        alphas.needUpdate = true;
+
+        // eslint-disable-next-line
+        console.log(this.particles.geometry.attributes);
 
         this.renderer.render( this.scene, this.camera );
         if (this.cameraPosition) {
