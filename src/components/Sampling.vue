@@ -28,6 +28,9 @@
       },
       showReflectedPoints: {
         type: Boolean
+      },
+      highlightIdx: {
+        type: Number
       }
     },
     data () {

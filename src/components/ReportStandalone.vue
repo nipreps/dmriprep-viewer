@@ -59,6 +59,7 @@
                   v-on:updateCameraPosition="updateGlobalPosition"
                   :autoRotate="autoRotate"
                   :showReflectedPoints="showReflection"
+                  :highlightIdx="time"
           />
         </b-col>
         <b-col>
@@ -70,6 +71,7 @@
                   v-on:updateCameraPosition="updateGlobalPosition"
                   :autoRotate="autoRotate"
                   :showReflectedPoints="showReflection"
+                  :highlightIdx="time"
           />
         </b-col>
       </b-row>
