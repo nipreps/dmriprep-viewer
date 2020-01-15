@@ -7,13 +7,15 @@
   import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
   import Stats from 'three/examples/jsm/libs/stats.module.js';
   const disc = require('./disc.png');
-  // const snowflake = require('three/examples/textures/sprites/snowflake2.png');
 
   export default {
     name: 'sampling',
     props: {
-      data: {
-        type: Object
+      qcoords: {
+        type: Array
+      },
+      colors: {
+        type: Array
       },
       elementId: {
         type: String
@@ -34,6 +36,8 @@
         showStats: false,
         stats: null,
         container: null,
+        autoRotate: false,
+        showReflectedPoints: true,
       };
     },
     mounted() {
@@ -46,8 +50,8 @@
 
         this.scene = new THREE.Scene();
 
-        const xyz = this.data['q_coords'];
-        const rgb = this.data['color'];
+        const xyz = this.qcoords;
+        const rgb = this.colors;
 
         let positions = [];
         let colors = [];
@@ -57,7 +61,6 @@
         let absMax = 0;
         
         const npoints = xyz.length;
-        const sizes = new Float32Array( npoints );
         for ( let i = 0, l = npoints; i < l; i++ ) {
           vertex = xyz[ i ];
           positions.push( vertex[0], vertex[1], vertex[2] );
@@ -68,17 +71,19 @@
 
           color.setRGB(rgb[i][0], rgb[i][1], rgb[i][2]);
           colors.push( color.r, color.g, color.b );
-          sizes[i] = 10
+        }
+
+        const sizes = new Float32Array( npoints );
+        for ( let i = 0, l = npoints; i < l; i++ ) {
+          sizes[i] = absMax * 0.15;
         }
 
         const geometry = new THREE.BufferGeometry();
         geometry.setAttribute( 'position', new THREE.Float32BufferAttribute( positions, 3 ) );
         geometry.setAttribute( 'customColor', new THREE.Float32BufferAttribute( colors, 3 ) );
         geometry.setAttribute( 'size', new THREE.BufferAttribute( sizes, 1 ) );
-        // geometry.setAttribute( 'size', 1 ) // absMax * 0.05 );
-        geometry.computeBoundingSphere();
 
-        this.camera = new THREE.PerspectiveCamera( 75, 1, 0.001, absMax * 3 );
+        this.camera = new THREE.PerspectiveCamera( 75, 1, 0.001, absMax * 10 );
         this.camera.position.z = absMax * 2;
 
         // Use ambient light
@@ -96,10 +101,6 @@
 
         //
 
-        // const material = new THREE.PointsMaterial({
-        //   size: absMax * 0.05,
-        //   vertexColors: THREE.VertexColors
-        // });
         const vertexShader = `
         attribute float size;
         attribute vec3 customColor;
@@ -137,9 +138,36 @@
           alphaTest: 0.9
         });
 
-        //
-
         this.particles = new THREE.Points( geometry, material );
+
+        if (this.showReflectedPoints) {
+          let reflectedPositions = [];
+
+          for ( let i = 0, l = npoints; i < l; i++ ) {
+            vertex = xyz[ i ];
+            reflectedPositions.push( -vertex[0], -vertex[1], -vertex[2] );
+          }
+
+          const reflectedGeometry = new THREE.BufferGeometry();
+          reflectedGeometry.setAttribute( 'position', new THREE.Float32BufferAttribute( reflectedPositions, 3 ) );
+          reflectedGeometry.setAttribute( 'customColor', new THREE.Float32BufferAttribute( colors, 3 ) );
+          reflectedGeometry.setAttribute( 'size', new THREE.BufferAttribute( sizes, 1 ) );
+
+          const material = new THREE.ShaderMaterial({
+            uniforms: {
+              color: { value: new THREE.Color( 0xFFFFFF ) },
+              pointTexture: { value: discTexture }
+            },
+            vertexShader: vertexShader,
+            fragmentShader: fragmentShader,
+            alphaTest: 0.9
+          });
+
+          const reflectedParticles = new THREE.Points( reflectedGeometry, material );
+          this.particles.add( reflectedParticles );
+        }
+
+        //
 
         const axesGroup = new THREE.Group();
 
@@ -203,6 +231,7 @@
         this.controls.dampingFactor = 0.25;
         this.controls.enableZoom = true;
         this.controls.autoRotate = false;
+        this.controls.maxDistance = absMax * 5;
 
         this.controls.addEventListener('change', this.updateCameras);
         this.controls.enableKeys = false;
@@ -227,9 +256,12 @@
         }
       },
       render: function() {
-        const time = Date.now() * 0.0005;
-        this.particles.rotation.x = time * 0.25;
-        this.particles.rotation.y = time * 0.5;
+        if (this.autoRotate) {
+          const time = Date.now() * 0.0005;
+          this.particles.rotation.x = time * 0.25;
+          this.particles.rotation.y = time * 0.5;
+        }
+
         this.renderer.render( this.scene, this.camera );
         if (this.cameraPosition) {
           this.camera.position.copy(this.cameraPosition);
