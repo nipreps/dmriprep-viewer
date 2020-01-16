@@ -1,5 +1,6 @@
 <template>
-  <div :id="elementId"></div>
+  <div :id="elementId">
+  </div>
 </template>
 
 <script>
@@ -47,7 +48,7 @@
         stats: null,
         container: null,
         unhighlightedSize: null,
-        unhighlightedAlpha: 0.3,
+        unhighlightedAlpha: 0.4,
       };
     },
     mounted() {
@@ -105,6 +106,7 @@
 
         this.camera = new THREE.PerspectiveCamera( 75, 1, 0.001, absMax * 10 );
         this.camera.position.z = absMax * 2;
+        this.camera.position.y = absMax * 1;
 
         // Use ambient light
         this.ambient = new THREE.AmbientLight(0x111111);
@@ -158,7 +160,8 @@
           },
           vertexShader: vertexShader,
           fragmentShader: fragmentShader,
-          transparent: true
+          transparent: true,
+          depthWrite: false
         });
 
         this.particles = new THREE.Points( geometry, material );
