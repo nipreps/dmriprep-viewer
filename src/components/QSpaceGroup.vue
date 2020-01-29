@@ -8,6 +8,7 @@
  -->
 <template>
   <div id="qspace-parent">
+    <p class="lead">q-space Sampling</p>
     <b-row>
       <b-col>
         <b-checkbox v-model="autoRotate">
@@ -33,6 +34,7 @@
                 :showReflectedPoints="showReflection"
                 :highlightIdx="time"
         />
+        <p class="lead">Original</p>
       </b-col>
       <b-col>
         <QSpaceViewer
@@ -45,6 +47,7 @@
                 :showReflectedPoints="showReflection"
                 :highlightIdx="time"
         />
+        <p class="lead">Corrected</p>
       </b-col>
     </b-row>
 

@@ -7,7 +7,8 @@
  */
  -->
 <template>
-  <div :id="elementId"></div>
+  <div :id="elementId">
+  </div>
 </template>
 
 <script>
@@ -53,8 +54,8 @@
         showStats: false,
         stats: null,
         container: null,
-        unselectedSize: null,
-        unselectedAlpha: 0.3,
+        unhighlightedSize: null,
+        unhighlightedAlpha: 0.4,
       };
     },
     mounted() {
@@ -130,6 +131,7 @@
         this.scene = new THREE.Scene();
         this.camera = new THREE.PerspectiveCamera( 75, 1, 0.001, absMax * 10 );
         this.camera.position.z = absMax * 2;
+        this.camera.position.y = absMax * 1;
 
         // Use ambient light
         this.ambient = new THREE.AmbientLight(0x111111);
@@ -179,7 +181,8 @@
           },
           vertexShader: vertexShader,
           fragmentShader: fragmentShader,
-          transparent: true
+          transparent: true,
+          depthWrite: false
         });
 
         // Create points from geometry and material and add to the scene.
