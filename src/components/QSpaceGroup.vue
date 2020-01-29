@@ -1,3 +1,11 @@
+<!--
+/**
+ * This parent component holds two QSpaceViewers in two columns.
+ *
+ * It also contains two checkboxes to toggle the auto-rotate feature and to
+ * toggle the display of the reflected points.
+ */
+ -->
 <template>
   <div id="qspace-parent">
     <b-row>
