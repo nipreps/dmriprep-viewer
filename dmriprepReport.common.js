@@ -29789,14 +29789,14 @@ if (typeof window !== 'undefined') {
 // Indicate to webpack that this file can be concatenated
 /* harmony default export */ var setPublicPath = (null);
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"7bbaee14-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/ReportStandalone.vue?vue&type=template&id=25dd3d58&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"322b854e-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/ReportStandalone.vue?vue&type=template&id=25dd3d58&
 var ReportStandalonevue_type_template_id_25dd3d58_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"mt-3 container"},[(_vm.report)?_c('div',[_c('h2',{staticClass:"mt-3 pt-3"},[_vm._v("Corrected dwi")]),_c('p',{staticClass:"lead"},[_vm._v("Motion and distortion corrected file")]),_c('div',{staticStyle:{"background-color":"black"}},_vm._l((_vm.report.dwi_corrected),function(view){return _c('sprite4d',{key:view.orientation,attrs:{"M":view.M,"N":view.N,"img":view.img,"num_slices":view.num_slices,"pix":view.pix,"id":view.orientation,"time":_vm.time,"overlayMode":false,"opacity":"1"}})}),1),_c('vue-slider',{ref:"timeSlider",attrs:{"min":0,"max":_vm.report.dwi_corrected[0].num_slices-1},model:{value:(_vm.time),callback:function ($$v) {_vm.time=$$v},expression:"time"}}),_c('div',{staticStyle:{"height":"200px","width":"100%","display":"inline-flex"}},[_c('line-chart',{attrs:{"id":"motion_params","data":_vm.report.eddy_params,"outlier_indices":_vm.report.outlier_volumes,"xlabel":"TR","ylabel":"RMS","highlightIdx":_vm.time}})],1),_c('CarpetPlot',{attrs:{"data":_vm.report.carpetplot,"highlightIdx":_vm.time}}),_c('vue-slider',{ref:"timeSlider",attrs:{"min":0,"max":_vm.report.dwi_corrected[0].num_slices-1},model:{value:(_vm.time),callback:function ($$v) {_vm.time=$$v},expression:"time"}}),_c('QSpaceGroup',{attrs:{"report":_vm.report,"time":_vm.time}}),_c('h2',{staticClass:"mt-3 pt-3"},[_vm._v("Registration + Brain Mask")]),_c('p',{staticClass:"lead"},[_vm._v("Brain mask computed on T1w, and mapped to B0")]),_c('BrainSprite',{ref:"brainMaskSprite",attrs:{"id":"brainMaskSprite","base_dim_x":_vm.report.b0.pix,"base_dim_y":_vm.report.b0.pix,"overlay_dim_x":_vm.report.anat_mask.pix,"overlay_dim_y":_vm.report.anat_mask.pix,"base":_vm.report.b0.img,"overlay":_vm.report.anat_mask.img}}),_c('h2',{staticClass:"mt-3 pt-3"},[_vm._v("DTI: ColorFA")]),_c('p',{staticClass:"lead"},[_vm._v("Color FA mapped on B0")]),_c('BrainSprite',{ref:"colorFASprite",attrs:{"id":"colorFASprite","base_dim_x":_vm.report.b0.pix,"base_dim_y":_vm.report.b0.pix,"overlay_dim_x":_vm.report.colorFA.pix,"overlay_dim_y":_vm.report.colorFA.pix,"base":_vm.report.b0.img,"overlay":_vm.report.colorFA.img}})],1):_vm._e()])}
 var staticRenderFns = []
 
 
 // CONCATENATED MODULE: ./src/components/ReportStandalone.vue?vue&type=template&id=25dd3d58&
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"7bbaee14-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/CarpetPlot.vue?vue&type=template&id=594602d4&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"322b854e-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/CarpetPlot.vue?vue&type=template&id=594602d4&
 var CarpetPlotvue_type_template_id_594602d4_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('resize-observer',{on:{"notify":_vm.handleResize}}),_c('svg',{ref:"chart",staticClass:"carpetplot",attrs:{"id":"carpetsvg"}})],1)}
 var CarpetPlotvue_type_template_id_594602d4_staticRenderFns = []
 
@@ -30079,19 +30079,19 @@ var component = normalizeComponent(
 )
 
 /* harmony default export */ var CarpetPlot = (component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"7bbaee14-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/QSpaceGroup.vue?vue&type=template&id=6c644c9e&
-var QSpaceGroupvue_type_template_id_6c644c9e_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"qspace-parent"}},[_c('b-row',[_c('b-col',[_c('b-checkbox',{model:{value:(_vm.autoRotate),callback:function ($$v) {_vm.autoRotate=$$v},expression:"autoRotate"}},[_vm._v(" auto rotate ")])],1),_c('b-col',[_c('b-checkbox',{model:{value:(_vm.showReflection),callback:function ($$v) {_vm.showReflection=$$v},expression:"showReflection"}},[_vm._v(" show reflected points ")])],1)],1),_c('b-row',[_c('b-col',[_c('QSpaceViewer',{attrs:{"elementId":"qSpaceViewerPre","qcoords":_vm.report.q_coords,"colors":_vm.report.color,"cameraPosition":_vm.globalPosition,"autoRotate":_vm.autoRotate,"showReflectedPoints":_vm.showReflection,"highlightIdx":_vm.time},on:{"updateCameraPosition":_vm.updateGlobalPosition}})],1),_c('b-col',[_c('QSpaceViewer',{attrs:{"elementId":"qSpaceViewerPost","qcoords":_vm.report.q_coords,"colors":_vm.report.color,"cameraPosition":_vm.globalPosition,"autoRotate":_vm.autoRotate,"showReflectedPoints":_vm.showReflection,"highlightIdx":_vm.time},on:{"updateCameraPosition":_vm.updateGlobalPosition}})],1)],1)],1)}
-var QSpaceGroupvue_type_template_id_6c644c9e_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"322b854e-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/QSpaceGroup.vue?vue&type=template&id=f0c8e2e2&
+var QSpaceGroupvue_type_template_id_f0c8e2e2_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"qspace-parent"}},[_c('b-row',[_c('b-col',[_c('b-checkbox',{model:{value:(_vm.autoRotate),callback:function ($$v) {_vm.autoRotate=$$v},expression:"autoRotate"}},[_vm._v(" auto rotate ")])],1),_c('b-col',[_c('b-checkbox',{model:{value:(_vm.showReflection),callback:function ($$v) {_vm.showReflection=$$v},expression:"showReflection"}},[_vm._v(" show reflected points ")])],1)],1),_c('b-row',[_c('b-col',[_c('QSpaceViewer',{attrs:{"elementId":"qSpaceViewerPre","qcoords":_vm.report.q_coords,"colors":_vm.report.color,"cameraPosition":_vm.globalPosition,"autoRotate":_vm.autoRotate,"showReflectedPoints":_vm.showReflection,"highlightIdx":_vm.time},on:{"updateCameraPosition":_vm.updateGlobalPosition}})],1),_c('b-col',[_c('QSpaceViewer',{attrs:{"elementId":"qSpaceViewerPost","qcoords":_vm.report.q_coords,"colors":_vm.report.color,"cameraPosition":_vm.globalPosition,"autoRotate":_vm.autoRotate,"showReflectedPoints":_vm.showReflection,"highlightIdx":_vm.time},on:{"updateCameraPosition":_vm.updateGlobalPosition}})],1)],1)],1)}
+var QSpaceGroupvue_type_template_id_f0c8e2e2_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/QSpaceGroup.vue?vue&type=template&id=6c644c9e&
+// CONCATENATED MODULE: ./src/components/QSpaceGroup.vue?vue&type=template&id=f0c8e2e2&
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"7bbaee14-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/QSpaceViewer.vue?vue&type=template&id=2f3b4d26&
-var QSpaceViewervue_type_template_id_2f3b4d26_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":_vm.elementId}})}
-var QSpaceViewervue_type_template_id_2f3b4d26_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"322b854e-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/QSpaceViewer.vue?vue&type=template&id=d3f0a878&
+var QSpaceViewervue_type_template_id_d3f0a878_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":_vm.elementId}})}
+var QSpaceViewervue_type_template_id_d3f0a878_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/QSpaceViewer.vue?vue&type=template&id=2f3b4d26&
+// CONCATENATED MODULE: ./src/components/QSpaceViewer.vue?vue&type=template&id=d3f0a878&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array-buffer.slice.js
 var es_array_buffer_slice = __webpack_require__("ace4");
@@ -81669,6 +81669,14 @@ Stats.Panel = function ( name, fg, bg ) {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -81707,14 +81715,13 @@ var disc = __webpack_require__("fe15");
       controls: null,
       renderer: null,
       ambient: null,
-      directionalLight: null,
       particles: null,
       reflectedParticles: null,
       showStats: false,
       stats: null,
       container: null,
-      unhighlightedSize: null,
-      unhighlightedAlpha: 0.3
+      unselectedSize: null,
+      unselectedAlpha: 0.3
     };
   },
   mounted: function mounted() {
@@ -81724,14 +81731,28 @@ var disc = __webpack_require__("fe15");
   watch: {
     highlightIdx: function highlightIdx() {
       this.highlightPoint();
+    },
+    autoRotate: function autoRotate() {
+      this.toggleAutoRotate();
+    },
+    showReflectedPoints: function showReflectedPoints() {
+      this.toggleReflectedPoints();
     }
   },
   methods: {
     init: function init() {
-      this.container = document.getElementById(this.elementId);
-      this.scene = new Scene();
-      var xyz = this.qcoords;
-      var rgb = this.colors;
+      // There may be multiple QSpaceViewer components so `elementId` is
+      // passed in as an input using Vue magic. We insert the viewer canvas
+      // element into the div with this elementId
+      this.container = document.getElementById(this.elementId); // The q-space coords will be scaled by b-val. So we don't know a priori
+      // what the scale will be. Thus, we read in the data first and then
+      // determine the scale of the point cloud. We then set the camera
+      // position, marker size, etc. dynamically.
+
+      var xyz = this.qcoords; // q-space coords
+
+      var rgb = this.colors; // color encodes the imaging run
+
       var positions = [];
       var colors = [];
       var vertex;
@@ -81750,35 +81771,45 @@ var disc = __webpack_require__("fe15");
 
         color.setRGB(rgb[i][0], rgb[i][1], rgb[i][2]);
         colors.push(color.r, color.g, color.b);
-      }
+      } // Now that we've determined `absMax`, set the point size and fill the
+      // sizes and alphas arrays.
 
-      this.unhighlightedSize = absMax * 0.15;
+
+      this.unselectedSize = absMax * 0.15;
       var sizes = new Float32Array(npoints);
       var alphas = new Float32Array(npoints);
 
       for (var _i = 0, _l = npoints; _i < _l; _i++) {
-        sizes[_i] = _i === this.highlightIdx ? 3.0 * this.unhighlightedSize : this.unhighlightedSize;
+        sizes[_i] = _i === this.highlightIdx ? 3.0 * this.unselectedSize : this.unselectedSize;
         alphas[_i] = _i === this.highlightIdx ? 1.0 : 0.25;
-      }
+      } // Set the positions, colors, sizes, and alphas as attributes of a
+      // buffer geometry. These attributes will be sent as arguments to the
+      // shaders defined below.
+
 
       var geometry = new BufferGeometry();
       geometry.setAttribute('position', new Float32BufferAttribute(positions, 3));
       geometry.setAttribute('customColor', new Float32BufferAttribute(colors, 3));
       geometry.setAttribute('size', new BufferAttribute(sizes, 1));
-      geometry.setAttribute('alpha', new BufferAttribute(alphas, 1));
+      geometry.setAttribute('alpha', new BufferAttribute(alphas, 1)); // Create the scene and camera.
+      // Camera position is set dynamically based on `absMax`.
+
+      this.scene = new Scene();
       this.camera = new PerspectiveCamera(75, 1, 0.001, absMax * 10);
       this.camera.position.z = absMax * 2; // Use ambient light
 
       this.ambient = new AmbientLight(0x111111);
-      this.scene.add(this.ambient); // And a directional light always pointing from the camera
-
-      this.directionalLight = new DirectionalLight(0xffeedd, 1);
-      this.directionalLight.position.set(this.camera.position.x, this.camera.position.y, this.camera.position.z);
-      this.scene.add(this.directionalLight); //
+      this.scene.add(this.ambient); // Use vertex and fragment shaders to change the display of each point
+      // Without this, each point is rendered as a square. The shaders take
+      // as arguments the attributes of the geometry defined above (i.e.
+      // alpha, size, and customColor).
 
       var vertexShader = "\n      attribute float alpha;\n      attribute float size;\n      attribute vec3 customColor;\n      varying vec3 vColor;\n      varying float vAlpha;\n\n      void main() {\n        vColor = customColor;\n        vAlpha = alpha;\n        vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );\n        gl_PointSize = size * ( 300.0 / -mvPosition.z );\n        gl_Position = projectionMatrix * mvPosition;\n      }\n      ";
-      var fragmentShader = "\n      uniform vec3 color;\n      uniform sampler2D pointTexture;\n      varying vec3 vColor;\n      varying float vAlpha;\n\n      void main() {\n        gl_FragColor = vec4( color * vColor, vAlpha );\n        gl_FragColor = gl_FragColor * texture2D( pointTexture, gl_PointCoord );\n      }\n      ";
-      var discTexture = new TextureLoader().load(disc);
+      var fragmentShader = "\n      uniform vec3 color;\n      uniform sampler2D pointTexture;\n      varying vec3 vColor;\n      varying float vAlpha;\n\n      void main() {\n        gl_FragColor = vec4( color * vColor, vAlpha );\n        gl_FragColor = gl_FragColor * texture2D( pointTexture, gl_PointCoord );\n      }\n      "; // Use the disc.png image for each point.
+
+      var discTexture = new TextureLoader().load(disc); // Put it all together (the shaders and the image texture) into a
+      // shader material.
+
       var material = new ShaderMaterial({
         uniforms: {
           color: {
@@ -81791,8 +81822,11 @@ var disc = __webpack_require__("fe15");
         vertexShader: vertexShader,
         fragmentShader: fragmentShader,
         transparent: true
-      });
+      }); // Create points from geometry and material and add to the scene.
+
       this.particles = new Points(geometry, material);
+      this.scene.add(this.particles); // Do this all over again for the reflected points.
+
       var reflectedPositions = [];
 
       for (var _i2 = 0, _l2 = npoints; _i2 < _l2; _i2++) {
@@ -81806,15 +81840,21 @@ var disc = __webpack_require__("fe15");
       reflectedGeometry.setAttribute('size', new BufferAttribute(sizes, 1));
       reflectedGeometry.setAttribute('alpha', new BufferAttribute(alphas, 1));
       this.reflectedParticles = new Points(reflectedGeometry, material);
-      this.scene.add(this.reflectedParticles);
-      this.reflectedParticles.visible = this.showReflectedPoints; //
+      this.scene.add(this.reflectedParticles); // Only display the reflected particles if the checkbox is selected
+
+      this.reflectedParticles.visible = this.showReflectedPoints; // three.js has an AxesHelper object but one can't change the line
+      // width. So instead we create one TubeGeometry for each axis and
+      // combine them all into `axesGroup`.
 
       var axesGroup = new Group();
       var axesPoints = {
         x: [[0, 0, 0], [1.25 * absMax, 0, 0]],
         y: [[0, 0, 0], [0, 1.25 * absMax, 0]],
         z: [[0, 0, 0], [0, 0, 1.25 * absMax]]
-      };
+      }; // This somewhat complicated pattern iterates through each key/value
+      // in the previous object and creates a new object based on a map
+      // In this case we are creating a path from each set of points.
+
       var axesPaths = Object.assign.apply(Object, _toConsumableArray(Object.entries(axesPoints).map(function (_ref) {
         var _ref2 = _slicedToArray(_ref, 2),
             key = _ref2[0],
@@ -81823,21 +81863,24 @@ var disc = __webpack_require__("fe15");
         return _defineProperty({}, key, value.map(function (element) {
           return new Vector3(element[0], element[1], element[2]);
         }));
-      })));
+      }))); // Use the same pattern to create a curve from each path.
+
       var axesCurves = Object.assign.apply(Object, _toConsumableArray(Object.entries(axesPaths).map(function (_ref4) {
         var _ref5 = _slicedToArray(_ref4, 2),
             key = _ref5[0],
             value = _ref5[1];
 
         return _defineProperty({}, key, new CatmullRomCurve3(value));
-      })));
+      }))); // Use same pattern to create a geometry from each curve
+
       var axesGeometries = Object.assign.apply(Object, _toConsumableArray(Object.entries(axesCurves).map(function (_ref7) {
         var _ref8 = _slicedToArray(_ref7, 2),
             key = _ref8[0],
             value = _ref8[1];
 
         return _defineProperty({}, key, new TubeBufferGeometry(value, 50, absMax * 0.01, 8, true));
-      })));
+      }))); // Now create axes materials with a different color for each axis.
+
       var axesMaterials = {
         x: new MeshBasicMaterial({
           color: 'red',
@@ -81851,22 +81894,23 @@ var disc = __webpack_require__("fe15");
           color: 'blue',
           depthWrite: true
         })
-      };
+      }; // Create the tube meshes
+
       var xAxisMesh = new Mesh(axesGeometries.x, axesMaterials.x);
       var yAxisMesh = new Mesh(axesGeometries.y, axesMaterials.y);
-      var zAxisMesh = new Mesh(axesGeometries.z, axesMaterials.z);
+      var zAxisMesh = new Mesh(axesGeometries.z, axesMaterials.z); // Add each one to the group and add group to scene
+
       axesGroup.add(xAxisMesh);
       axesGroup.add(yAxisMesh);
       axesGroup.add(zAxisMesh);
-      this.particles.add(axesGroup);
-      this.scene.add(this.particles); //
+      this.scene.add(axesGroup); // Create the renderer and append to the div container
 
       this.renderer = new WebGLRenderer({
         alpha: true
       });
       this.renderer.setPixelRatio(window.devicePixelRatio);
       this.renderer.setSize(this.container.clientWidth, this.container.clientWidth);
-      this.container.appendChild(this.renderer.domElement); //
+      this.container.appendChild(this.renderer.domElement); // Add orbit controls.
 
       this.controls = new OrbitControls(this.camera, this.renderer.domElement);
       this.controls.enableDamping = true;
@@ -81874,8 +81918,13 @@ var disc = __webpack_require__("fe15");
       this.controls.enableZoom = true;
       this.controls.autoRotate = this.autoRotate;
       this.controls.maxDistance = absMax * 5;
-      this.controls.addEventListener('change', this.updateCameras);
-      this.controls.enableKeys = false; //
+      this.controls.enableKeys = false; // We will have multiple QSpaceViewers and we want their orbit
+      // controls to be yoked to each other. We do this with the
+      // `emitCameraEvent` method.
+
+      this.controls.addEventListener('change', this.emitCameraEvent); // For development, it's nice to have stats on frame rate, etc.
+      // Set showStats to tru up top to see the sets.
+      // Be sure to turn it back off for the production version
 
       if (this.showStats) {
         this.stats = new stats_module();
@@ -81896,30 +81945,39 @@ var disc = __webpack_require__("fe15");
       }
     },
     highlightPoint: function highlightPoint() {
+      // When the volume selection slider changes, we call this method
+      // to change the size and opacity of the selected point.
       var alphas = this.particles.geometry.attributes.alpha;
       var sizes = this.particles.geometry.attributes.size;
 
       for (var i = 0; i < alphas.count; i++) {
         alphas.array[i] = i === this.highlightIdx ? 1.0 : 0.25;
-        sizes.array[i] = i === this.highlightIdx ? 3.0 * this.unhighlightedSize : this.unhighlightedSize;
+        sizes.array[i] = i === this.highlightIdx ? 3.0 * this.unselectedSize : this.unselectedSize;
       }
 
       alphas.needsUpdate = true;
-      sizes.needsUpdate = true;
+      sizes.needsUpdate = true; // Do it all over again for the reflected points.
+
       var alphasRef = this.reflectedParticles.geometry.attributes.alpha;
       var sizesRef = this.reflectedParticles.geometry.attributes.size;
 
       for (var _i3 = 0; _i3 < alphasRef.count; _i3++) {
         alphasRef.array[_i3] = _i3 === this.highlightIdx ? 1.0 : 0.25;
-        sizesRef.array[_i3] = _i3 === this.highlightIdx ? 3.0 * this.unhighlightedSize : this.unhighlightedSize;
+        sizesRef.array[_i3] = _i3 === this.highlightIdx ? 3.0 * this.unselectedSize : this.unselectedSize;
       }
 
       alphasRef.needsUpdate = true;
       sizesRef.needsUpdate = true;
     },
-    render: function render() {
+    toggleAutoRotate: function toggleAutoRotate() {
+      // When the auto rotate checkbox changes, change the autoRotate property
       this.controls.autoRotate = this.autoRotate;
+    },
+    toggleReflectedPoints: function toggleReflectedPoints() {
+      // When the reflected points checkbox changes, change the visible property
       this.reflectedParticles.visible = this.showReflectedPoints;
+    },
+    render: function render() {
       this.renderer.render(this.scene, this.camera);
 
       if (this.cameraPosition) {
@@ -81931,8 +81989,11 @@ var disc = __webpack_require__("fe15");
     onWindowResize: function onWindowResize() {
       this.renderer.setSize(this.container.clientWidth, this.container.clientWidth);
     },
-    updateCameras: function updateCameras() {
-      // this.cameraPosition = this.camera.position;
+    emitCameraEvent: function emitCameraEvent() {
+      // When the camera position updates on this viewer component,
+      // emit an `updateCameraPosition` event, which will trigger
+      // the QSpaceGroup component to send it back down to each
+      // child component via the `cameraPosition` parameter.
       this.$emit('updateCameraPosition', this.camera.position);
     }
   }
@@ -81949,8 +82010,8 @@ var disc = __webpack_require__("fe15");
 
 var QSpaceViewer_component = normalizeComponent(
   components_QSpaceViewervue_type_script_lang_js_,
-  QSpaceViewervue_type_template_id_2f3b4d26_render,
-  QSpaceViewervue_type_template_id_2f3b4d26_staticRenderFns,
+  QSpaceViewervue_type_template_id_d3f0a878_render,
+  QSpaceViewervue_type_template_id_d3f0a878_staticRenderFns,
   false,
   null,
   null,
@@ -81961,6 +82022,14 @@ var QSpaceViewer_component = normalizeComponent(
 /* harmony default export */ var QSpaceViewer = (QSpaceViewer_component.exports);
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/QSpaceGroup.vue?vue&type=script&lang=js&
 
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -82045,8 +82114,8 @@ var QSpaceViewer_component = normalizeComponent(
 
 var QSpaceGroup_component = normalizeComponent(
   components_QSpaceGroupvue_type_script_lang_js_,
-  QSpaceGroupvue_type_template_id_6c644c9e_render,
-  QSpaceGroupvue_type_template_id_6c644c9e_staticRenderFns,
+  QSpaceGroupvue_type_template_id_f0c8e2e2_render,
+  QSpaceGroupvue_type_template_id_f0c8e2e2_staticRenderFns,
   false,
   null,
   null,
@@ -82059,7 +82128,7 @@ var QSpaceGroup_component = normalizeComponent(
 var vue_slider_component_umd_min = __webpack_require__("4971");
 var vue_slider_component_umd_min_default = /*#__PURE__*/__webpack_require__.n(vue_slider_component_umd_min);
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"7bbaee14-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Sprite4D.vue?vue&type=template&id=3a01448e&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"322b854e-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Sprite4D.vue?vue&type=template&id=3a01448e&
 var Sprite4Dvue_type_template_id_3a01448e_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('span',{staticClass:"mt-3"},[_c('div',{staticClass:"sprite",style:(_vm.style),attrs:{"id":_vm.id}})])}
 var Sprite4Dvue_type_template_id_3a01448e_staticRenderFns = []
 
@@ -82139,7 +82208,7 @@ var Sprite4D_component = normalizeComponent(
 )
 
 /* harmony default export */ var Sprite4D = (Sprite4D_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"7bbaee14-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/LineChart.vue?vue&type=template&id=ae6805e4&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"322b854e-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/LineChart.vue?vue&type=template&id=ae6805e4&
 var LineChartvue_type_template_id_ae6805e4_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticStyle:{"height":"200px","width":"100%","display":"inline-flex"}},[_c('resize-observer',{on:{"notify":_vm.handleResize}}),_c('svg',{ref:"chart",staticClass:"lineChart",attrs:{"id":_vm.id,"width":_vm.width,"height":_vm.height}})],1)}
 var LineChartvue_type_template_id_ae6805e4_staticRenderFns = []
 
@@ -82346,7 +82415,7 @@ var LineChart_component = normalizeComponent(
 )
 
 /* harmony default export */ var LineChart = (LineChart_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"7bbaee14-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/BrainSprite.vue?vue&type=template&id=b1edb06c&scoped=true&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"322b854e-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/BrainSprite.vue?vue&type=template&id=b1edb06c&scoped=true&
 var BrainSpritevue_type_template_id_b1edb06c_scoped_true_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"brainsprite"},[(!_vm.done)?_c('div',[_vm._v("Hold on...")]):_vm._e(),_c('canvas',{attrs:{"id":_vm.id}}),(_vm.showOrig)?_c('img',{staticClass:"hidden",attrs:{"id":_vm.id+'_spriteImg',"src":'data:image/png;base64,' + _vm.base}}):_vm._e(),(_vm.overlay && _vm.showOrig)?_c('img',{staticClass:"hidden",attrs:{"id":_vm.id+'_overlayImg',"src":'data:image/png;base64,' + _vm.overlay}}):_vm._e()])}
 var BrainSpritevue_type_template_id_b1edb06c_scoped_true_staticRenderFns = []
 
