@@ -30088,19 +30088,19 @@ var component = normalizeComponent(
 )
 
 /* harmony default export */ var CarpetPlot = (component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"322b854e-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/QSpaceGroup.vue?vue&type=template&id=f0c8e2e2&
-var QSpaceGroupvue_type_template_id_f0c8e2e2_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"qspace-parent"}},[_c('b-row',[_c('b-col',[_c('b-checkbox',{model:{value:(_vm.autoRotate),callback:function ($$v) {_vm.autoRotate=$$v},expression:"autoRotate"}},[_vm._v(" auto rotate ")])],1),_c('b-col',[_c('b-checkbox',{model:{value:(_vm.showReflection),callback:function ($$v) {_vm.showReflection=$$v},expression:"showReflection"}},[_vm._v(" show reflected points ")])],1)],1),_c('b-row',[_c('b-col',[_c('QSpaceViewer',{attrs:{"elementId":"qSpaceViewerPre","qcoords":_vm.report.q_coords,"colors":_vm.report.color,"cameraPosition":_vm.globalPosition,"autoRotate":_vm.autoRotate,"showReflectedPoints":_vm.showReflection,"highlightIdx":_vm.time},on:{"updateCameraPosition":_vm.updateGlobalPosition}})],1),_c('b-col',[_c('QSpaceViewer',{attrs:{"elementId":"qSpaceViewerPost","qcoords":_vm.report.q_coords,"colors":_vm.report.color,"cameraPosition":_vm.globalPosition,"autoRotate":_vm.autoRotate,"showReflectedPoints":_vm.showReflection,"highlightIdx":_vm.time},on:{"updateCameraPosition":_vm.updateGlobalPosition}})],1)],1)],1)}
-var QSpaceGroupvue_type_template_id_f0c8e2e2_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"322b854e-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/QSpaceGroup.vue?vue&type=template&id=1d063d9c&
+var QSpaceGroupvue_type_template_id_1d063d9c_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"qspace-parent"}},[_c('p',{staticClass:"lead"},[_vm._v("q-space Sampling")]),_c('b-row',[_c('b-col',[_c('b-checkbox',{model:{value:(_vm.autoRotate),callback:function ($$v) {_vm.autoRotate=$$v},expression:"autoRotate"}},[_vm._v(" auto rotate ")])],1),_c('b-col',[_c('b-checkbox',{model:{value:(_vm.showReflection),callback:function ($$v) {_vm.showReflection=$$v},expression:"showReflection"}},[_vm._v(" show reflected points ")])],1)],1),_c('b-row',[_c('b-col',[_c('QSpaceViewer',{attrs:{"elementId":"qSpaceViewerPre","qcoords":_vm.report.q_coords,"colors":_vm.report.color,"cameraPosition":_vm.globalPosition,"autoRotate":_vm.autoRotate,"showReflectedPoints":_vm.showReflection,"highlightIdx":_vm.time},on:{"updateCameraPosition":_vm.updateGlobalPosition}}),_c('p',{staticClass:"lead"},[_vm._v("Original")])],1),_c('b-col',[_c('QSpaceViewer',{attrs:{"elementId":"qSpaceViewerPost","qcoords":_vm.report.q_coords,"colors":_vm.report.color,"cameraPosition":_vm.globalPosition,"autoRotate":_vm.autoRotate,"showReflectedPoints":_vm.showReflection,"highlightIdx":_vm.time},on:{"updateCameraPosition":_vm.updateGlobalPosition}}),_c('p',{staticClass:"lead"},[_vm._v("Corrected")])],1)],1)],1)}
+var QSpaceGroupvue_type_template_id_1d063d9c_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/QSpaceGroup.vue?vue&type=template&id=f0c8e2e2&
+// CONCATENATED MODULE: ./src/components/QSpaceGroup.vue?vue&type=template&id=1d063d9c&
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"322b854e-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/QSpaceViewer.vue?vue&type=template&id=d3f0a878&
-var QSpaceViewervue_type_template_id_d3f0a878_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":_vm.elementId}})}
-var QSpaceViewervue_type_template_id_d3f0a878_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"322b854e-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/QSpaceViewer.vue?vue&type=template&id=2dc4838c&
+var QSpaceViewervue_type_template_id_2dc4838c_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":_vm.elementId}})}
+var QSpaceViewervue_type_template_id_2dc4838c_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/QSpaceViewer.vue?vue&type=template&id=d3f0a878&
+// CONCATENATED MODULE: ./src/components/QSpaceViewer.vue?vue&type=template&id=2dc4838c&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array-buffer.slice.js
 var es_array_buffer_slice = __webpack_require__("ace4");
@@ -81686,6 +81686,7 @@ Stats.Panel = function ( name, fg, bg ) {
 //
 //
 //
+//
 
 
 
@@ -81729,8 +81730,8 @@ var disc = __webpack_require__("fe15");
       showStats: false,
       stats: null,
       container: null,
-      unselectedSize: null,
-      unselectedAlpha: 0.3
+      unhighlightedSize: null,
+      unhighlightedAlpha: 0.4
     };
   },
   mounted: function mounted() {
@@ -81805,7 +81806,8 @@ var disc = __webpack_require__("fe15");
 
       this.scene = new Scene();
       this.camera = new PerspectiveCamera(75, 1, 0.001, absMax * 10);
-      this.camera.position.z = absMax * 2; // Use ambient light
+      this.camera.position.z = absMax * 2;
+      this.camera.position.y = absMax * 1; // Use ambient light
 
       this.ambient = new AmbientLight(0x111111);
       this.scene.add(this.ambient); // Use vertex and fragment shaders to change the display of each point
@@ -81830,7 +81832,8 @@ var disc = __webpack_require__("fe15");
         },
         vertexShader: vertexShader,
         fragmentShader: fragmentShader,
-        transparent: true
+        transparent: true,
+        depthWrite: false
       }); // Create points from geometry and material and add to the scene.
 
       this.particles = new Points(geometry, material);
@@ -82019,8 +82022,8 @@ var disc = __webpack_require__("fe15");
 
 var QSpaceViewer_component = normalizeComponent(
   components_QSpaceViewervue_type_script_lang_js_,
-  QSpaceViewervue_type_template_id_d3f0a878_render,
-  QSpaceViewervue_type_template_id_d3f0a878_staticRenderFns,
+  QSpaceViewervue_type_template_id_2dc4838c_render,
+  QSpaceViewervue_type_template_id_2dc4838c_staticRenderFns,
   false,
   null,
   null,
@@ -82031,6 +82034,9 @@ var QSpaceViewer_component = normalizeComponent(
 /* harmony default export */ var QSpaceViewer = (QSpaceViewer_component.exports);
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/QSpaceGroup.vue?vue&type=script&lang=js&
 
+//
+//
+//
 //
 //
 //
@@ -82123,8 +82129,8 @@ var QSpaceViewer_component = normalizeComponent(
 
 var QSpaceGroup_component = normalizeComponent(
   components_QSpaceGroupvue_type_script_lang_js_,
-  QSpaceGroupvue_type_template_id_f0c8e2e2_render,
-  QSpaceGroupvue_type_template_id_f0c8e2e2_staticRenderFns,
+  QSpaceGroupvue_type_template_id_1d063d9c_render,
+  QSpaceGroupvue_type_template_id_1d063d9c_staticRenderFns,
   false,
   null,
   null,
