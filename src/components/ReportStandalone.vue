@@ -5,26 +5,32 @@
       <p class="lead">Motion and distortion corrected file</p>
 
       <div style="background-color: black;">
-        <sprite4d v-for="view in report.dwi_corrected"
-                  :key="view.orientation"
-                  :M="view.M"
-                  :N="view.N"
-                  :img="view.img"
-                  :num_slices="view.num_slices"
-                  :pix="view.pix"
-                  :id="view.orientation"
-                  :time="time"
-                  :overlayMode="false"
-                  opacity="1"
+        <sprite4d
+          v-for="view in report.dwi_corrected"
+          :key="view.orientation"
+          :M="view.M"
+          :N="view.N"
+          :img="view.img"
+          :num_slices="view.num_slices"
+          :pix="view.pix"
+          :id="view.orientation"
+          :time="time"
+          :overlayMode="false"
+          opacity="1"
         >
         </sprite4d>
       </div>
-      <vue-slider ref="timeSlider" v-model="time"
-       :min="0" :max="report.dwi_corrected[0].num_slices-1">
-     </vue-slider>
+      <vue-slider
+        ref="timeSlider"
+        v-model="time"
+        :min="0"
+        :max="report.dwi_corrected[0].num_slices - 1"
+      >
+      </vue-slider>
 
       <div style="height: 200px; width: 100%; display: inline-flex;">
-        <line-chart id="motion_params"
+        <line-chart
+          id="motion_params"
           :data="report.eddy_params"
           :outlier_indices="report.outlier_volumes"
           xlabel="TR"
@@ -34,13 +40,17 @@
         </line-chart>
       </div>
 
-      <CarpetPlot :data="report.carpetplot" :highlightIdx="time"/>
+      <CarpetPlot :data="report.carpetplot" :highlightIdx="time" />
 
-      <vue-slider ref="timeSlider" v-model="time"
-                  :min="0" :max="report.dwi_corrected[0].num_slices-1">
+      <vue-slider
+        ref="timeSlider"
+        v-model="time"
+        :min="0"
+        :max="report.dwi_corrected[0].num_slices - 1"
+      >
       </vue-slider>
 
-      <QSpaceGroup :report="report" :time="time"/>
+      <QSpaceGroup :report="report" :time="time" />
 
       <h2 class="mt-3 pt-3">Registration + Brain Mask</h2>
       <p class="lead">Brain mask computed on T1w, and mapped to B0</p>
@@ -69,36 +79,33 @@
         :base="report.b0.img"
         :overlay="report.colorFA.img"
       />
-
-
-
     </div>
   </div>
 </template>
 
 <script>
 // import axios from 'axios';
-import CarpetPlot from './CarpetPlot'
-import QSpaceGroup from './QSpaceGroup';
-import vueSlider from 'vue-slider-component';
-import sprite4d from './Sprite4D';
-import lineChart from './LineChart';
-import BrainSprite from './BrainSprite.vue';
-import Vue from 'vue';
-import BootstrapVue from 'bootstrap-vue';
-import VueResize from 'vue-resize'
+import CarpetPlot from "./CarpetPlot";
+import QSpaceGroup from "./QSpaceGroup";
+import vueSlider from "vue-slider-component";
+import sprite4d from "./Sprite4D";
+import lineChart from "./LineChart";
+import BrainSprite from "./BrainSprite.vue";
+import Vue from "vue";
+import BootstrapVue from "bootstrap-vue";
+import VueResize from "vue-resize";
 
 // eslint-disable-next-line
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap-vue/dist/bootstrap-vue.css';
-import 'vue-slider-component/theme/antd.css'
-import 'vue-resize/dist/vue-resize.css'
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap-vue/dist/bootstrap-vue.css";
+import "vue-slider-component/theme/antd.css";
+import "vue-resize/dist/vue-resize.css";
 
-Vue.use(VueResize)
+Vue.use(VueResize);
 Vue.use(BootstrapVue);
 
 export default {
-  name: 'report',
+  name: "report",
   components: {
     QSpaceGroup,
     sprite4d,
@@ -127,32 +134,24 @@ export default {
     },
     updateGlobalPosition(position) {
       this.globalPosition = position;
-    }
+    },
   },
-  created() {
-
-  },
+  created() {},
   mounted() {
-
     this.$nextTick(() => {
       if (this.report) {
         this.spriteSlice = this.get_mid_slice();
-
       }
     });
   },
   watch: {
-
     report() {
       if (this.report) {
         this.spriteSlice = this.get_mid_slice();
       }
     },
-
   },
 };
 </script>
 
-<style>
-
-</style>
+<style></style>

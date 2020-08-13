@@ -1,19 +1,23 @@
 <template>
   <div style="height: 200px; width: 100%; display: inline-flex;">
     <resize-observer @notify="handleResize" />
-    <svg ref="chart" :id="id" class="lineChart" :width="width" :height="height">
-    </svg>
+    <svg
+      ref="chart"
+      :id="id"
+      class="lineChart"
+      :width="width"
+      :height="height"
+    ></svg>
   </div>
-    
 </template>
 
 <script>
-const d3 = require('d3');
+const d3 = require("d3");
 
 window.d3 = d3;
 
 export default {
-  name: 'lineChart',
+  name: "lineChart",
   data() {
     return {
       svg: null,
@@ -43,17 +47,22 @@ export default {
   },
   methods: {
     initAx() {
-      this.width = this.$refs.chart.clientWidth - this.margin.left - this.margin.right;
-      this.height = this.$refs.chart.clientHeight - this.margin.top - this.margin.bottom;
+      this.width =
+        this.$refs.chart.clientWidth - this.margin.left - this.margin.right;
+      this.height =
+        this.$refs.chart.clientHeight - this.margin.top - this.margin.bottom;
       const svg = d3.select(`#${this.id}`);
 
       // const width = this.$refs.chart.clientWidth - margin.left - margin.right
       // const height = this.$refs.chart.clientHeight - margin.top - margin.bottom
-      const g = svg.append('g').attr('transform', `translate(${this.margin.left}, ${this.margin.top})`);
-      const y = d3.scaleLinear()
-        .range([this.height, 0]);
-      const x = d3.scaleLinear()
-        .range([0, this.width]);
+      const g = svg
+        .append("g")
+        .attr(
+          "transform",
+          `translate(${this.margin.left}, ${this.margin.top})`
+        );
+      const y = d3.scaleLinear().range([this.height, 0]);
+      const x = d3.scaleLinear().range([0, this.width]);
 
       this.svg = svg;
       this.g = g;
@@ -65,9 +74,10 @@ export default {
       this.initHighlightPoints();
     },
     initXaxis() {
-      this.g.append('g')
-        .attr('class', 'x axis')
-        .attr('transform', `translate(0, ${this.height})`)
+      this.g
+        .append("g")
+        .attr("class", "x axis")
+        .attr("transform", `translate(0, ${this.height})`)
         .call(d3.axisBottom(this.x));
       // this.updateXaxis();
     },
@@ -76,15 +86,16 @@ export default {
       d3.select(`#${this.id} .x.axis`).call(d3.axisBottom(this.x));
     },
     initYaxis() {
-      this.g.append('g')
-        .attr('class', 'y axis')
+      this.g
+        .append("g")
+        .attr("class", "y axis")
         .call(d3.axisLeft(this.y))
-        .append('text')
-        .attr('fill', '#000')
-        .attr('transform', 'rotate(-90)')
-        .attr('y', 6)
-        .attr('dy', '0.71em')
-        .attr('text-anchor', 'end')
+        .append("text")
+        .attr("fill", "#000")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 6)
+        .attr("dy", "0.71em")
+        .attr("text-anchor", "end")
         .text(this.ylabel);
       // this.updateYaxis();
     },
@@ -93,32 +104,40 @@ export default {
       d3.select(`#${this.id} .y.axis`).call(d3.axisLeft(this.y));
     },
     initHighlightPoints() {
-      this.g.append('circle').attr('class', 'dot-series-1');
-      this.g.append('circle').attr('class', 'dot-series-2');
+      this.g.append("circle").attr("class", "dot-series-1");
+      this.g.append("circle").attr("class", "dot-series-2");
     },
     updateHighlightPoints() {
       const self = this;
       d3.select(`#${this.id} .dot-series-1`)
-        .attr('r', 7)
-        .attr('cx', () => self.x(self.highlightIdx))
-        .attr('cy', () => self.y(self.data[self.highlightIdx][0]))
-        .attr('fill', 'steelblue');
+        .attr("r", 7)
+        .attr("cx", () => self.x(self.highlightIdx))
+        .attr("cy", () => self.y(self.data[self.highlightIdx][0]))
+        .attr("fill", "steelblue");
 
       d3.select(`#${this.id} .dot-series-2`)
-        .attr('r', 7)
-        .attr('cx', () => self.x(self.highlightIdx))
-        .attr('cy', () => self.y(self.data[self.highlightIdx][1]))
-        .attr('fill', 'red');
+        .attr("r", 7)
+        .attr("cx", () => self.x(self.highlightIdx))
+        .attr("cy", () => self.y(self.data[self.highlightIdx][1]))
+        .attr("fill", "red");
     },
     plotData() {
       const self = this;
 
       /* eslint-disable */
-      const minX = d3.min(this.data, function g(d, i) { return i; });
-      const maxX = d3.max(this.data, function g(d, i) { return i; });
+      const minX = d3.min(this.data, function g(d, i) {
+        return i;
+      });
+      const maxX = d3.max(this.data, function g(d, i) {
+        return i;
+      });
 
-      const maxY = d3.max(this.data, function g(d, i) { return d3.max(d); });
-      const minY = d3.min(this.data, function g(d, i) { return d3.min(d); });
+      const maxY = d3.max(this.data, function g(d, i) {
+        return d3.max(d);
+      });
+      const minY = d3.min(this.data, function g(d, i) {
+        return d3.min(d);
+      });
       /* eslint-enable */
 
       this.xDomain = [minX, maxX];
@@ -128,51 +147,62 @@ export default {
       this.updateYaxis();
 
       /* eslint-disable */
-      const line1 = d3.line()
-             .x(function f(d, i) { return self.x(i); })
-             .y(function f(d, i) { return self.y(d[0]); });
+      const line1 = d3
+        .line()
+        .x(function f(d, i) {
+          return self.x(i);
+        })
+        .y(function f(d, i) {
+          return self.y(d[0]);
+        });
 
-      const line2 = d3.line()
-             .x(function f(d, i) { return self.x(i); })
-             .y(function f(d, i) { return self.y(d[1]); });
+      const line2 = d3
+        .line()
+        .x(function f(d, i) {
+          return self.x(i);
+        })
+        .y(function f(d, i) {
+          return self.y(d[1]);
+        });
       /* eslint-enable */
 
       this.lines = [line1, line2];
 
-
-      this.g.append('path')
-        .attr('class', 'series-1')
+      this.g
+        .append("path")
+        .attr("class", "series-1")
         .datum(this.data)
-        .attr('fill', 'none')
-        .attr('stroke', 'steelblue')
-        .attr('stroke-linejoin', 'round')
-        .attr('stroke-linecap', 'round')
-        .attr('stroke-width', 1.5)
-        .attr('d', line1);
+        .attr("fill", "none")
+        .attr("stroke", "steelblue")
+        .attr("stroke-linejoin", "round")
+        .attr("stroke-linecap", "round")
+        .attr("stroke-width", 1.5)
+        .attr("d", line1);
 
-      this.g.append('path')
-        .attr('class', 'series-2')
+      this.g
+        .append("path")
+        .attr("class", "series-2")
         .datum(this.data)
-        .attr('fill', 'none')
-        .attr('stroke', 'red')
-        .attr('stroke-linejoin', 'round')
-        .attr('stroke-linecap', 'round')
-        .attr('stroke-width', 1.5)
-        .attr('d', line2);
+        .attr("fill", "none")
+        .attr("stroke", "red")
+        .attr("stroke-linejoin", "round")
+        .attr("stroke-linecap", "round")
+        .attr("stroke-width", 1.5)
+        .attr("d", line2);
 
-      this.g.selectAll('.outlier')
+      this.g
+        .selectAll(".outlier")
         .data(this.outlier_indices)
         .enter()
-        .append('rect')
-        .attr('class', 'outlier')
-        .attr('x', i => self.x(i) - 1.5)
-        .attr('y', () => self.y(maxY))
-        .attr('width', '3px')
-        .attr('height', () => `${self.height}px`)
-        .attr('fill', 'black');
+        .append("rect")
+        .attr("class", "outlier")
+        .attr("x", (i) => self.x(i) - 1.5)
+        .attr("y", () => self.y(maxY))
+        .attr("width", "3px")
+        .attr("height", () => `${self.height}px`)
+        .attr("fill", "black");
 
-
-      this.svg.on('mousemove', () => {
+      this.svg.on("mousemove", () => {
         // const x0 = self.x.invert(d3.mouse(this)[0]);
         // const bisect = d3.bisector(function(d){return d[0]}).left;
         // window.bisect = bisect;
@@ -180,36 +210,34 @@ export default {
     },
     handleResize() {
       // eslint-disable-next-line
-      this.width = this.$refs.chart.clientWidth - this.margin.left - this.margin.right;
+      this.width =
+        this.$refs.chart.clientWidth - this.margin.left - this.margin.right;
       // this.height = this.$refs.chart.clientHeight - this.margin.top - this.margin.bottom;
-      this.updateXaxis()
+      this.updateXaxis();
       // this.updateYaxis()
-      this.updateHighlightPoints()
+      this.updateHighlightPoints();
       const self = this;
-      this.g.selectAll('.outlier')
-        .attr('x', i => self.x(i) - 1.5)
-        .attr('height', () => `${self.height}px`)
+      this.g
+        .selectAll(".outlier")
+        .attr("x", (i) => self.x(i) - 1.5)
+        .attr("height", () => `${self.height}px`);
 
-      this.g.selectAll('.series-1')
-          .attr('d', this.lines[0]);
+      this.g.selectAll(".series-1").attr("d", this.lines[0]);
 
-      this.g.selectAll('.series-2')
-          .attr('d', this.lines[1]);
-
-    }
-
+      this.g.selectAll(".series-2").attr("d", this.lines[1]);
+    },
   },
   mounted() {
     this.initAx();
     this.plotData();
   },
-  props: ['ylabel', 'xlabel', 'data', 'id', 'highlightIdx', 'outlier_indices'],
+  props: ["ylabel", "xlabel", "data", "id", "highlightIdx", "outlier_indices"],
 };
 </script>
 
 <style>
-  .lineChart {
-    width: 100%;
-    height: 100%;
-  }
+.lineChart {
+  width: 100%;
+  height: 100%;
+}
 </style>
