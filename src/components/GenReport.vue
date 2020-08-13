@@ -1,17 +1,16 @@
 <template>
   <b-container>
-      <report :report="report"></report>
+    <report :report="report"></report>
   </b-container>
 </template>
 
 <script>
-import report from './ReportStandalone';
+import report from "./ReportStandalone";
 
-const reportFile = require('../../example/report.json')
-
+const reportFile = require("../../example/report.json");
 
 export default {
-  name: 'Main',
+  name: "Main",
   components: {
     report,
   },
@@ -25,16 +24,14 @@ export default {
       return Math.floor(this.report.b0.num_slices / 2);
     },
   },
-  watch: {
-
-  },
+  watch: {},
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
-h1, h2 {
+h1,
+h2 {
   font-weight: normal;
 }
 ul {

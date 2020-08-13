@@ -1,13 +1,12 @@
 <template>
   <span class="mt-3">
-    <div class="sprite" :id="id" :style="style">
-    </div>
+    <div class="sprite" :id="id" :style="style"></div>
   </span>
 </template>
 
 <script>
 export default {
-  name: 'sprite4d',
+  name: "sprite4d",
   computed: {
     row_idx() {
       return Math.floor(this.time / this.M);
@@ -20,14 +19,14 @@ export default {
         width: `${this.pix}px`,
         height: `${this.pix}px`,
         zoom: 1.5,
-        'background-position-x': `-${this.col_idx * this.pix}px`,
-        'background-position-y': `-${this.row_idx * this.pix}px`,
-        'background-image': `url('data:image/png;base64,${this.img}')`,
-        display: 'inline-flex',
+        "background-position-x": `-${this.col_idx * this.pix}px`,
+        "background-position-y": `-${this.row_idx * this.pix}px`,
+        "background-image": `url('data:image/png;base64,${this.img}')`,
+        display: "inline-flex",
         opacity: this.opacity,
       };
       if (this.overlayMode) {
-        output.position = 'absolute';
+        output.position = "absolute";
         output.left = `calc(50% - ${this.pix / 2}px)`;
       }
 
@@ -35,29 +34,29 @@ export default {
     },
   },
   data() {
-    return {
-
-    };
+    return {};
   },
-  methods: {
-
-  },
-  mounted() {
-
-  },
+  methods: {},
+  mounted() {},
   watch: {
-    time() {
-
-    },
+    time() {},
   },
   props: [
-    'M', 'N', 'pix', 'num_slices', 'img', 'id', 'time', 'overlayMode', 'opacity',
+    "M",
+    "N",
+    "pix",
+    "num_slices",
+    "img",
+    "id",
+    "time",
+    "overlayMode",
+    "opacity",
   ],
 };
 </script>
 
 <style>
-  .sprite {
-    background-position: "0px 0px"
-  }
+.sprite {
+  background-position: "0px 0px";
+}
 </style>
