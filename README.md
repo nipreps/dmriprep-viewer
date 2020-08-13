@@ -1,8 +1,11 @@
 # dmriprep-viewer
 
-This viewer is for the [dmriprep](https://github.com/nipreps/dmriprep) report's interactive component.
-The dmriprep workflow creates a `report.json` file which is injected into the HTML of a reportlet.
-This library then renders the object in a series of interactive widgets.
+This viewer is for the visualization of interactive reports from both
+[dmriprep](https://github.com/nipreps/dmriprep) and
+[qsiprep](https://github.com/PennBBL/qsiprep). The dmriprep and qsiprep
+workflows create a `report.json` file which is injected into the HTML of a
+reportlet. This library then renders the object in a series of interactive
+widgets.
 
 ## Relevant files:
 
@@ -17,18 +20,18 @@ The relevant files for this repo are:
 
 The widget files are:
 
-| Location                          | Content                                                     |
-| --------------------------------- | ----------------------------------------------------------- |
-| `src/components/BrainSprite.vue`  | 3D (brainsprite)[https://github.com/SIMEXP/brainsprite.js]s |
-| `src/components/CarpetPlot.vue`   | Interactive heatmap (carpetplot)                            |
-| `src/components/LineChart.vue`    | Interactive line chart for motion parameters                |
-| `src/components/QSpaceGroup.vue`  | 3D QSpace widget for 2 QSpace plots                         |
-| `src/components/QSpaceViewer.vue` | Widget for single QSpace plot                               |
-| `src/components/Sprite4D.vue`     | Widget for axial, sagittal, and coronal views over time     |
+| Location                          | Content                                                                                                                                          |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `src/components/BrainSprite.vue`  | 3D [brainsprite](https://github.com/SIMEXP/brainsprite.js)                                                                                       |
+| `src/components/CarpetPlot.vue`   | Interactive heatmap or [carpetplot](https://qsiprep.readthedocs.io/en/latest/preprocessing.html#confounds-and-carpet-plot-on-the-visual-reports) |
+| `src/components/LineChart.vue`    | Interactive line chart for motion parameters                                                                                                     |
+| `src/components/QSpaceGroup.vue`  | 3D QSpace widget for 2 QSpace plots                                                                                                              |
+| `src/components/QSpaceViewer.vue` | Widget for single [QSpace plot](https://qsiprep.readthedocs.io/en/latest/preprocessing.html#visual-reports)                                      |
+| `src/components/Sprite4D.vue`     | Widget for axial, sagittal, and coronal views over time                                                                                          |
 
 ## Project setup
 
-You should first have NodeJS installed (version >= 8). Then install dependencies with:
+You should first have NodeJS installed (version >= 10). Then install dependencies with:
 
 ```
 yarn install
