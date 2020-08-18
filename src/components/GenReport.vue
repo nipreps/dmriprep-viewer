@@ -1,48 +1,70 @@
 <template>
-  <b-container>
-    <report :report="report"></report>
+  <b-container v-if="report">
+    <report :reportProp="report"></report>
   </b-container>
 </template>
 
 <script>
-import report from "./ReportStandalone";
-
-const reportFile = require("../../example/report.json");
+import axios from "axios";
+import report from "./ReportParticipant";
 
 export default {
-  name: "Main",
+  name: "genReport",
   components: {
     report,
   },
   data() {
     return {
-      report: reportFile,
+      report: null,
+      reportSource: null,
     };
   },
   methods: {
-    get_mid_slice() {
-      return Math.floor(this.report.b0.num_slices / 2);
+    loadFromQuery() {
+      if (this.$route.query) {
+        // load the json
+        if (
+          !(this.$route.query.url || this.$route.query.s3Uri) &&
+          this.$route.name === "GenReport"
+        ) {
+          this.$router.push("/");
+        } else if (this.$route.query.url) {
+          axios.get(this.$route.query.url).then((resp) => {
+            this.report = resp.data;
+          });
+        } else if (this.$route.query.s3Uri) {
+          axios
+            .get(`https://s3.amazonaws.com/$(this.$route.query.s3Uri`)
+            .then((resp) => {
+              this.report = resp.data;
+            });
+        }
+      }
     },
   },
-  watch: {},
+  created() {
+    this.loadFromQuery();
+  },
+  mounted() {
+    if (this.reportProp) {
+      this.report = this.reportProp;
+    }
+  },
+  watch: {
+    reportProp() {
+      if (this.reportProp) {
+        this.report = this.reportProp;
+      }
+    },
+    $route() {
+      this.loadFromQuery();
+    },
+  },
+  props: {
+    reportProp: Object,
+  },
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1,
-h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-</style>
+<style scoped></style>

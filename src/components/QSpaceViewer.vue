@@ -14,7 +14,7 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import Stats from "three/examples/jsm/libs/stats.module.js";
-const disc = require("./disc.png");
+const disc = require("../assets/disc.png");
 
 export default {
   name: "qSpaceViewer",
