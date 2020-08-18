@@ -11,12 +11,13 @@ widgets.
 
 The relevant files for this repo are:
 
-| Location                              | Content                                                                                                  |
-| ------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| `src/components/ReportStandalone.vue` | Main file to render contents of the `report` object from `dmriprep`                                      |
-| `src/App.vue`                         | Main entrypoint, its child component is `src/components/GenReport.vue`                                   |
-| `src/components/GenReport.vue`        | Loads `examples/report.json` and passes it to its child component, `src/components/ReportStandalone.vue` |
-| `package.json`                        | File that contains all the JS libraries we need for this.                                                |
+| Location                               | Content                                                                                                           |
+| -------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `src/components/ReportParticipant.vue` | Renders contents of a participant level `report` object from `dmriprep`                                           |
+| `src/components/ReportGroup.vue`       | Renders contents of a group level `report` object from `dmriprep`                                                 |
+| `src/App.vue`                          | Main entrypoint, its child component is `src/components/GenReport.vue`                                            |
+| `src/components/GenReport.vue`         | Determines if report.json contains a particpant or group level report and calls the appropriate report component. |
+| `package.json`                         | File that contains all the JS libraries we need for this.                                                         |
 
 The widget files are:
 

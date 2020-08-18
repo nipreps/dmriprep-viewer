@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <GenReport />
+    <router-view />
   </div>
 </template>
 
@@ -10,15 +10,11 @@ import BootstrapVue from "bootstrap-vue";
 // eslint-disable-next-line
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
-Vue.use(BootstrapVue);
 
-import GenReport from "./components/GenReport";
+Vue.use(BootstrapVue);
 
 export default {
   name: "App",
-  components: {
-    GenReport,
-  },
 };
 </script>
 
