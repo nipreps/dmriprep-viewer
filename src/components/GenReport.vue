@@ -1,17 +1,36 @@
 <template>
-  <b-container v-if="report">
-    <report :reportProp="report"></report>
+  <b-container>
+    <b-container v-if="!report" class="text-center">
+      <strong>Loading...</strong>
+      <b-spinner
+        class="ml-2"
+        variant="primary"
+        label="loading report"
+      ></b-spinner>
+    </b-container>
+    <b-container v-if="report">
+      <report
+        v-if="report.analysis_level === 'participant'"
+        :reportProp="report"
+      ></report>
+      <groupReport
+        v-if="report.analysis_level === 'group'"
+        :reportProp="report"
+      ></groupReport>
+    </b-container>
   </b-container>
 </template>
 
 <script>
 import axios from "axios";
 import report from "./ReportParticipant";
+import groupReport from "./ReportGroup";
 
 export default {
   name: "genReport",
   components: {
     report,
+    groupReport,
   },
   data() {
     return {

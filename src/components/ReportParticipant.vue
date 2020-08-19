@@ -1,6 +1,6 @@
 <template>
   <b-container v-if="report">
-    <topBar :reportProp="report"></topBar>
+    <topBar :reportProp="report" :sidebarButton="sidebarButton"></topBar>
     <b-row>
       <b-col>
         <h1>{{ report.subject_id }}</h1>
@@ -8,6 +8,7 @@
         <p class="lead">Motion and distortion corrected file</p>
 
         <div style="background-color: black;">
+          <explainer explainer-text="Todo: explain the sprite"></explainer>
           <sprite4d
             v-for="view in report.dwi_corrected"
             :key="view.orientation"
@@ -20,17 +21,16 @@
             :time="time"
             :overlayMode="false"
             opacity="1"
-          >
-          </sprite4d>
+          ></sprite4d>
         </div>
         <vue-slider
           ref="timeSlider"
           v-model="time"
           :min="0"
           :max="report.dwi_corrected[0].num_slices - 1"
-        >
-        </vue-slider>
+        ></vue-slider>
 
+        <explainer explainer-text="Todo: explain the line chart"></explainer>
         <div style="height: 200px; width: 100%; display: inline-flex;">
           <line-chart
             id="motion_params"
@@ -39,10 +39,10 @@
             xlabel="TR"
             ylabel="RMS"
             :highlightIdx="time"
-          >
-          </line-chart>
+          ></line-chart>
         </div>
 
+        <explainer explainer-text="Todo: explain the carpet plot"></explainer>
         <CarpetPlot :data="report.carpetplot" :highlightIdx="time" />
 
         <vue-slider
@@ -50,14 +50,14 @@
           v-model="time"
           :min="0"
           :max="report.dwi_corrected[0].num_slices - 1"
-        >
-        </vue-slider>
+        ></vue-slider>
 
+        <explainer explainer-text="Todo: explain the carpet plot"></explainer>
         <QSpaceGroup :report="report" :time="time" />
 
         <h2 class="mt-3 pt-3">Registration + Brain Mask</h2>
         <p class="lead">Brain mask computed on T1w, and mapped to B0</p>
-
+        <explainer explainer-text="Todo: explain this component"></explainer>
         <BrainSprite
           id="brainMaskSprite"
           ref="brainMaskSprite"
@@ -72,6 +72,9 @@
         <h2 class="mt-3 pt-3">DTI: ColorFA</h2>
         <p class="lead">Color FA mapped on B0</p>
 
+        <explainer
+          explainer-text="Todo: explain this component too"
+        ></explainer>
         <BrainSprite
           id="colorFASprite"
           ref="colorFASprite"
@@ -88,16 +91,17 @@
 </template>
 
 <script>
-import topBar from "./TopBar";
+import BrainSprite from "./BrainSprite.vue";
 import CarpetPlot from "./CarpetPlot";
 import QSpaceGroup from "./QSpaceGroup";
-import vueSlider from "vue-slider-component";
-import sprite4d from "./Sprite4D";
+import explainer from "./Explainer";
 import lineChart from "./LineChart";
-import BrainSprite from "./BrainSprite.vue";
+import sprite4d from "./Sprite4D";
+import topBar from "./TopBar";
 import Vue from "vue";
-import { BootstrapVue, BootstrapVueIcons } from "bootstrap-vue";
 import VueResize from "vue-resize";
+import vueSlider from "vue-slider-component";
+import { BootstrapVue, BootstrapVueIcons } from "bootstrap-vue";
 
 // eslint-disable-next-line
 import "bootstrap/dist/css/bootstrap.css";
@@ -112,6 +116,7 @@ Vue.use(BootstrapVueIcons);
 export default {
   name: "report",
   components: {
+    explainer,
     topBar,
     QSpaceGroup,
     sprite4d,
@@ -123,6 +128,10 @@ export default {
   props: {
     reportProp: {
       type: Object,
+    },
+    sidebarButton: {
+      type: Boolean,
+      default: false,
     },
   },
   data() {

@@ -43,6 +43,10 @@
       </b-input-group>
     </b-container>
 
+    <b-container v-if="state === 'showLoader'" class="text-center">
+      <strong>Loading...</strong>
+      <b-spinner variant="primary" label="loading report"></b-spinner>
+    </b-container>
     <genReport v-if="state === 'showReport'" :reportProp="report"></genReport>
   </b-container>
 </template>
@@ -79,6 +83,7 @@ export default {
   watch: {
     file() {
       if (this.file) {
+        this.state = "showLoader";
         const reader = new FileReader();
         const self = this;
         reader.onload = function Load(e) {
