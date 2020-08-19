@@ -1,46 +1,46 @@
 <template>
   <b-container>
     <b-container v-if="state === 'getInput'">
-      <img class="logo" src="../assets/dmriprep-icon.svg" />
-      <h1>dmriprep Viewer</h1>
-      <p class="lead">
-        Upload your report.json file generated with dmriprep or qsiprep
-      </p>
-      <b-form-file
-        class="mt-3"
-        v-model="file"
-        accept="*.json"
-        :state="Boolean(file)"
-        placeholder="Choose a file..."
-      ></b-form-file>
+      <b-row class="d-flex align-items-center">
+        <b-col cols="4" class="text-right">
+          <img class="logo" src="../assets/dmriprep-icon.svg" />
+        </b-col>
+        <b-col cols="8" class="text-left">
+          <h1>dmriprep Viewer</h1>
+        </b-col>
+      </b-row>
 
-      <p class="lead mt-3">OR copy/paste a URL</p>
-      <b-input-group size="md" class="mb-3" prepend="URL">
-        <b-form-input
-          v-model="url"
-          placeholder="Enter a URL..."
-          @keyup.enter="navigate"
-        />
-        <b-input-group-append>
-          <b-btn size="md" text="Button" variant="primary" @click="navigate"
-            >Go</b-btn
-          >
-        </b-input-group-append>
-      </b-input-group>
+      <b-form-group
+        label="Choose your report.json file generated with dmriprep or qsiprep:"
+        description="All computation happens on the client side. Your report will not be uploaded to any server."
+        class="mt-5 text-left"
+      >
+        <b-form-file
+          v-model="file"
+          accept="*.json"
+          :state="Boolean(file)"
+          placeholder="Choose a file..."
+        ></b-form-file>
+      </b-form-group>
 
-      <p class="lead mt-3">OR point to a report file on Amazon S3</p>
-      <b-input-group size="md" class="mb-3" prepend="S3 URI">
-        <b-form-input
-          v-model="s3Uri"
-          placeholder="Enter an Amazon S3 URI..."
-          @keyup.enter="s3"
-        />
-        <b-input-group-append>
-          <b-btn size="md" text="Button" variant="primary" @click="s3"
-            >Go</b-btn
-          >
-        </b-input-group-append>
-      </b-input-group>
+      <b-form-group
+        label="OR copy/paste a URL or Amazon S3 URI:"
+        description="Enter a valid URL or an Amazon S3 URI of the form s3://bucket/followed/by/a/key"
+        class="mt-5 text-left"
+      >
+        <b-input-group size="md" class="mb-3" prepend="URL">
+          <b-form-input
+            v-model="url"
+            placeholder="Enter a URL or Amazon S3 URI..."
+            @keyup.enter="navigate"
+          />
+          <b-input-group-append>
+            <b-btn size="md" text="Button" variant="primary" @click="navigate"
+              >Go</b-btn
+            >
+          </b-input-group-append>
+        </b-input-group>
+      </b-form-group>
     </b-container>
 
     <b-container v-if="state === 'showLoader'" class="text-center">
@@ -65,27 +65,33 @@ export default {
       msg: "Welcome to dmriprep-viewer",
       report: {},
       url: null,
-      s3Uri: null,
       state: "getInput",
     };
   },
   methods: {
     navigate() {
+      if (this.url.startsWith("s3://")) {
+        this.s3();
+      } else {
+        this.followUrl();
+      }
+    },
+    followUrl() {
       this.$router.push({ path: "/report", query: { url: this.url } });
     },
     s3() {
-      if (this.s3Uri.startsWith("s3://")) {
-        this.s3Uri = this.s3Uri.replace("s3://", "");
+      if (this.url.startsWith("s3://")) {
+        this.url = this.url.replace("s3://", "");
       }
-      this.$router.push({ path: "/report", query: { s3Uri: this.s3Uri } });
+      this.$router.push({ path: "/report", query: { s3Uri: this.url } });
     },
   },
   watch: {
     file() {
       if (this.file) {
-        this.state = "showLoader";
         const reader = new FileReader();
         const self = this;
+        this.state = "showLoader";
         reader.onload = function Load(e) {
           const contents = e.target.result;
           self.report = JSON.parse(contents);
