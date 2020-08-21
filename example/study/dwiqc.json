@@ -1,0 +1,70 @@
+{
+  "report_type": "dwi_qc_report",
+  "pipeline": "qsiprep",
+  "pipeline_version": "0.11.0",
+  "analysis_level": "group",
+  "boilerplate": "",
+  "subjects": [
+    "sub-0",
+    "sub-1",
+    "sub-2",
+    "sub-3",
+    "sub-4",
+    "sub-5",
+    "sub-6",
+    "sub-7",
+    "sub-8",
+    "sub-9",
+    "sub-10",
+    "sub-11",
+    "sub-12",
+    "sub-13",
+    "sub-14",
+    "sub-15",
+    "sub-16",
+    "sub-17",
+    "sub-18",
+    "sub-19"
+  ],
+  "dwi_qc_metrics": {
+    "pairs": {
+      "raw_neighbor_corr": {
+        "sub-0": 0.3,
+        "sub-1": 0.6,
+        "sub-2": 0.22,
+        "sub-3": 0.44,
+        "sub-4": 0.54
+      },
+      "t1_neighbor_corr": {
+        "sub-0": 0.3,
+        "sub-1": 0.6,
+        "sub-2": 0.22,
+        "sub-3": 0.44,
+        "sub-4": 0.87
+      },
+      "mni_neighbor_corr": {
+        "sub-0": 0.3,
+        "sub-1": 0.6,
+        "sub-2": 0.22,
+        "sub-3": 0.44,
+        "sub-4": 0.11
+      }
+    },
+    "univariate_distributions": {
+      "t1_dice_distance": {
+        "sub-0": 0.04,
+        "sub-1": 0.055,
+        "sub-2": 0.035,
+        "sub-3": 0.077,
+        "sub-4": 0.18
+      },
+      "mni_dice_distance": {
+        "sub-0": 0.03,
+        "sub-1": 0.07,
+        "sub-2": 0.066,
+        "sub-3": 0.052,
+        "sub-4": 0.17
+      }
+    }
+  }
+}

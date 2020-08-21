@@ -11,27 +11,27 @@
       </b-row>
 
       <b-form-group
-        label="Choose your report.json file generated with dmriprep or qsiprep:"
+        label="Choose a directory containing dwiqc.json files generated with dmriprep or qsiprep:"
         description="All computation happens on the client side. Your report will not be uploaded to any server."
         class="mt-5 text-left"
       >
         <b-form-file
-          v-model="file"
-          accept="*.json"
-          :state="Boolean(file)"
-          placeholder="Choose a file..."
+          v-model="files"
+          directory
+          multiple
+          placeholder="Choose a directory..."
         ></b-form-file>
       </b-form-group>
 
       <b-form-group
-        label="OR copy/paste a URL or Amazon S3 URI:"
-        description="Enter a valid URL or an Amazon S3 URI of the form s3://bucket/followed/by/a/key"
+        label="OR copy/paste an Amazon S3 URI:"
+        description="Enter a valid Amazon S3 URI of the form s3://bucket/followed/by/a/key"
         class="mt-5 text-left"
       >
         <b-input-group size="md" class="mb-3" prepend="URL">
           <b-form-input
             v-model="url"
-            placeholder="Enter a URL or Amazon S3 URI..."
+            placeholder="Enter an Amazon S3 URI..."
             @keyup.enter="navigate"
           />
           <b-input-group-append>
@@ -43,25 +43,30 @@
       </b-form-group>
     </b-container>
 
-    <b-container v-if="state === 'showLoader'" class="text-center">
-      <strong>Loading...</strong>
-      <b-spinner variant="primary" label="loading report"></b-spinner>
-    </b-container>
-    <genReport v-if="state === 'showReport'" :reportProp="report"></genReport>
+    <spinner v-if="state === 'showLoader'"></spinner>
+    <genReport
+      v-if="state === 'showReports'"
+      :filesProp="reportFiles"
+      :groupFileProp="groupReportFiles"
+    ></genReport>
   </b-container>
 </template>
 
 <script>
 import genReport from "./GenReport";
+import spinner from "./Spinner";
 
 export default {
   name: "LandingPage",
   components: {
     genReport,
+    spinner,
   },
   data() {
     return {
-      file: null,
+      files: null,
+      reportFiles: null,
+      groupReportFiles: null,
       msg: "Welcome to dmriprep-viewer",
       report: {},
       url: null,
@@ -87,17 +92,26 @@ export default {
     },
   },
   watch: {
-    file() {
-      if (this.file) {
-        const reader = new FileReader();
-        const self = this;
+    files() {
+      if (this.files) {
         this.state = "showLoader";
-        reader.onload = function Load(e) {
-          const contents = e.target.result;
-          self.report = JSON.parse(contents);
-          self.state = "showReport";
-        };
-        reader.readAsText(this.file);
+        // We may have many files. Find all of the *_dwiqc.json files
+        this.reportFiles = this.files.filter((file) =>
+          file.name.endsWith("_dwiqc.json")
+        );
+
+        // And find the group report file if available
+        this.groupReportFiles = this.files.filter(
+          (file) => file.name === "dwiqc.json"
+        );
+
+        this.state = "showReports";
+
+        // let reportContents = await Promise.all(
+        //   await this.getAllReportsFromFiles(allReportFiles)
+        // );
+
+        // console.log(reportContents);
       }
     },
   },

@@ -3,7 +3,6 @@
     <b-row>
       <b-button-group>
         <b-button
-          v-if="sidebarButton"
           v-b-toggle.sidebar-backdrop
           id="sidebar-button"
           variant="outline-primary"
@@ -39,7 +38,7 @@
           <b-icon icon="download" aria-hidden="true"></b-icon>
         </b-button>
       </b-button-group>
-      <b-tooltip v-if="sidebarButton" target="sidebar-button" triggers="hover"
+      <b-tooltip target="sidebar-button" triggers="hover"
         >toggle sidebar</b-tooltip
       >
       <b-tooltip target="back-button" triggers="hover"
@@ -73,7 +72,7 @@ export default {
     reportProp: {
       type: Object,
     },
-    sidebarButton: {
+    sidebarOn: {
       type: Boolean,
       default: false,
     },

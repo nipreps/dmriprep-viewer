@@ -1,63 +1,26 @@
 <template>
   <b-container>
-    <b-container v-if="!report" class="text-center">
-      <strong>Loading...</strong>
-      <b-spinner
-        class="ml-2"
-        variant="primary"
-        label="loading report"
-      ></b-spinner>
-    </b-container>
     <b-container v-if="groupReport">
-      <b-sidebar
-        id="sidebar-backdrop"
-        title="Select a subject"
-        backdrop-variant="dark"
-        backdrop
-        lazy
-        shadow
-      >
-        <div class="text-left m-3">
-          or select the study-ID at the top to view summary QC metrics.
-        </div>
-        <b-nav vertical pills class="w-100">
-          <b-nav-item :active="showStudyQc" @click="showStudyQc = true">{{
-            groupReport.studyId ? groupReport.studyId : "Study"
-          }}</b-nav-item>
-          <b-nav-item
-            v-for="subject in brushedSubjects"
-            :key="subject"
-            :active="subject === subjectSelected"
-            @click="subjectSelected = subject"
-            >{{ subject }}</b-nav-item
-          >
-        </b-nav>
-      </b-sidebar>
-      <div v-if="showStudyQc">
-        <topBar :reportProp="groupReport" sidebarButton></topBar>
-      </div>
-      <div v-if="subjectSelected">Bar</div>
-      <!-- <report v-if="subjectSelected" :reportProp="participantReport" sidebarButton></report> -->
+      <topBar :reportProp="groupReport" sidebarOn></topBar>
+      Loading group report
     </b-container>
+    <spinner v-else></spinner>
   </b-container>
 </template>
 
 <script>
-// import report from "./ReportParticipant";
+import spinner from "./Spinner";
 import topBar from "./TopBar";
 
 export default {
   name: "groupReport",
   components: {
+    spinner,
     topBar,
-    // report,
   },
   data() {
     return {
       groupReport: null,
-      participantReport: null,
-      showStudyQc: true,
-      subjectSelected: null,
       allSubjects: null,
       brushedSubjects: null,
     };
@@ -70,25 +33,12 @@ export default {
   mounted() {
     if (this.reportProp) {
       this.groupReport = this.reportProp;
-      this.allSubjects = Object.keys(this.groupReport.subject_reports);
-      this.brushedSubjects = Object.keys(this.groupReport.subject_reports);
     }
   },
   watch: {
     reportProp() {
       if (this.reportProp) {
         this.groupReport = this.reportProp;
-      }
-    },
-    showStudyQc() {
-      if (this.showStudyQc) {
-        this.subjectSelected = null;
-        this.participantReport = null;
-      }
-    },
-    subjectSelected() {
-      if (this.subjectSelected) {
-        this.showStudyQc = false;
       }
     },
   },

@@ -1,92 +1,95 @@
 <template>
-  <b-container v-if="report">
-    <topBar :reportProp="report" :sidebarButton="sidebarButton"></topBar>
-    <b-row>
-      <b-col>
-        <h1>{{ report.subject_id }}</h1>
-        <h2 class="mt-3 pt-3">Corrected dwi</h2>
-        <p class="lead">Motion and distortion corrected file</p>
+  <b-container>
+    <b-container v-if="report">
+      <topBar :reportProp="report"></topBar>
+      <b-row>
+        <b-col>
+          <h1>{{ report.subject_id }}</h1>
+          <h2 class="mt-3 pt-3">Corrected dwi</h2>
+          <p class="lead">Motion and distortion corrected file</p>
 
-        <div style="background-color: black;">
-          <explainer explainer-text="Todo: explain the sprite"></explainer>
-          <sprite4d
-            v-for="view in report.dwi_corrected"
-            :key="view.orientation"
-            :M="view.M"
-            :N="view.N"
-            :img="view.img"
-            :num_slices="view.num_slices"
-            :pix="view.pix"
-            :id="view.orientation"
-            :time="time"
-            :overlayMode="false"
-            opacity="1"
-          ></sprite4d>
-        </div>
-        <vue-slider
-          ref="timeSlider"
-          v-model="time"
-          :min="0"
-          :max="report.dwi_corrected[0].num_slices - 1"
-        ></vue-slider>
+          <div style="background-color: black;">
+            <explainer explainer-text="Todo: explain the sprite"></explainer>
+            <sprite4d
+              v-for="view in report.dwi_corrected"
+              :key="view.orientation"
+              :M="view.M"
+              :N="view.N"
+              :img="view.img"
+              :num_slices="view.num_slices"
+              :pix="view.pix"
+              :id="view.orientation"
+              :time="time"
+              :overlayMode="false"
+              opacity="1"
+            ></sprite4d>
+          </div>
+          <vue-slider
+            ref="timeSlider"
+            v-model="time"
+            :min="0"
+            :max="report.dwi_corrected[0].num_slices - 1"
+          ></vue-slider>
 
-        <explainer explainer-text="Todo: explain the line chart"></explainer>
-        <div style="height: 200px; width: 100%; display: inline-flex;">
-          <line-chart
-            id="motion_params"
-            :data="report.eddy_params"
-            :outlier_indices="report.outlier_volumes"
-            xlabel="TR"
-            ylabel="RMS"
-            :highlightIdx="time"
-          ></line-chart>
-        </div>
+          <explainer explainer-text="Todo: explain the line chart"></explainer>
+          <div style="height: 200px; width: 100%; display: inline-flex;">
+            <line-chart
+              id="motion_params"
+              :data="report.eddy_params"
+              :outlier_indices="report.outlier_volumes"
+              xlabel="TR"
+              ylabel="RMS"
+              :highlightIdx="time"
+            ></line-chart>
+          </div>
 
-        <explainer explainer-text="Todo: explain the carpet plot"></explainer>
-        <CarpetPlot :data="report.carpetplot" :highlightIdx="time" />
+          <explainer explainer-text="Todo: explain the carpet plot"></explainer>
+          <CarpetPlot :data="report.carpetplot" :highlightIdx="time" />
 
-        <vue-slider
-          ref="timeSlider"
-          v-model="time"
-          :min="0"
-          :max="report.dwi_corrected[0].num_slices - 1"
-        ></vue-slider>
+          <vue-slider
+            ref="timeSlider"
+            v-model="time"
+            :min="0"
+            :max="report.dwi_corrected[0].num_slices - 1"
+          ></vue-slider>
 
-        <explainer explainer-text="Todo: explain the carpet plot"></explainer>
-        <QSpaceGroup :report="report" :time="time" />
+          <explainer explainer-text="Todo: explain the carpet plot"></explainer>
+          <QSpaceGroup :report="report" :time="time" />
 
-        <h2 class="mt-3 pt-3">Registration + Brain Mask</h2>
-        <p class="lead">Brain mask computed on T1w, and mapped to B0</p>
-        <explainer explainer-text="Todo: explain this component"></explainer>
-        <BrainSprite
-          id="brainMaskSprite"
-          ref="brainMaskSprite"
-          :base_dim_x="report.b0.pix"
-          :base_dim_y="report.b0.pix"
-          :overlay_dim_x="report.anat_mask.pix"
-          :overlay_dim_y="report.anat_mask.pix"
-          :base="report.b0.img"
-          :overlay="report.anat_mask.img"
-        />
+          <h2 class="mt-3 pt-3">Registration + Brain Mask</h2>
+          <p class="lead">Brain mask computed on T1w, and mapped to B0</p>
+          <explainer explainer-text="Todo: explain this component"></explainer>
+          <BrainSprite
+            id="brainMaskSprite"
+            ref="brainMaskSprite"
+            :base_dim_x="report.b0.pix"
+            :base_dim_y="report.b0.pix"
+            :overlay_dim_x="report.anat_mask.pix"
+            :overlay_dim_y="report.anat_mask.pix"
+            :base="report.b0.img"
+            :overlay="report.anat_mask.img"
+          />
 
-        <h2 class="mt-3 pt-3">DTI: ColorFA</h2>
-        <p class="lead">Color FA mapped on B0</p>
+          <h2 class="mt-3 pt-3">DTI: ColorFA</h2>
+          <p class="lead">Color FA mapped on B0</p>
 
-        <explainer
-          explainer-text="Todo: explain this component too"
-        ></explainer>
-        <BrainSprite
-          id="colorFASprite"
-          ref="colorFASprite"
-          :base_dim_x="report.b0.pix"
-          :base_dim_y="report.b0.pix"
-          :overlay_dim_x="report.colorFA.pix"
-          :overlay_dim_y="report.colorFA.pix"
-          :base="report.b0.img"
-          :overlay="report.colorFA.img"
-        />
-      </b-col>
-    </b-row>
+          <explainer
+            explainer-text="Todo: explain this component too"
+          ></explainer>
+          <BrainSprite
+            id="colorFASprite"
+            ref="colorFASprite"
+            :base_dim_x="report.b0.pix"
+            :base_dim_y="report.b0.pix"
+            :overlay_dim_x="report.colorFA.pix"
+            :overlay_dim_y="report.colorFA.pix"
+            :base="report.b0.img"
+            :overlay="report.colorFA.img"
+          />
+        </b-col>
+      </b-row>
+    </b-container>
+    <spinner v-else></spinner>
   </b-container>
 </template>
 
@@ -129,10 +132,6 @@ export default {
     reportProp: {
       type: Object,
     },
-    sidebarButton: {
-      type: Boolean,
-      default: false,
-    },
   },
   data() {
     return {
@@ -164,15 +163,21 @@ export default {
     });
   },
   watch: {
-    reportProp() {
-      if (this.reportProp) {
-        this.report = this.reportProp;
-      }
+    reportProp: {
+      immediate: true,
+      handler: function () {
+        if (this.reportProp) {
+          this.report = this.reportProp;
+        }
+      },
     },
-    report() {
-      if (this.report) {
-        this.spriteSlice = this.get_mid_slice();
-      }
+    report: {
+      immediate: true,
+      handler: function () {
+        if (this.report) {
+          this.spriteSlice = this.get_mid_slice();
+        }
+      },
     },
   },
 };
