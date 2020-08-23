@@ -119,14 +119,14 @@ Vue.use(BootstrapVueIcons);
 export default {
   name: "report",
   components: {
-    explainer,
-    topBar,
-    QSpaceGroup,
-    sprite4d,
-    vueSlider,
-    lineChart,
     BrainSprite,
     CarpetPlot,
+    QSpaceGroup,
+    explainer,
+    lineChart,
+    sprite4d,
+    topBar,
+    vueSlider,
   },
   props: {
     reportProp: {

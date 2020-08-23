@@ -5,66 +5,165 @@
   "analysis_level": "group",
   "boilerplate": "",
   "subjects": [
-    "sub-0",
-    "sub-1",
-    "sub-2",
-    "sub-3",
-    "sub-4",
-    "sub-5",
-    "sub-6",
-    "sub-7",
-    "sub-8",
-    "sub-9",
-    "sub-10",
-    "sub-11",
-    "sub-12",
-    "sub-13",
-    "sub-14",
-    "sub-15",
-    "sub-16",
-    "sub-17",
-    "sub-18",
-    "sub-19"
-  ],
-  "dwi_qc_metrics": {
-    "pairs": {
-      "raw_neighbor_corr": {
-        "sub-0": 0.3,
-        "sub-1": 0.6,
-        "sub-2": 0.22,
-        "sub-3": 0.44,
-        "sub-4": 0.54
-      },
-      "t1_neighbor_corr": {
-        "sub-0": 0.3,
-        "sub-1": 0.6,
-        "sub-2": 0.22,
-        "sub-3": 0.44,
-        "sub-4": 0.87
-      },
-      "mni_neighbor_corr": {
-        "sub-0": 0.3,
-        "sub-1": 0.6,
-        "sub-2": 0.22,
-        "sub-3": 0.44,
-        "sub-4": 0.11
-      }
+    {
+      "participant_id": "sub-0",
+      "raw_neighbor_corr": 0.90618225,
+      "t1_neighbor_corr": 0.95716178,
+      "mni_neighbor_corr": 0.51645584,
+      "t1_dice_distance": 0.3043665,
+      "mni_dice_distance": 0.58760753
     },
-    "univariate_distributions": {
-      "t1_dice_distance": {
-        "sub-0": 0.04,
-        "sub-1": 0.055,
-        "sub-2": 0.035,
-        "sub-3": 0.077,
-        "sub-4": 0.18
-      },
-      "mni_dice_distance": {
-        "sub-0": 0.03,
-        "sub-1": 0.07,
-        "sub-2": 0.066,
-        "sub-3": 0.052,
-        "sub-4": 0.17
-      }
+    {
+      "participant_id": "sub-1",
+      "raw_neighbor_corr": 0.50913023,
+      "t1_neighbor_corr": 0.21617439,
+      "mni_neighbor_corr": 0.76047549,
+      "t1_dice_distance": 0.97297325,
+      "mni_dice_distance": 0.66230981
+    },
+    {
+      "participant_id": "sub-2",
+      "raw_neighbor_corr": 0.59074707,
+      "t1_neighbor_corr": 0.44615325,
+      "mni_neighbor_corr": 0.50783241,
+      "t1_dice_distance": 0.26442069,
+      "mni_dice_distance": 0.80481229
+    },
+    {
+      "participant_id": "sub-3",
+      "raw_neighbor_corr": 0.49730518,
+      "t1_neighbor_corr": 0.08956991,
+      "mni_neighbor_corr": 0.30428301,
+      "t1_dice_distance": 0.70187332,
+      "mni_dice_distance": 0.26919035
+    },
+    {
+      "participant_id": "sub-4",
+      "raw_neighbor_corr": 0.72266243,
+      "t1_neighbor_corr": 0.77749236,
+      "mni_neighbor_corr": 0.40732871,
+      "t1_dice_distance": 0.81776565,
+      "mni_dice_distance": 0.05029925
+    },
+    {
+      "participant_id": "sub-5",
+      "raw_neighbor_corr": 0.5685576,
+      "t1_neighbor_corr": 0.73316583,
+      "mni_neighbor_corr": 0.8903027,
+      "t1_dice_distance": 0.46163235,
+      "mni_dice_distance": 0.61531594
+    },
+    {
+      "participant_id": "sub-6",
+      "raw_neighbor_corr": 0.38791974,
+      "t1_neighbor_corr": 0.83352907,
+      "mni_neighbor_corr": 0.13238653,
+      "t1_dice_distance": 0.85624902,
+      "mni_dice_distance": 0.27205762
+    },
+    {
+      "participant_id": "sub-7",
+      "raw_neighbor_corr": 0.75043461,
+      "t1_neighbor_corr": 0.15118733,
+      "mni_neighbor_corr": 0.47724041,
+      "t1_dice_distance": 0.74840525,
+      "mni_dice_distance": 0.40000397
+    },
+    {
+      "participant_id": "sub-8",
+      "raw_neighbor_corr": 0.43934382,
+      "t1_neighbor_corr": 0.26104975,
+      "mni_neighbor_corr": 0.62775706,
+      "t1_dice_distance": 0.94900817,
+      "mni_dice_distance": 0.64222164
+    },
+    {
+      "participant_id": "sub-9",
+      "raw_neighbor_corr": 0.17244397,
+      "t1_neighbor_corr": 0.05172795,
+      "mni_neighbor_corr": 0.44885322,
+      "t1_dice_distance": 0.47636469,
+      "mni_dice_distance": 0.91976389
+    },
+    {
+      "participant_id": "sub-10",
+      "raw_neighbor_corr": 0.08859028,
+      "t1_neighbor_corr": 0.80020405,
+      "mni_neighbor_corr": 0.56246408,
+      "t1_dice_distance": 0.76516824,
+      "mni_dice_distance": 0.79620833
+    },
+    {
+      "participant_id": "sub-11",
+      "raw_neighbor_corr": 0.22041548,
+      "t1_neighbor_corr": 0.74167756,
+      "mni_neighbor_corr": 0.63533475,
+      "t1_dice_distance": 0.62412679,
+      "mni_dice_distance": 0.79628267
+    },
+    {
+      "participant_id": "sub-12",
+      "raw_neighbor_corr": 0.89170141,
+      "t1_neighbor_corr": 0.69017107,
+      "mni_neighbor_corr": 0.60134397,
+      "t1_dice_distance": 0.58035578,
+      "mni_dice_distance": 0.84985039
+    },
+    {
+      "participant_id": "sub-13",
+      "raw_neighbor_corr": 0.51294617,
+      "t1_neighbor_corr": 0.86535482,
+      "mni_neighbor_corr": 0.73059431,
+      "t1_dice_distance": 0.21329642,
+      "mni_dice_distance": 0.95606663
+    },
+    {
+      "participant_id": "sub-14",
+      "raw_neighbor_corr": 0.17961295,
+      "t1_neighbor_corr": 0.67116728,
+      "mni_neighbor_corr": 0.58985036,
+      "t1_dice_distance": 0.43850044,
+      "mni_dice_distance": 0.02939648
+    },
+    {
+      "participant_id": "sub-15",
+      "raw_neighbor_corr": 0.5106331,
+      "t1_neighbor_corr": 0.94792923,
+      "mni_neighbor_corr": 0.05437395,
+      "t1_dice_distance": 0.69458008,
+      "mni_dice_distance": 0.54847996
+    },
+    {
+      "participant_id": "sub-16",
+      "raw_neighbor_corr": 0.40095961,
+      "t1_neighbor_corr": 0.375654,
+      "mni_neighbor_corr": 0.04468221,
+      "t1_dice_distance": 0.86637141,
+      "mni_dice_distance": 0.10642994
+    },
+    {
+      "participant_id": "sub-17",
+      "raw_neighbor_corr": 0.62136281,
+      "t1_neighbor_corr": 0.09192038,
+      "mni_neighbor_corr": 0.73063121,
+      "t1_dice_distance": 0.58332729,
+      "mni_dice_distance": 0.18355794
+    },
+    {
+      "participant_id": "sub-18",
+      "raw_neighbor_corr": 0.22766888,
+      "t1_neighbor_corr": 0.36581091,
+      "mni_neighbor_corr": 0.05351219,
+      "t1_dice_distance": 0.15303391,
+      "mni_dice_distance": 0.41732026
+    },
+    {
+      "participant_id": "sub-19",
+      "raw_neighbor_corr": 0.33157446,
+      "t1_neighbor_corr": 0.86412836,
+      "mni_neighbor_corr": 0.41271365,
+      "t1_dice_distance": 0.40052167,
+      "mni_dice_distance": 0.75551562
     }
-  }
+  ]
 }

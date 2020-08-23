@@ -2,10 +2,10 @@
   <b-container>
     <b-container v-if="state === 'getInput'">
       <b-row class="d-flex align-items-center">
-        <b-col cols="4" class="text-right">
+        <b-col cols="5" class="text-right">
           <img class="logo" src="../assets/dmriprep-icon.svg" />
         </b-col>
-        <b-col cols="8" class="text-left">
+        <b-col cols="7" class="text-left">
           <h1>dmriprep Viewer</h1>
         </b-col>
       </b-row>

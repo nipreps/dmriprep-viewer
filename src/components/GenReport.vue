@@ -3,22 +3,27 @@
     <b-container v-if="groupReport">
       <b-sidebar
         id="sidebar-backdrop"
-        title="Select a subject"
+        title="Study overview"
         backdrop-variant="dark"
         backdrop
         lazy
         shadow
-        visible="showInitialSidebar"
+        :visible="showInitialSidebar"
       >
-        <div class="text-left m-3">
-          or select the study ID at the top to view summary QC metrics.
-        </div>
+        <explainer
+          explainer-text="Select a subject below to see their report. Or select the study ID at the top to see a group summary. You can filter the subject list using the text input. You can close this sidebar by clicking on the 'x' in the top right or by simply clicking outside of the sidebar."
+        ></explainer>
         <b-nav vertical pills class="w-100">
           <b-nav-item :active="showStudyQc" @click="showStudyQc = true">
             {{ groupReport.studyId ? groupReport.studyId : "Study" }}
           </b-nav-item>
+          <input
+            class="m-1"
+            v-model="subjectFilter"
+            placeholder="filter subjects"
+          />
           <b-nav-item
-            v-for="subject in subjectsAll"
+            v-for="subject in filteredSubjects"
             :key="subject"
             :active="subject === subjectSelected"
             @click="subjectSelected = subject"
@@ -43,6 +48,7 @@
 <script>
 import axios from "axios";
 import _ from "lodash";
+import explainer from "./Explainer";
 import groupReport from "./ReportGroup";
 import report from "./ReportParticipant";
 import spinner from "./Spinner";
@@ -50,6 +56,7 @@ import spinner from "./Spinner";
 export default {
   name: "genReport",
   components: {
+    explainer,
     groupReport,
     report,
     spinner,
@@ -66,6 +73,7 @@ export default {
       subjectSelected: null,
       showStudyQc: true,
       showInitialSidebar: true,
+      subjectFilter: "",
     };
   },
   methods: {
@@ -196,9 +204,16 @@ export default {
     }
   },
   computed: {
+    filteredSubjects() {
+      if (this.subjectFilter) {
+        return this.subjectsAll.filter((s) => s.includes(this.subjectFilter));
+      } else {
+        return this.subjectsAll;
+      }
+    },
     subjectsInGroupReport: function () {
       if (this.groupReport) {
-        return this.groupReport.subjects;
+        return this.groupReport.subjects.map((o) => o["participant_id"]);
       } else {
         return [];
       }
