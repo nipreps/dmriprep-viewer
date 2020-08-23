@@ -3,12 +3,12 @@
     <b-container v-if="groupReport">
       <topBar :reportProp="groupReport" sidebarOn></topBar>
       <explainer explainer-text="Todo: explain this"></explainer>
-      <b-form-group label="select scatterplot metrics">
+      <b-form-group class="text-left" label="Select scatterplot metrics">
         <b-form-checkbox-group
           id="checkbox-group-1"
           v-model="scatterMetrics"
           :options="scatterOptions"
-          name="flavour-1"
+          name="scatter-metrics"
         ></b-form-checkbox-group>
       </b-form-group>
       <scatterplotMatrix
@@ -16,23 +16,47 @@
         :metrics="scatterMetrics"
         v-on:updateBrushedSubjects="updateBrushedSubjects"
       ></scatterplotMatrix>
-      <div class="text-left">
-        <b-form-group
-          class="mb-0"
-          label="Selected subjects:"
-          label-for="brushed-subject-textarea"
-          description="this list is scrollable"
-        >
-          <b-form-textarea
-            id="brushed-subject-textarea"
-            readonly
-            :value="brushedSubjectText"
-            no-resize
-            rows="8"
-            max-rows="8"
-          ></b-form-textarea>
-        </b-form-group>
-      </div>
+      <b-card
+        class="text-left p-0 mb-5"
+        footer="This list scrolls left/right. Click on a participant ID to go to their report."
+      >
+        <template v-slot:header>
+          <b-row class="d-flex align-items-center">
+            <b-col cols="7" class="text-left">
+              <h5 class="m-0">
+                Selected subjects: {{ brushedSubjects.length }}
+              </h5>
+            </b-col>
+            <b-col cols="5" class="text-right">
+              <b-button
+                @click="copyBrushedSubjectsToClipboard()"
+                id="clipboard-button"
+                variant="outline-primary"
+                class="m-0"
+              >
+                <b-icon
+                  icon="clipboard"
+                  class="p m-0"
+                  aria-hidden="true"
+                ></b-icon>
+              </b-button>
+              <b-tooltip target="clipboard-button" triggers="hover"
+                >copy subject list to clipboard</b-tooltip
+              >
+            </b-col>
+          </b-row>
+        </template>
+        <b-card-text>
+          <b-nav vertical class="pb-0 text-left brushed-subject-nav">
+            <b-nav-item
+              v-for="subject in brushedSubjects"
+              :key="subject"
+              @click="updateSelectedSubject(subject)"
+              >{{ subject }}</b-nav-item
+            >
+          </b-nav>
+        </b-card-text>
+      </b-card>
     </b-container>
     <spinner v-else></spinner>
   </b-container>
@@ -75,15 +99,18 @@ export default {
     updateBrushedSubjects(brushedSubjects) {
       this.brushedSubjects = brushedSubjects;
     },
+    updateSelectedSubject(subject) {
+      this.$emit("subjectSelected", subject);
+    },
+    copyBrushedSubjectsToClipboard() {
+      navigator.clipboard.writeText(this.brushedSubjects.join());
+    },
   },
   computed: {
     scatterOptions() {
       return Object.keys(this.groupReport.subjects[0]).filter(
         (k) => k !== "participant_id"
       );
-    },
-    brushedSubjectText() {
-      return this.brushedSubjects.join("\n");
     },
   },
   watch: {
@@ -112,5 +139,9 @@ li {
 }
 a {
   color: #42b983;
+}
+.brushed-subject-nav {
+  overflow: scroll;
+  height: 100px;
 }
 </style>

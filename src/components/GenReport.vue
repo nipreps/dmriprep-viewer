@@ -33,6 +33,7 @@
       </b-sidebar>
       <groupReport
         v-if="showStudyQc && groupReport"
+        v-on:subjectSelected="updateSelectedSubject"
         :reportProp="groupReport"
       ></groupReport>
       <report
@@ -77,6 +78,9 @@ export default {
     };
   },
   methods: {
+    updateSelectedSubject(subject) {
+      this.subjectSelected = subject;
+    },
     loadFromQuery() {
       if (this.$route.query) {
         // load the json
