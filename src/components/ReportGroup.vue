@@ -12,8 +12,8 @@
         ></b-form-checkbox-group>
       </b-form-group>
       <scatterplotMatrix
-        :data="groupReport['subjects']"
-        :metrics="scatterMetrics"
+        :dataProp="groupReport['subjects']"
+        :metricsProp="scatterMetrics"
         v-on:updateBrushedSubjects="updateBrushedSubjects"
       ></scatterplotMatrix>
       <b-card

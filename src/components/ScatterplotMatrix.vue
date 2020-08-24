@@ -11,10 +11,10 @@ const d3 = require("d3");
 export default {
   name: "ScatterplotMatrix",
   props: {
-    data: {
+    dataProp: {
       type: Array,
     },
-    metrics: {
+    metricsProp: {
       type: Array,
     },
   },
@@ -24,6 +24,9 @@ export default {
       width: null,
       padding: 20,
       brushedSubjects: null,
+      metrics: [],
+      data: [],
+      mounted: false,
     };
   },
   computed: {
@@ -38,8 +41,9 @@ export default {
       );
     },
     columns() {
+      const that = this;
       return Object.keys(this.data[0]).filter(
-        (d) => this.metrics.includes(d) && typeof this.data[0][d] === "number"
+        (d) => that.metrics.includes(d) && typeof that.data[0][d] === "number"
       );
     },
     yAxis() {
@@ -109,14 +113,39 @@ export default {
         this.$emit("updateBrushedSubjects", this.brushedSubjects);
       },
     },
+    metricsProp: {
+      deep: true,
+      immediate: true,
+      handler: function () {
+        if (this.metricsProp) {
+          this.metrics = this.metricsProp;
+          if (this.mounted) {
+            this.createChart();
+          }
+        }
+      },
+    },
+    dataProp: {
+      deep: true,
+      immediate: true,
+      handler: function () {
+        if (this.dataProp) {
+          this.data = this.dataProp;
+        }
+      },
+    },
   },
   mounted() {
     this.width = this.$refs.chart.clientWidth;
     this.brushedSubjects = this.data.map((d) => d.participant_id);
-    this.init();
+    this.createChart();
+    this.mounted = true;
   },
   methods: {
-    init() {
+    createChart() {
+      // Remove old chart
+      d3.selectAll("#scattersvg > *").remove();
+
       // append the svg object to the body of the page
       const svg = d3
         .select("#scattersvg")
