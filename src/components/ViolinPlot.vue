@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :id="divId">
     <!-- <resize-observer @notify="handleResize" /> -->
     <svg :id="svgId" ref="chart" class="violin-plot"></svg>
   </div>
@@ -44,6 +44,9 @@ export default {
     svgId() {
       return "violinsvg-" + this.metric;
     },
+    divId() {
+      return "violindiv-" + this.metric;
+    },
     x() {
       return d3
         .scaleLinear()
@@ -86,7 +89,6 @@ export default {
 
     let highestPoint = this.getHighestPoint();
     while (highestPoint < this.margin.top) {
-      console.log("Changing radius");
       this.radius = this.radius - 0.1;
       if (this.radius < 3) {
         this.radius = 5;
@@ -208,7 +210,40 @@ export default {
         .attr("x", this.margin.left * 2)
         .attr("y", this.margin.top * 2)
         .attr("font-weight", "bold")
+        .attr("color", "black")
+        .attr("visibility", "visible")
         .text(this.metric);
+
+      function handleMouseover(d, i) {
+        d3.select(d3.event.currentTarget)
+          .transition()
+          .duration(100)
+          .attr("r", that.radius * 1.5);
+
+        svg
+          .append("text")
+          // Create an id for text so we can select it later for removing on mouseout
+          .attr("id", "t" + d.x + "-" + d.y + "-" + i)
+          .attr("x", d.x - that.radius * 2)
+          .attr(
+            "y",
+            that.height -
+              that.boxHeight -
+              that.margin.bottom -
+              that.margin.top -
+              that.radius * 3 -
+              that.padding -
+              d.y
+          )
+          .text("foo");
+      }
+
+      function handleMouseout() {
+        d3.select(d3.event.currentTarget)
+          .transition()
+          .duration(100)
+          .attr("r", that.radius);
+      }
 
       // Box plot
       svg
@@ -283,6 +318,8 @@ export default {
         .attr("stroke-width", 2);
 
       const circle = d3.selectAll("#" + this.svgId + " circle");
+      circle.on("mouseover", handleMouseover).on("mouseout", handleMouseout);
+
       svg.call(this.brush, circle);
     },
     brush(svg, circle) {
