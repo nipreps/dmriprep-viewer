@@ -103,7 +103,6 @@ export default {
   data() {
     return {
       groupReport: null,
-      allSubjects: null,
       brushedSubjects: {},
       brushedSubjectsIntersection: [],
       scatterMetrics: [],
