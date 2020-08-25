@@ -1,6 +1,6 @@
 <template>
-  <b-container>
-    <b-container v-if="report">
+  <b-container fluid class="px-0">
+    <b-container fluid class="px-0" v-if="report">
       <topBar :reportProp="report"></topBar>
       <b-row>
         <b-col>

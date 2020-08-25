@@ -1,6 +1,6 @@
 <template>
-  <b-container>
-    <b-container v-if="groupReport">
+  <b-container fluid class="px-0">
+    <b-container fluid class="px-0" v-if="groupReport">
       <b-sidebar
         id="sidebar-backdrop"
         title="Study overview"

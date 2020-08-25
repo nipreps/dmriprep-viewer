@@ -1,30 +1,51 @@
 <template>
-  <b-container>
-    <b-container v-if="groupReport">
+  <b-container fluid class="px-0">
+    <b-container fluid class="px-0" v-if="groupReport">
       <topBar :reportProp="groupReport" sidebarOn></topBar>
+
       <explainer explainer-text="Todo: explain this"></explainer>
+
       <b-form-group class="text-left" label="Select scatterplot metrics">
         <b-form-checkbox-group
-          id="checkbox-group-1"
+          id="checkbox-group-scatter"
           v-model="scatterMetrics"
-          :options="scatterOptions"
+          :options="metricOptions"
           name="scatter-metrics"
         ></b-form-checkbox-group>
       </b-form-group>
+
       <scatterplotMatrix
         :dataProp="groupReport['subjects']"
         :metricsProp="scatterMetrics"
         v-on:updateBrushedSubjects="updateBrushedSubjects"
       ></scatterplotMatrix>
+
+      <b-form-group class="text-left" label="Select violin plot metrics">
+        <b-form-checkbox-group
+          id="checkbox-group-violin"
+          v-model="violinMetrics"
+          :options="metricOptions"
+          name="violin-metrics"
+        ></b-form-checkbox-group>
+      </b-form-group>
+
+      <violinPlot
+        v-for="metric in violinMetrics"
+        :key="metric"
+        :data="groupReport['subjects']"
+        :metric="metric"
+        v-on:updateBrushedSubjects="updateBrushedSubjects"
+      ></violinPlot>
+
       <b-card
-        class="text-left p-0 mb-5"
+        class="text-left p-0 mb-5 mt-2"
         footer="This list scrolls left/right. Click on a participant ID to go to their report."
       >
         <template v-slot:header>
           <b-row class="d-flex align-items-center">
             <b-col cols="7" class="text-left">
               <h5 class="m-0">
-                Selected subjects: {{ brushedSubjects.length }}
+                Selected subjects: {{ brushedSubjectsIntersection.length }}
               </h5>
             </b-col>
             <b-col cols="5" class="text-right">
@@ -49,7 +70,7 @@
         <b-card-text>
           <b-nav vertical class="pb-0 text-left brushed-subject-nav">
             <b-nav-item
-              v-for="subject in brushedSubjects"
+              v-for="subject in brushedSubjectsIntersection"
               :key="subject"
               @click="updateSelectedSubject(subject)"
               >{{ subject }}</b-nav-item
@@ -58,6 +79,7 @@
         </b-card-text>
       </b-card>
     </b-container>
+
     <spinner v-else></spinner>
   </b-container>
 </template>
@@ -67,6 +89,7 @@ import explainer from "./Explainer";
 import scatterplotMatrix from "./ScatterplotMatrix";
 import spinner from "./Spinner";
 import topBar from "./TopBar";
+import violinPlot from "./ViolinPlot";
 
 export default {
   name: "groupReport",
@@ -75,13 +98,16 @@ export default {
     scatterplotMatrix,
     spinner,
     topBar,
+    violinPlot,
   },
   data() {
     return {
       groupReport: null,
       allSubjects: null,
-      brushedSubjects: [],
+      brushedSubjects: {},
+      brushedSubjectsIntersection: [],
       scatterMetrics: [],
+      violinMetrics: [],
     };
   },
   props: {
@@ -93,11 +119,32 @@ export default {
     if (this.reportProp) {
       this.groupReport = this.reportProp;
     }
-    this.scatterMetrics = this.scatterOptions.slice(0, 3);
+    // Todo: Find some way to sensibly initialize these next two lines
+    this.scatterMetrics = this.metricOptions.slice(0, 3);
+    this.violinMetrics = this.metricOptions.slice(3);
+    this.brushedSubjects = this.metricOptions.reduce(
+      (o, key) => ({
+        ...o,
+        [key]: this.groupReport.subjects.map((d) => d.participant_id),
+      }),
+      {}
+    );
+    this.brushedSubjects.scatterplotMatrix = this.groupReport.subjects.map(
+      (d) => d.participant_id
+    );
   },
   methods: {
-    updateBrushedSubjects(brushedSubjects) {
-      this.brushedSubjects = brushedSubjects;
+    updateBrushedSubjects(brushedSubjectData) {
+      this.brushedSubjects[brushedSubjectData.metric] =
+        brushedSubjectData.brushed;
+
+      this.brushedSubjectsIntersection = Object.values(
+        this.brushedSubjects
+      ).reduce(
+        (accumulator, currentValue) =>
+          accumulator.filter((d) => currentValue.includes(d)),
+        this.groupReport.subjects.map((d) => d.participant_id)
+      );
     },
     updateSelectedSubject(subject) {
       this.$emit("subjectSelected", subject);
@@ -107,10 +154,10 @@ export default {
     },
   },
   computed: {
-    scatterOptions() {
-      return Object.keys(this.groupReport.subjects[0]).filter(
-        (k) => k !== "participant_id"
-      );
+    metricOptions() {
+      return Object.keys(this.groupReport.subjects[0])
+        .filter((k) => k !== "participant_id")
+        .sort();
     },
   },
   watch: {

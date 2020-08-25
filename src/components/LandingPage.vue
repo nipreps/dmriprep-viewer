@@ -1,6 +1,6 @@
 <template>
   <b-container>
-    <b-container v-if="state === 'getInput'">
+    <b-container fluid class="px-0" v-if="state === 'getInput'">
       <b-row class="d-flex align-items-center">
         <b-col cols="5" class="text-right">
           <img class="logo" src="../assets/dmriprep-icon.svg" />

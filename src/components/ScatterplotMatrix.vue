@@ -1,6 +1,6 @@
 <template>
   <div>
-    <resize-observer @notify="handleResize" />
+    <!-- <resize-observer @notify="handleResize" /> -->
     <svg id="scattersvg" ref="chart" class="scatterplot-matrix"></svg>
   </div>
 </template>
@@ -51,13 +51,13 @@ export default {
         .axisLeft()
         .ticks(6)
         .tickSize(-this.size * this.columns.length);
-      const self = this;
+      const that = this;
       return (g) =>
         g
           .selectAll("g")
           .data(this.y)
           .join("g")
-          .attr("transform", (d, i) => `translate(0,${i * self.size})`)
+          .attr("transform", (d, i) => `translate(0,${i * that.size})`)
           .each(function (d) {
             return d3.select(this).call(axis.scale(d));
           })
@@ -69,13 +69,13 @@ export default {
         .axisBottom()
         .ticks(6)
         .tickSize(this.size * this.columns.length);
-      const self = this;
+      const that = this;
       return (g) =>
         g
           .selectAll("g")
           .data(this.x)
           .join("g")
-          .attr("transform", (d, i) => `translate(${i * self.size},0)`)
+          .attr("transform", (d, i) => `translate(${i * that.size},0)`)
           .each(function (d) {
             return d3.select(this).call(axis.scale(d));
           })
@@ -98,11 +98,11 @@ export default {
     y() {
       const paddingPlusMargin =
         this.padding + this.margin.top + this.margin.top;
-      const self = this;
+      const that = this;
       return this.x.map((x) =>
         x
           .copy()
-          .range([self.size - paddingPlusMargin / 2, paddingPlusMargin / 2])
+          .range([that.size - paddingPlusMargin / 2, paddingPlusMargin / 2])
       );
     },
   },
@@ -110,7 +110,10 @@ export default {
     brushedSubjects: {
       deep: true,
       handler: function () {
-        this.$emit("updateBrushedSubjects", this.brushedSubjects);
+        this.$emit("updateBrushedSubjects", {
+          metric: "scatterplotMatrix",
+          brushed: this.brushedSubjects,
+        });
       },
     },
     metricsProp: {
@@ -165,7 +168,7 @@ export default {
 
       svg.append("g").call(this.yAxis);
 
-      const self = this;
+      const that = this;
       const cell = svg
         .append("g")
         .selectAll("g")
@@ -175,7 +178,7 @@ export default {
         .join("g")
         .attr(
           "transform",
-          ([i, j]) => `translate(${i * self.size},${j * self.size})`
+          ([i, j]) => `translate(${i * that.size},${j * that.size})`
         );
 
       cell
@@ -191,13 +194,13 @@ export default {
         d3.select(this)
           .selectAll("circle")
           .data(
-            self.data.filter(
-              (d) => !isNaN(d[self.columns[i]]) && !isNaN(d[self.columns[j]])
+            that.data.filter(
+              (d) => !isNaN(d[that.columns[i]]) && !isNaN(d[that.columns[j]])
             )
           )
           .join("circle")
-          .attr("cx", (d) => self.x[i](d[self.columns[i]]))
-          .attr("cy", (d) => self.y[j](d[self.columns[j]]));
+          .attr("cx", (d) => that.x[i](d[that.columns[i]]))
+          .attr("cy", (d) => that.y[j](d[that.columns[j]]));
       });
 
       const circle = cell
@@ -217,7 +220,7 @@ export default {
         .join("text")
         .attr(
           "transform",
-          (d, i) => `translate(${i * self.size},${i * self.size})`
+          (d, i) => `translate(${i * that.size},${i * that.size})`
         )
         .attr("x", this.padding)
         .attr("y", this.padding)
@@ -227,7 +230,7 @@ export default {
       return svg.node();
     },
     brush(cell, circle) {
-      const self = this;
+      const that = this;
       const brush = d3
         .brush()
         .extent([
@@ -256,19 +259,19 @@ export default {
         const [[x0, y0], [x1, y1]] = d3.event.selection;
         circle.classed("hidden", (d) => {
           return (
-            x0 > self.x[i](d[self.columns[i]]) ||
-            x1 < self.x[i](d[self.columns[i]]) ||
-            y0 > self.y[j](d[self.columns[j]]) ||
-            y1 < self.y[j](d[self.columns[j]])
+            x0 > that.x[i](d[that.columns[i]]) ||
+            x1 < that.x[i](d[that.columns[i]]) ||
+            y0 > that.y[j](d[that.columns[j]]) ||
+            y1 < that.y[j](d[that.columns[j]])
           );
         });
-        self.brushedSubjects = self.data
+        that.brushedSubjects = that.data
           .filter(
             (d) =>
-              self.x[i](d[self.columns[i]]) >= x0 &&
-              self.x[i](d[self.columns[i]]) <= x1 &&
-              self.y[j](d[self.columns[j]]) >= y0 &&
-              self.y[j](d[self.columns[j]]) <= y1
+              that.x[i](d[that.columns[i]]) >= x0 &&
+              that.x[i](d[that.columns[i]]) <= x1 &&
+              that.y[j](d[that.columns[j]]) >= y0 &&
+              that.y[j](d[that.columns[j]]) <= y1
           )
           .map((d) => d.participant_id);
       }
@@ -277,7 +280,7 @@ export default {
       function brushended() {
         if (d3.event.selection !== null) return;
         circle.classed("hidden", false);
-        self.brushedSubjects = self.data.map((d) => d.participant_id);
+        that.brushedSubjects = that.data.map((d) => d.participant_id);
       }
     },
     handleResize() {
@@ -291,11 +294,11 @@ export default {
         x.range([0, this.width - this.margin.left - this.margin.right])
       );
 
-      const self = this;
+      const that = this;
       svg
         .selectAll("rect")
         .attr("x", function (d) {
-          return self.x(d.i);
+          return that.x(d.i);
         })
         .attr("width", this.x.bandwidth());
     },

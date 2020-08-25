@@ -7,163 +7,353 @@
   "subjects": [
     {
       "participant_id": "sub-0",
-      "raw_neighbor_corr": 0.90618225,
-      "t1_neighbor_corr": 0.95716178,
-      "mni_neighbor_corr": 0.51645584,
-      "t1_dice_distance": 0.3043665,
-      "mni_dice_distance": 0.58760753
+      "sepal_length": 5.1,
+      "sepal_width": 3.5,
+      "petal_length": 1.4,
+      "petal_width": 0.2
     },
     {
       "participant_id": "sub-1",
-      "raw_neighbor_corr": 0.50913023,
-      "t1_neighbor_corr": 0.21617439,
-      "mni_neighbor_corr": 0.76047549,
-      "t1_dice_distance": 0.97297325,
-      "mni_dice_distance": 0.66230981
+      "sepal_length": 4.9,
+      "sepal_width": 3,
+      "petal_length": 1.4,
+      "petal_width": 0.2
     },
     {
       "participant_id": "sub-2",
-      "raw_neighbor_corr": 0.59074707,
-      "t1_neighbor_corr": 0.44615325,
-      "mni_neighbor_corr": 0.50783241,
-      "t1_dice_distance": 0.26442069,
-      "mni_dice_distance": 0.80481229
+      "sepal_length": 4.7,
+      "sepal_width": 3.2,
+      "petal_length": 1.3,
+      "petal_width": 0.2
     },
     {
       "participant_id": "sub-3",
-      "raw_neighbor_corr": 0.49730518,
-      "t1_neighbor_corr": 0.08956991,
-      "mni_neighbor_corr": 0.30428301,
-      "t1_dice_distance": 0.70187332,
-      "mni_dice_distance": 0.26919035
+      "sepal_length": 4.6,
+      "sepal_width": 3.1,
+      "petal_length": 1.5,
+      "petal_width": 0.2
     },
     {
       "participant_id": "sub-4",
-      "raw_neighbor_corr": 0.72266243,
-      "t1_neighbor_corr": 0.77749236,
-      "mni_neighbor_corr": 0.40732871,
-      "t1_dice_distance": 0.81776565,
-      "mni_dice_distance": 0.05029925
+      "sepal_length": 5,
+      "sepal_width": 3.6,
+      "petal_length": 1.4,
+      "petal_width": 0.2
     },
     {
       "participant_id": "sub-5",
-      "raw_neighbor_corr": 0.5685576,
-      "t1_neighbor_corr": 0.73316583,
-      "mni_neighbor_corr": 0.8903027,
-      "t1_dice_distance": 0.46163235,
-      "mni_dice_distance": 0.61531594
+      "sepal_length": 5.4,
+      "sepal_width": 3.9,
+      "petal_length": 1.7,
+      "petal_width": 0.4
     },
     {
       "participant_id": "sub-6",
-      "raw_neighbor_corr": 0.38791974,
-      "t1_neighbor_corr": 0.83352907,
-      "mni_neighbor_corr": 0.13238653,
-      "t1_dice_distance": 0.85624902,
-      "mni_dice_distance": 0.27205762
+      "sepal_length": 4.6,
+      "sepal_width": 3.4,
+      "petal_length": 1.4,
+      "petal_width": 0.3
     },
     {
       "participant_id": "sub-7",
-      "raw_neighbor_corr": 0.75043461,
-      "t1_neighbor_corr": 0.15118733,
-      "mni_neighbor_corr": 0.47724041,
-      "t1_dice_distance": 0.74840525,
-      "mni_dice_distance": 0.40000397
+      "sepal_length": 5,
+      "sepal_width": 3.4,
+      "petal_length": 1.5,
+      "petal_width": 0.2
     },
     {
       "participant_id": "sub-8",
-      "raw_neighbor_corr": 0.43934382,
-      "t1_neighbor_corr": 0.26104975,
-      "mni_neighbor_corr": 0.62775706,
-      "t1_dice_distance": 0.94900817,
-      "mni_dice_distance": 0.64222164
+      "sepal_length": 4.4,
+      "sepal_width": 2.9,
+      "petal_length": 1.4,
+      "petal_width": 0.2
     },
     {
       "participant_id": "sub-9",
-      "raw_neighbor_corr": 0.17244397,
-      "t1_neighbor_corr": 0.05172795,
-      "mni_neighbor_corr": 0.44885322,
-      "t1_dice_distance": 0.47636469,
-      "mni_dice_distance": 0.91976389
+      "sepal_length": 4.9,
+      "sepal_width": 3.1,
+      "petal_length": 1.5,
+      "petal_width": 0.1
     },
     {
       "participant_id": "sub-10",
-      "raw_neighbor_corr": 0.08859028,
-      "t1_neighbor_corr": 0.80020405,
-      "mni_neighbor_corr": 0.56246408,
-      "t1_dice_distance": 0.76516824,
-      "mni_dice_distance": 0.79620833
+      "sepal_length": 5.4,
+      "sepal_width": 3.7,
+      "petal_length": 1.5,
+      "petal_width": 0.2
     },
     {
       "participant_id": "sub-11",
-      "raw_neighbor_corr": 0.22041548,
-      "t1_neighbor_corr": 0.74167756,
-      "mni_neighbor_corr": 0.63533475,
-      "t1_dice_distance": 0.62412679,
-      "mni_dice_distance": 0.79628267
+      "sepal_length": 4.8,
+      "sepal_width": 3.4,
+      "petal_length": 1.6,
+      "petal_width": 0.2
     },
     {
       "participant_id": "sub-12",
-      "raw_neighbor_corr": 0.89170141,
-      "t1_neighbor_corr": 0.69017107,
-      "mni_neighbor_corr": 0.60134397,
-      "t1_dice_distance": 0.58035578,
-      "mni_dice_distance": 0.84985039
+      "sepal_length": 4.8,
+      "sepal_width": 3,
+      "petal_length": 1.4,
+      "petal_width": 0.1
     },
     {
       "participant_id": "sub-13",
-      "raw_neighbor_corr": 0.51294617,
-      "t1_neighbor_corr": 0.86535482,
-      "mni_neighbor_corr": 0.73059431,
-      "t1_dice_distance": 0.21329642,
-      "mni_dice_distance": 0.95606663
+      "sepal_length": 4.3,
+      "sepal_width": 3,
+      "petal_length": 1.1,
+      "petal_width": 0.1
     },
     {
       "participant_id": "sub-14",
-      "raw_neighbor_corr": 0.17961295,
-      "t1_neighbor_corr": 0.67116728,
-      "mni_neighbor_corr": 0.58985036,
-      "t1_dice_distance": 0.43850044,
-      "mni_dice_distance": 0.02939648
+      "sepal_length": 5.8,
+      "sepal_width": 4,
+      "petal_length": 1.2,
+      "petal_width": 0.2
     },
     {
       "participant_id": "sub-15",
-      "raw_neighbor_corr": 0.5106331,
-      "t1_neighbor_corr": 0.94792923,
-      "mni_neighbor_corr": 0.05437395,
-      "t1_dice_distance": 0.69458008,
-      "mni_dice_distance": 0.54847996
+      "sepal_length": 5.7,
+      "sepal_width": 4.4,
+      "petal_length": 1.5,
+      "petal_width": 0.4
     },
     {
       "participant_id": "sub-16",
-      "raw_neighbor_corr": 0.40095961,
-      "t1_neighbor_corr": 0.375654,
-      "mni_neighbor_corr": 0.04468221,
-      "t1_dice_distance": 0.86637141,
-      "mni_dice_distance": 0.10642994
+      "sepal_length": 5.4,
+      "sepal_width": 3.9,
+      "petal_length": 1.3,
+      "petal_width": 0.4
     },
     {
       "participant_id": "sub-17",
-      "raw_neighbor_corr": 0.62136281,
-      "t1_neighbor_corr": 0.09192038,
-      "mni_neighbor_corr": 0.73063121,
-      "t1_dice_distance": 0.58332729,
-      "mni_dice_distance": 0.18355794
+      "sepal_length": 5.1,
+      "sepal_width": 3.5,
+      "petal_length": 1.4,
+      "petal_width": 0.3
     },
     {
       "participant_id": "sub-18",
-      "raw_neighbor_corr": 0.22766888,
-      "t1_neighbor_corr": 0.36581091,
-      "mni_neighbor_corr": 0.05351219,
-      "t1_dice_distance": 0.15303391,
-      "mni_dice_distance": 0.41732026
+      "sepal_length": 5.7,
+      "sepal_width": 3.8,
+      "petal_length": 1.7,
+      "petal_width": 0.3
     },
     {
       "participant_id": "sub-19",
-      "raw_neighbor_corr": 0.33157446,
-      "t1_neighbor_corr": 0.86412836,
-      "mni_neighbor_corr": 0.41271365,
-      "t1_dice_distance": 0.40052167,
-      "mni_dice_distance": 0.75551562
+      "sepal_length": 5.1,
+      "sepal_width": 3.8,
+      "petal_length": 1.5,
+      "petal_width": 0.3
+    },
+    {
+      "participant_id": "sub-20",
+      "sepal_length": 5.4,
+      "sepal_width": 3.4,
+      "petal_length": 1.7,
+      "petal_width": 0.2
+    },
+    {
+      "participant_id": "sub-21",
+      "sepal_length": 5.1,
+      "sepal_width": 3.7,
+      "petal_length": 1.5,
+      "petal_width": 0.4
+    },
+    {
+      "participant_id": "sub-22",
+      "sepal_length": 4.6,
+      "sepal_width": 3.6,
+      "petal_length": 1,
+      "petal_width": 0.2
+    },
+    {
+      "participant_id": "sub-23",
+      "sepal_length": 5.1,
+      "sepal_width": 3.3,
+      "petal_length": 1.7,
+      "petal_width": 0.5
+    },
+    {
+      "participant_id": "sub-24",
+      "sepal_length": 4.8,
+      "sepal_width": 3.4,
+      "petal_length": 1.9,
+      "petal_width": 0.2
+    },
+    {
+      "participant_id": "sub-25",
+      "sepal_length": 5,
+      "sepal_width": 3,
+      "petal_length": 1.6,
+      "petal_width": 0.2
+    },
+    {
+      "participant_id": "sub-26",
+      "sepal_length": 5,
+      "sepal_width": 3.4,
+      "petal_length": 1.6,
+      "petal_width": 0.4
+    },
+    {
+      "participant_id": "sub-27",
+      "sepal_length": 5.2,
+      "sepal_width": 3.5,
+      "petal_length": 1.5,
+      "petal_width": 0.2
+    },
+    {
+      "participant_id": "sub-28",
+      "sepal_length": 5.2,
+      "sepal_width": 3.4,
+      "petal_length": 1.4,
+      "petal_width": 0.2
+    },
+    {
+      "participant_id": "sub-29",
+      "sepal_length": 4.7,
+      "sepal_width": 3.2,
+      "petal_length": 1.6,
+      "petal_width": 0.2
+    },
+    {
+      "participant_id": "sub-30",
+      "sepal_length": 4.8,
+      "sepal_width": 3.1,
+      "petal_length": 1.6,
+      "petal_width": 0.2
+    },
+    {
+      "participant_id": "sub-31",
+      "sepal_length": 5.4,
+      "sepal_width": 3.4,
+      "petal_length": 1.5,
+      "petal_width": 0.4
+    },
+    {
+      "participant_id": "sub-32",
+      "sepal_length": 5.2,
+      "sepal_width": 4.1,
+      "petal_length": 1.5,
+      "petal_width": 0.1
+    },
+    {
+      "participant_id": "sub-33",
+      "sepal_length": 5.5,
+      "sepal_width": 4.2,
+      "petal_length": 1.4,
+      "petal_width": 0.2
+    },
+    {
+      "participant_id": "sub-34",
+      "sepal_length": 4.9,
+      "sepal_width": 3.1,
+      "petal_length": 1.5,
+      "petal_width": 0.2
+    },
+    {
+      "participant_id": "sub-35",
+      "sepal_length": 5,
+      "sepal_width": 3.2,
+      "petal_length": 1.2,
+      "petal_width": 0.2
+    },
+    {
+      "participant_id": "sub-36",
+      "sepal_length": 5.5,
+      "sepal_width": 3.5,
+      "petal_length": 1.3,
+      "petal_width": 0.2
+    },
+    {
+      "participant_id": "sub-37",
+      "sepal_length": 4.9,
+      "sepal_width": 3.6,
+      "petal_length": 1.4,
+      "petal_width": 0.1
+    },
+    {
+      "participant_id": "sub-38",
+      "sepal_length": 4.4,
+      "sepal_width": 3,
+      "petal_length": 1.3,
+      "petal_width": 0.2
+    },
+    {
+      "participant_id": "sub-39",
+      "sepal_length": 5.1,
+      "sepal_width": 3.4,
+      "petal_length": 1.5,
+      "petal_width": 0.2
+    },
+    {
+      "participant_id": "sub-40",
+      "sepal_length": 5,
+      "sepal_width": 3.5,
+      "petal_length": 1.3,
+      "petal_width": 0.3
+    },
+    {
+      "participant_id": "sub-41",
+      "sepal_length": 4.5,
+      "sepal_width": 2.3,
+      "petal_length": 1.3,
+      "petal_width": 0.3
+    },
+    {
+      "participant_id": "sub-42",
+      "sepal_length": 4.4,
+      "sepal_width": 3.2,
+      "petal_length": 1.3,
+      "petal_width": 0.2
+    },
+    {
+      "participant_id": "sub-43",
+      "sepal_length": 5,
+      "sepal_width": 3.5,
+      "petal_length": 1.6,
+      "petal_width": 0.6
+    },
+    {
+      "participant_id": "sub-44",
+      "sepal_length": 5.1,
+      "sepal_width": 3.8,
+      "petal_length": 1.9,
+      "petal_width": 0.4
+    },
+    {
+      "participant_id": "sub-45",
+      "sepal_length": 4.8,
+      "sepal_width": 3,
+      "petal_length": 1.4,
+      "petal_width": 0.3
+    },
+    {
+      "participant_id": "sub-46",
+      "sepal_length": 5.1,
+      "sepal_width": 3.8,
+      "petal_length": 1.6,
+      "petal_width": 0.2
+    },
+    {
+      "participant_id": "sub-47",
+      "sepal_length": 4.6,
+      "sepal_width": 3.2,
+      "petal_length": 1.4,
+      "petal_width": 0.2
+    },
+    {
+      "participant_id": "sub-48",
+      "sepal_length": 5.3,
+      "sepal_width": 3.7,
+      "petal_length": 1.5,
+      "petal_width": 0.2
+    },
+    {
+      "participant_id": "sub-49",
+      "sepal_length": 5,
+      "sepal_width": 3.3,
+      "petal_length": 1.4,
+      "petal_width": 0.2
     }
   ]
 }
