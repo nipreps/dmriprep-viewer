@@ -18,6 +18,7 @@
         :dataProp="groupReport['subjects']"
         :metricsProp="scatterMetrics"
         v-on:updateBrushedSubjects="updateBrushedSubjects"
+        v-on:updateSelectedSubject="updateSelectedSubject"
       ></scatterplotMatrix>
 
       <b-form-group class="text-left" label="Select violin plot metrics">
@@ -35,6 +36,7 @@
         :data="groupReport['subjects']"
         :metric="metric"
         v-on:updateBrushedSubjects="updateBrushedSubjects"
+        v-on:updateSelectedSubject="updateSelectedSubject"
       ></violinPlot>
 
       <b-card
@@ -149,7 +151,7 @@ export default {
       this.$emit("subjectSelected", subject);
     },
     copyBrushedSubjectsToClipboard() {
-      navigator.clipboard.writeText(this.brushedSubjects.join());
+      navigator.clipboard.writeText(this.brushedSubjectsIntersection.join());
     },
   },
   computed: {

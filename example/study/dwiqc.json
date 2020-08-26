@@ -355,5 +355,8 @@
       "petal_length": 1.4,
       "petal_width": 0.2
     }
-  ]
+  ],
+  "metric_explanation": {
+    "sepal_length": "Plain text explanation of this metric"
+  }
 }

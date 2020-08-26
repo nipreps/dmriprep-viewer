@@ -23,6 +23,7 @@ export default {
       margin: { top: 10, right: 10, bottom: 10, left: 20 },
       width: null,
       padding: 20,
+      radius: 4,
       brushedSubjects: null,
       metrics: [],
       data: [],
@@ -146,6 +147,22 @@ export default {
   },
   methods: {
     createChart() {
+      // Extend d3.selection to change z-order
+      // https://github.com/wbkd/d3-extended
+      d3.selection.prototype.moveToFront = function () {
+        return this.each(function () {
+          this.parentNode.appendChild(this);
+        });
+      };
+      d3.selection.prototype.moveToBack = function () {
+        return this.each(function () {
+          var firstChild = this.parentNode.firstChild;
+          if (firstChild) {
+            this.parentNode.insertBefore(this, firstChild);
+          }
+        });
+      };
+
       // Remove old chart
       d3.selectAll("#scattersvg > *").remove();
 
@@ -162,7 +179,11 @@ export default {
 
       svg
         .append("style")
-        .text(`circle.hidden { fill: #000; fill-opacity: 1; r: 1px; }`);
+        .text(
+          `circle.hidden { fill: #000; fill-opacity: 1; r: ${
+            this.radius / 3
+          }; }`
+        );
 
       svg.append("g").call(this.xAxis);
 
@@ -203,13 +224,31 @@ export default {
           .attr("cy", (d) => that.y[j](d[that.columns[j]]));
       });
 
+      cell.call(this.brush);
+
       const circle = cell
         .selectAll("circle")
-        .attr("r", 3.5)
+        .attr("r", this.radius)
         .attr("fill-opacity", 0.7)
-        .attr("fill", "blue");
+        .attr("fill", "blue")
+        .style("cursor", "pointer")
+        .on("mouseover", () => {
+          d3.select(d3.event.currentTarget)
+            .transition()
+            .duration(100)
+            .attr("r", that.radius * 2);
+        })
+        .on("mouseout", () => {
+          d3.select(d3.event.currentTarget)
+            .transition()
+            .duration(100)
+            .attr("r", that.radius);
+        })
+        .on("click", (d) => {
+          that.$emit("updateSelectedSubject", d.participant_id);
+        });
 
-      cell.call(this.brush, circle);
+      circle.moveToFront();
 
       svg
         .append("g")
@@ -225,11 +264,13 @@ export default {
         .attr("x", this.padding)
         .attr("y", this.padding)
         .attr("dy", ".71em")
+        .attr("font-size", "1.5em")
         .text((d) => d);
 
       return svg.node();
     },
-    brush(cell, circle) {
+    brush(cell) {
+      const circle = cell.selectAll("circle");
       const that = this;
       const brush = d3
         .brush()

@@ -1,6 +1,7 @@
 <template>
   <div :id="divId">
     <!-- <resize-observer @notify="handleResize" /> -->
+    <h6 class="m-0 p-0 text-left">{{ metric }}</h6>
     <svg :id="svgId" ref="chart" class="violin-plot"></svg>
   </div>
 </template>
@@ -25,6 +26,8 @@ export default {
       height: 250,
       radius: 5,
       brushedSubjects: null,
+      hoveredSubject: null,
+      brushObject: null,
       histogram: null,
       bins: null,
       maxNum: null,
@@ -177,6 +180,40 @@ export default {
 
       svg.append("g").call(xAxis);
 
+      const brush = d3
+        .brushX()
+        .extent([
+          [this.margin.left, this.margin.top],
+          [this.width - this.margin.right, this.height - this.margin.bottom],
+        ])
+        .on("brush", brushed)
+        .on("end", brushended);
+
+      svg.call(brush);
+
+      // Highlight the selected circles.
+      function brushed() {
+        if (d3.event.selection === null) return;
+        const circle = d3.selectAll("#" + that.svgId + " circle");
+        const [x0, x1] = d3.event.selection;
+        circle.classed("hidden", (d) => {
+          return x0 > d.x || x1 < d.x;
+        });
+        that.brushedSubjects = that.data
+          .filter(
+            (d) => that.x(d[that.metric]) >= x0 && that.x(d[that.metric]) <= x1
+          )
+          .map((d) => d.participant_id);
+      }
+
+      // If the brush is empty, select all circles.
+      function brushended() {
+        if (d3.event.selection !== null) return;
+        const circle = d3.selectAll("#" + that.svgId + " circle");
+        circle.classed("hidden", false);
+        that.brushedSubjects = that.data.map((d) => d.participant_id);
+      }
+
       // Color scale for dots
       const myColor = d3
         .scaleSequential()
@@ -203,47 +240,25 @@ export default {
         )
         .attr("r", this.radius)
         .style("fill", (d) => myColor(d.data[that.metric]))
-        .attr("stroke", "white");
-
-      svg
-        .append("text")
-        .attr("x", this.margin.left * 2)
-        .attr("y", this.margin.top * 2)
-        .attr("font-weight", "bold")
-        .attr("color", "black")
-        .attr("visibility", "visible")
-        .text(this.metric);
-
-      function handleMouseover(d, i) {
-        d3.select(d3.event.currentTarget)
-          .transition()
-          .duration(100)
-          .attr("r", that.radius * 1.5);
-
-        svg
-          .append("text")
-          // Create an id for text so we can select it later for removing on mouseout
-          .attr("id", "t" + d.x + "-" + d.y + "-" + i)
-          .attr("x", d.x - that.radius * 2)
-          .attr(
-            "y",
-            that.height -
-              that.boxHeight -
-              that.margin.bottom -
-              that.margin.top -
-              that.radius * 3 -
-              that.padding -
-              d.y
-          )
-          .text("foo");
-      }
-
-      function handleMouseout() {
-        d3.select(d3.event.currentTarget)
-          .transition()
-          .duration(100)
-          .attr("r", that.radius);
-      }
+        .style("cursor", "pointer")
+        .attr("stroke", "white")
+        .on("mouseover", (d) => {
+          that.hoveredSubject = d.data.participant_id;
+          d3.select(d3.event.currentTarget)
+            .transition()
+            .duration(100)
+            .attr("r", that.radius * 1.5);
+        })
+        .on("mouseout", () => {
+          that.hoveredSubject = null;
+          d3.select(d3.event.currentTarget)
+            .transition()
+            .duration(100)
+            .attr("r", that.radius);
+        })
+        .on("click", (d) => {
+          that.$emit("updateSelectedSubject", d.data.participant_id);
+        });
 
       // Box plot
       svg
@@ -316,45 +331,6 @@ export default {
         })
         .attr("stroke", "black")
         .attr("stroke-width", 2);
-
-      const circle = d3.selectAll("#" + this.svgId + " circle");
-      circle.on("mouseover", handleMouseover).on("mouseout", handleMouseout);
-
-      svg.call(this.brush, circle);
-    },
-    brush(svg, circle) {
-      const that = this;
-      const brush = d3
-        .brushX()
-        .extent([
-          [this.margin.left, this.margin.top],
-          [this.width - this.margin.right, this.height - this.margin.bottom],
-        ])
-        .on("brush", brushed)
-        .on("end", brushended);
-
-      svg.call(brush);
-
-      // Highlight the selected circles.
-      function brushed() {
-        if (d3.event.selection === null) return;
-        const [x0, x1] = d3.event.selection;
-        circle.classed("hidden", (d) => {
-          return x0 > d.x || x1 < d.x;
-        });
-        that.brushedSubjects = that.data
-          .filter(
-            (d) => that.x(d[that.metric]) >= x0 && that.x(d[that.metric]) <= x1
-          )
-          .map((d) => d.participant_id);
-      }
-
-      // If the brush is empty, select all circles.
-      function brushended() {
-        if (d3.event.selection !== null) return;
-        circle.classed("hidden", false);
-        that.brushedSubjects = that.data.map((d) => d.participant_id);
-      }
     },
     // handleResize() {
     //   this.width = this.$refs.chart.clientWidth;
