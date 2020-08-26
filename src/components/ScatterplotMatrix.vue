@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="scatterdiv">
     <!-- <resize-observer @notify="handleResize" /> -->
     <svg id="scattersvg" ref="chart" class="scatterplot-matrix"></svg>
   </div>
@@ -163,6 +163,14 @@ export default {
         });
       };
 
+      d3.select("#scatterdiv")
+        .append("div")
+        .attr("id", "scattertooltip")
+        .attr(
+          "style",
+          "position: absolute; background-color: white; display: none; padding: 2px; border: 1px solid black; border-radius: 5px;"
+        );
+
       // Remove old chart
       d3.selectAll("#scattersvg > *").remove();
 
@@ -232,17 +240,30 @@ export default {
         .attr("fill-opacity", 0.7)
         .attr("fill", "blue")
         .style("cursor", "pointer")
-        .on("mouseover", () => {
+        .on("mouseover", (d) => {
           d3.select(d3.event.currentTarget)
             .transition()
             .duration(100)
             .attr("r", that.radius * 2);
+
+          d3.select("#scattertooltip")
+            .transition()
+            .duration(200)
+            .style("display", "initial")
+            .text(d.participant_id);
         })
         .on("mouseout", () => {
           d3.select(d3.event.currentTarget)
             .transition()
             .duration(100)
             .attr("r", that.radius);
+
+          d3.select("#scattertooltip").style("display", "none");
+        })
+        .on("mousemove", () => {
+          d3.select("#scattertooltip")
+            .style("left", d3.event.pageX + 10 + "px")
+            .style("top", d3.event.pageY + 10 + "px");
         })
         .on("click", (d) => {
           that.$emit("updateSelectedSubject", d.participant_id);

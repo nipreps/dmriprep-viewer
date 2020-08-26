@@ -50,6 +50,9 @@ export default {
     divId() {
       return "violindiv-" + this.metric;
     },
+    tooltipId() {
+      return "tooltip-" + this.metric;
+    },
     x() {
       return d3
         .scaleLinear()
@@ -158,6 +161,14 @@ export default {
       return circles;
     },
     createChart() {
+      d3.select("#" + this.divId)
+        .append("div")
+        .attr("id", this.tooltipId)
+        .attr(
+          "style",
+          "position: absolute; background-color: white; display: none; padding: 2px; border: 1px solid black; border-radius: 5px;"
+        );
+
       var svg = d3
         .select("#" + this.svgId)
         .attr("viewBox", [0, 0, this.width, this.height]);
@@ -248,6 +259,12 @@ export default {
             .transition()
             .duration(100)
             .attr("r", that.radius * 1.5);
+
+          d3.select("#" + this.tooltipId)
+            .transition()
+            .duration(200)
+            .style("display", "initial")
+            .text(d.data.participant_id);
         })
         .on("mouseout", () => {
           that.hoveredSubject = null;
@@ -255,6 +272,13 @@ export default {
             .transition()
             .duration(100)
             .attr("r", that.radius);
+
+          d3.select("#" + this.tooltipId).style("display", "none");
+        })
+        .on("mousemove", () => {
+          d3.select("#" + this.tooltipId)
+            .style("left", d3.event.pageX + 10 + "px")
+            .style("top", d3.event.pageY + 10 + "px");
         })
         .on("click", (d) => {
           that.$emit("updateSelectedSubject", d.data.participant_id);
