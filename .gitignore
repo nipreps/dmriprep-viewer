@@ -2,7 +2,7 @@
 node_modules
 dist
 example/dmriprepReport.*
-example/study/sub-*
+example/study
 
 # local env files
 .env.local
