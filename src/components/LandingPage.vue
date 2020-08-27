@@ -1,92 +1,117 @@
 <template>
   <b-container>
-    <b-container v-if="state === 'getInput'">
-      <img class="logo" src="../assets/dmriprep-icon.svg" />
-      <h1>dmriprep Viewer</h1>
-      <p class="lead">
-        Upload your report.json file generated with dmriprep or qsiprep
-      </p>
-      <b-form-file
-        class="mt-3"
-        v-model="file"
-        accept="*.json"
-        :state="Boolean(file)"
-        placeholder="Choose a file..."
-      ></b-form-file>
+    <b-container fluid class="px-0" v-if="state === 'getInput'">
+      <b-row class="d-flex align-items-center">
+        <b-col cols="5" class="text-right">
+          <img class="logo" src="../assets/dmriprep-icon.svg" />
+        </b-col>
+        <b-col cols="7" class="text-left">
+          <h1>dmriprep Viewer</h1>
+        </b-col>
+      </b-row>
 
-      <p class="lead mt-3">OR copy/paste a URL</p>
-      <b-input-group size="md" class="mb-3" prepend="URL">
-        <b-form-input
-          v-model="url"
-          placeholder="Enter a URL..."
-          @keyup.enter="navigate"
-        />
-        <b-input-group-append>
-          <b-btn size="md" text="Button" variant="primary" @click="navigate"
-            >Go</b-btn
-          >
-        </b-input-group-append>
-      </b-input-group>
+      <b-form-group
+        label="Choose a directory containing dwiqc.json files generated with dmriprep or qsiprep:"
+        description="All computation happens on the client side. Your report will not be uploaded to any server."
+        class="mt-5 text-left"
+      >
+        <b-form-file
+          v-model="files"
+          directory
+          multiple
+          placeholder="Choose a directory..."
+        ></b-form-file>
+      </b-form-group>
 
-      <p class="lead mt-3">OR point to a report file on Amazon S3</p>
-      <b-input-group size="md" class="mb-3" prepend="S3 URI">
-        <b-form-input
-          v-model="s3Uri"
-          placeholder="Enter an Amazon S3 URI..."
-          @keyup.enter="s3"
-        />
-        <b-input-group-append>
-          <b-btn size="md" text="Button" variant="primary" @click="s3"
-            >Go</b-btn
-          >
-        </b-input-group-append>
-      </b-input-group>
+      <b-form-group
+        label="OR copy/paste an Amazon S3 URI:"
+        description="Enter a valid Amazon S3 URI of the form s3://bucket/followed/by/a/key."
+        class="mt-5 text-left"
+      >
+        <b-input-group size="md" class="mb-3" prepend="URL">
+          <b-form-input
+            v-model="url"
+            placeholder="s3://dmriprep-viewer-example-data"
+            @keyup.enter="navigate"
+          />
+          <b-input-group-append>
+            <b-btn size="md" text="Button" variant="primary" @click="navigate"
+              >Go</b-btn
+            >
+          </b-input-group-append>
+        </b-input-group>
+      </b-form-group>
     </b-container>
 
-    <genReport v-if="state === 'showReport'" :reportProp="report"></genReport>
+    <spinner v-if="state === 'showLoader'"></spinner>
+    <genReport
+      v-if="state === 'showReports'"
+      :filesProp="reportFiles"
+      :groupFileProp="groupReportFiles"
+    ></genReport>
   </b-container>
 </template>
 
 <script>
 import genReport from "./GenReport";
+import spinner from "./Spinner";
 
 export default {
   name: "LandingPage",
   components: {
     genReport,
+    spinner,
   },
   data() {
     return {
-      file: null,
+      files: null,
+      reportFiles: null,
+      groupReportFiles: null,
       msg: "Welcome to dmriprep-viewer",
       report: {},
       url: null,
-      s3Uri: null,
       state: "getInput",
     };
   },
   methods: {
     navigate() {
+      if (this.url.startsWith("s3://")) {
+        this.s3();
+      } else {
+        this.followUrl();
+      }
+    },
+    followUrl() {
       this.$router.push({ path: "/report", query: { url: this.url } });
     },
     s3() {
-      if (this.s3Uri.startsWith("s3://")) {
-        this.s3Uri = this.s3Uri.replace("s3://", "");
+      if (this.url.startsWith("s3://")) {
+        this.url = this.url.replace("s3://", "");
       }
-      this.$router.push({ path: "/report", query: { s3Uri: this.s3Uri } });
+      this.$router.push({ path: "/report", query: { s3Uri: this.url } });
     },
   },
   watch: {
-    file() {
-      if (this.file) {
-        const reader = new FileReader();
-        const self = this;
-        reader.onload = function Load(e) {
-          const contents = e.target.result;
-          self.report = JSON.parse(contents);
-          self.state = "showReport";
-        };
-        reader.readAsText(this.file);
+    files() {
+      if (this.files) {
+        this.state = "showLoader";
+        // We may have many files. Find all of the *_dwiqc.json files
+        this.reportFiles = this.files.filter((file) =>
+          file.name.endsWith("_dwiqc.json")
+        );
+
+        // And find the group report file if available
+        this.groupReportFiles = this.files.filter(
+          (file) => file.name === "dwiqc.json"
+        );
+
+        this.state = "showReports";
+
+        // let reportContents = await Promise.all(
+        //   await this.getAllReportsFromFiles(allReportFiles)
+        // );
+
+        // console.log(reportContents);
       }
     },
   },

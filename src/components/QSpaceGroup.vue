@@ -71,7 +71,7 @@ export default {
   },
   data() {
     return {
-      autoRotate: true,
+      autoRotate: false,
       showReflection: false,
       globalPosition: null,
     };
