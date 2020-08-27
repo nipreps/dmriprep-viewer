@@ -64,17 +64,22 @@ export default {
   },
   data() {
     return {
-      url: null,
-      s3Uri: null,
+      bucket: null,
       files: null,
       groupFile: null,
       groupReport: null,
-      subjectsBrushed: [],
+      manifestEntries: [],
+      re: /sub-[a-z0-9]+/gi,
+      s3Prefix: null,
+      s3Uri: null,
+      showInitialSidebar: true,
+      showStudyQc: true,
+      sourceType: null,
+      subjectFilter: "",
       subjectReports: null,
       subjectSelected: null,
-      showStudyQc: true,
-      showInitialSidebar: true,
-      subjectFilter: "",
+      subjectsBrushed: [],
+      url: null,
     };
   },
   methods: {
@@ -90,12 +95,15 @@ export default {
         ) {
           this.$router.push("/");
         } else if (this.$route.query.url) {
-          // Todo: update this to work with directories instead of single files
+          this.sourceType = "url";
           this.url = this.$route.query.url;
+          // Todo: update this to work with directories instead of single files
           this.loadFromUrl();
         } else if (this.$route.query.s3Uri) {
-          // Todo: update this to work with directories instead of single files
+          this.sourceType = "s3";
           this.s3Uri = this.$route.query.s3Uri;
+          this.bucket = this.s3Uri.split("/")[0];
+          this.s3Prefix = this.s3Uri.split("/").splice(1).join();
           this.loadFromS3();
         }
       }
@@ -106,14 +114,73 @@ export default {
         this.report = resp.data;
       });
     },
-    loadFromS3() {
-      // Todo: update this to work with directories instead of single files
-      axios.get(`https://s3.amazonaws.com/$(this.s3Uri`).then((resp) => {
-        this.report = resp.data;
+    /**
+     * Begin S3 parsing functions
+     */
+    xmlParser(input) {
+      const parser = new DOMParser();
+      const xmlDoc = parser.parseFromString(input, "text/xml");
+      return xmlDoc;
+    },
+    parseS3(data) {
+      const xml = this.xmlParser(data);
+      const keys = xml.getElementsByTagName("Key");
+      const continuation = xml.getElementsByTagName("NextContinuationToken");
+      const isTruncated = xml.getElementsByTagName("IsTruncated")[0].innerHTML;
+      if (isTruncated === "true") {
+        this.continuation = encodeURIComponent(continuation[0].innerHTML);
+      } else {
+        this.continuation = null;
+      }
+      const allKeys = _.map(keys, (k) => k.innerHTML);
+      const reportsFiltered = _.filter(allKeys, (k) =>
+        k.endsWith("dwiqc.json")
+      );
+      const keysFixed = _.uniq(reportsFiltered);
+      return keysFixed;
+    },
+    S3Continuation(token) {
+      if (!token) {
+        return 0;
+      }
+      const url = this.s3ListUrl + `&continuation-token=${token}`;
+      return axios.get(url).then((resp) => {
+        const keysFixed2 = this.parseS3(resp.data);
+        this.manifestEntries = _.uniq(this.manifestEntries.concat(keysFixed2));
+        if (this.continuation) {
+          this.S3Continuation(this.continuation);
+        }
       });
     },
+    loadFromS3() {
+      const that = this;
+      const url = this.s3ListUrl;
+      return axios
+        .get(url)
+        .then((resp) => {
+          const keysFixed = this.parseS3(resp.data);
+          this.manifestEntries = _.uniq(this.manifestEntries.concat(keysFixed));
+          if (this.continuation) {
+            this.S3Continuation(this.continuation);
+          }
+        })
+        .then(() => {
+          this.groupFile = this.manifestEntries.filter(
+            (k) => k.match(that.re) === null
+          );
+          this.files = this.manifestEntries.filter(
+            (k) => k.match(that.re) !== null
+          );
+          this.selectRootGroupFile();
+          this.loadGroupReport();
+        });
+    },
     getFileDepth(file) {
-      return file.webkitRelativePath.split("/").length;
+      if (this.sourceType === "file") {
+        return file.webkitRelativePath.split("/").length;
+      } else if (this.sourceType === "s3") {
+        return file.split("/").length;
+      }
     },
     selectRootGroupFile() {
       // if there are multiple group files, select the one closest to the root directory
@@ -154,7 +221,6 @@ export default {
         (o, k) => (
           (o[k] = {
             source: participantFileMap[k],
-            sourceType: "file",
             report: null,
             whenRequested: null,
           }),
@@ -164,34 +230,47 @@ export default {
       );
       return reports;
     },
-    async getAllReportsFromFiles(jsonFiles) {
-      const reports = await _.reduce(
-        jsonFiles,
-        (o, k) => (
-          (o[this.readJsonFile(k)["subject_id"]] = this.readJsonFile(k)), o
-        ),
-        {}
-      );
-      return reports;
-    },
     async loadGroupReport() {
-      const gr = await this.readJsonFile(this.groupFile);
-      this.groupReport = gr["content"];
+      if (this.sourceType === "file") {
+        const gr = await this.readJsonFile(this.groupFile);
+        this.groupReport = gr["content"];
+      } else if (this.sourceType === "s3") {
+        const resp = await axios.get(
+          this.localhostProxy(
+            `https://${this.bucket}.s3.amazonaws.com/${this.groupFile}`
+          )
+        );
+        this.groupReport = resp.data;
+      }
     },
     async updateSubjectReports(subject_id) {
       let sr = this.subjectReports[subject_id];
       if (sr["report"] == null) {
         // use the abstract equality operator to test for both null and undefined
-        if (sr["sourceType"] === "file") {
+        if (this.sourceType === "file") {
           const report = await this.readJsonFile(sr["source"]);
           sr["report"] = report["content"];
-        } else if (sr["sourceType"] === "s3") {
-          console.log("S3 sources are currently not supported.");
-        } else if (sr["sourceType"] === "url") {
+        } else if (this.sourceType === "s3") {
+          const resp = await axios.get(
+            this.localhostProxy(
+              `https://${this.bucket}.s3.amazonaws.com/${sr["source"]}`
+            )
+          );
+          sr["report"] = resp.data;
+        } else if (this.sourceType === "url") {
           console.log("URL sources are currently not supported.");
         }
       }
       sr["whenRequested"] = new Date();
+    },
+    localhostProxy(url) {
+      const local_domains = ["localhost", "127.0.0.1"];
+      if (local_domains.includes(window.location.hostname)) {
+        const proxyurl = "https://cors-anywhere.herokuapp.com/";
+        return proxyurl + url;
+      } else {
+        return url;
+      }
     },
   },
   created() {
@@ -199,15 +278,22 @@ export default {
   },
   mounted() {
     if (this.filesProp) {
+      this.sourceType = "file";
       this.files = this.filesProp;
     }
     if (this.groupFileProp) {
+      this.sourceType = "file";
       this.groupFile = this.groupFileProp;
       this.selectRootGroupFile();
       this.loadGroupReport();
     }
   },
   computed: {
+    s3ListUrl() {
+      let url = `https://${this.bucket}.s3.amazonaws.com/?list-type=2`;
+      url += `&max-keys=100000&prefix=${this.s3Prefix}`;
+      return this.localhostProxy(url);
+    },
     filteredSubjects() {
       if (this.subjectFilter) {
         return this.subjectsAll.filter((s) => s.includes(this.subjectFilter));
@@ -224,12 +310,21 @@ export default {
     },
     subjectFileMap: function () {
       if (this.files) {
-        const re = /sub-[a-z0-9]+/gi;
-        return _.reduce(
-          this.files,
-          (o, k) => ((o[[...new Set(k.name.match(re))][0]] = k), o),
-          {}
-        );
+        if (this.sourceType === "file") {
+          return _.reduce(
+            this.files,
+            (o, k) => ((o[[...new Set(k.name.match(this.re))][0]] = k), o),
+            {}
+          );
+        } else if (this.sourceType === "s3") {
+          return _.reduce(
+            this.files,
+            (o, k) => ((o[[...new Set(k.match(this.re))][0]] = k), o),
+            {}
+          );
+        } else {
+          return {};
+        }
       } else {
         return {};
       }
