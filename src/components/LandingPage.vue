@@ -25,13 +25,13 @@
 
       <b-form-group
         label="OR copy/paste an Amazon S3 URI:"
-        description="Enter a valid Amazon S3 URI of the form s3://bucket/followed/by/a/key"
+        description="Enter a valid Amazon S3 URI of the form s3://bucket/followed/by/a/key."
         class="mt-5 text-left"
       >
         <b-input-group size="md" class="mb-3" prepend="URL">
           <b-form-input
             v-model="url"
-            placeholder="Enter an Amazon S3 URI..."
+            placeholder="s3://dmriprep-viewer-example-data"
             @keyup.enter="navigate"
           />
           <b-input-group-append>
