@@ -18,7 +18,7 @@ jobs:
     - name: Lint 🔧
       uses: borales/actions-yarn@v2.0.0
       with:
-        cmd: prettier --check
+        cmd: prettier --check .
     - name: Deploy to Github Pages 🚀
       if: github.ref == 'refs/heads/master' && github.event_name == 'push' 
       uses: JamesIves/github-pages-deploy-action@releases/v3
