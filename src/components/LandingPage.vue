@@ -54,6 +54,7 @@
 
 <script>
 import genReport from "./GenReport";
+import router from "../router";
 import spinner from "./Spinner";
 
 export default {
@@ -82,13 +83,13 @@ export default {
       }
     },
     followUrl() {
-      this.$router.push({ path: "/report", query: { url: this.url } });
+      router.push({ path: "/report", query: { url: this.url } });
     },
     s3() {
-      if (this.url.startsWith("s3://")) {
-        this.url = this.url.replace("s3://", "");
-      }
-      this.$router.push({ path: "/report", query: { s3Uri: this.url } });
+      router.push({
+        path: "/report",
+        query: { s3Uri: this.url.replace("s3://", "") },
+      });
     },
   },
   watch: {
