@@ -7,7 +7,7 @@ sentimentBotToxicityThreshold: .7
 # *Required* Comment to reply with
 sentimentBotReplyComment: >
   SentimentBot thinks that this comment is toxic. Perhaps SentimentBot got it wrong. But then again, maybe you did.
-  
+
   Please reread your comment and take advantage of any opportunities to "turn down the temperature." We want the dmriprep-viewer community to be inclusive and welcoming. Please be respectful of other users and think about ways to communicate the same message in a more delicate manner. cc/ @richford
 
 #=======================================================================
