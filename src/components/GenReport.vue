@@ -103,7 +103,7 @@ export default {
           this.sourceType = "s3";
           this.s3Uri = this.$route.query.s3Uri;
           this.bucket = this.s3Uri.split("/")[0];
-          this.s3Prefix = this.s3Uri.split("/").splice(1).join();
+          this.s3Prefix = this.s3Uri.split("/").splice(1).join("/");
           this.loadFromS3();
         }
       }
