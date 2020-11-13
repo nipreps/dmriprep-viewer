@@ -121,8 +121,8 @@ export default {
       this.groupReport = this.reportProp;
     }
     // Todo: Find some way to sensibly initialize these next two lines
-    this.scatterMetrics = this.metricOptions.slice(0, 3);
-    this.violinMetrics = this.metricOptions.slice(3);
+    this.scatterMetrics = []; // this.metricOptions.slice(0, 3);
+    this.violinMetrics = []; // this.metricOptions.slice(3);
     this.brushedSubjects = this.metricOptions.reduce(
       (o, key) => ({
         ...o,

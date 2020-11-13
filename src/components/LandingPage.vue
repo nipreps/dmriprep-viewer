@@ -96,6 +96,7 @@ export default {
     files() {
       if (this.files) {
         this.state = "showLoader";
+
         // We may have many files. Find all of the *_dwiqc.json files
         this.reportFiles = this.files.filter((file) =>
           file.name.endsWith("_dwiqc.json")
