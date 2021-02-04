@@ -1,7 +1,7 @@
 <template>
   <b-container fluid class="px-0">
     <b-container fluid class="px-0" v-if="groupReport">
-      <topBar :reportProp="groupReport" sidebarOn></topBar>
+      <topBar :reportProp="groupReport" sidebarOn isGroupReport></topBar>
 
       <explainer explainer-text="Todo: explain this"></explainer>
 
