@@ -51,12 +51,14 @@
       <groupReport
         v-if="showStudyQc && groupReport"
         v-on:subjectSelected="updateSelectedSubject"
+        v-on:ratingsDownloadRequested="downloadRatings"
         :reportProp="groupReport"
       ></groupReport>
       <report
         v-else-if="subjectSelected && subjectReports[subjectSelected]['report']"
         :reportProp="subjectReports[subjectSelected]['report']"
         :ratingProp="subjectRatings[subjectSelected]"
+        v-on:ratingsDownloadRequested="downloadRatings"
       ></report>
       <spinner v-else></spinner>
     </b-container>
@@ -102,6 +104,41 @@ export default {
     };
   },
   methods: {
+    async downloadRatings() {
+      const reviewedRatings = _.filter(
+        Object.values(this.subjectRatings),
+        (o) => {return o.reviewed;}
+      );
+
+      const csvRows = reviewedRatings.map(
+        (o) => {
+          return _.pick(o, [
+            "subject", "overallRating", "anatRating", "dwiRating", "whenRated"
+          ]);
+        }
+      );
+
+      if (csvRows.length === 0) {
+        return
+      }
+
+      const delimiter = ",";
+      const header = Object.keys(csvRows[0]).join(delimiter) + "\n";
+
+      let csv = header;
+      csvRows.forEach( o => {
+          csv += Object.values(o).join(delimiter) + "\n";
+      });
+
+      let csvData = new Blob([csv], { type: "text/csv" });
+      let csvUrl = URL.createObjectURL(csvData);
+
+      let hiddenElement = document.createElement("a");
+      hiddenElement.href = csvUrl;
+      hiddenElement.target = "_blank";
+      hiddenElement.download = "dwiqc_ratings.csv";
+      hiddenElement.click();
+    },
     updateSelectedSubject(subject) {
       this.subjectSelected = subject;
     },
@@ -254,6 +291,7 @@ export default {
         Object.keys(participantFileMap),
         (o, k) => (
           (o[k] = {
+            subject: k,
             source: participantFileMap[k],
             overallRating: null,
             anatRating: null,

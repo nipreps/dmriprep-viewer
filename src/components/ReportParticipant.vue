@@ -1,7 +1,11 @@
 <template>
   <b-container fluid class="px-0">
     <b-container fluid class="px-0" v-if="report">
-      <topBar :reportProp="report" :ratingProp="rating"></topBar>
+      <topBar
+        :reportProp="report"
+        :ratingProp="rating"
+        v-on:ratingsDownloadRequested="ratingsDownloadRequested"
+      ></topBar>
       <b-row>
         <b-col>
           <h1>{{ report.subject_id }}</h1>
@@ -154,6 +158,9 @@ export default {
     },
     updateGlobalPosition(position) {
       this.globalPosition = position;
+    },
+    ratingsDownloadRequested() {
+      this.$emit("ratingsDownloadRequested");
     },
   },
   mounted() {

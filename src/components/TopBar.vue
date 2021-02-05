@@ -158,6 +158,14 @@
           <b-icon icon="three-dots" id="more-button" aria-hidden="true"></b-icon>
         </template>
         <b-dropdown-item-button
+          id="download-csv"
+          variant="outline-primary"
+          @click="ratingsDownloadRequested()"
+        >
+          <b-icon icon="list-check" class="mr-2" aria-hidden="true"></b-icon>
+          download ratings csv
+        </b-dropdown-item-button>
+        <b-dropdown-item-button
           id="file-issue"
           variant="outline-primary"
           onclick="window.open('https://github.com/nipreps/dmriprep-viewer/issues/new','_blank')"
@@ -272,6 +280,9 @@ export default {
         name: "report.json",
       });
       FileSaver.saveAs(fileToSave, "report.json");
+    },
+    ratingsDownloadRequested() {
+      this.$emit("ratingsDownloadRequested");
     },
   },
   mounted() {
