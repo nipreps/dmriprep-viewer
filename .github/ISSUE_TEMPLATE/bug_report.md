@@ -1,9 +1,9 @@
 ---
 name: Bug report
 about: Create a report to help us reproduce and correct the bug
-title: ''
-labels: 'bug'
-assignees: ''
+title: ""
+labels: "bug"
+assignees: ""
 ---
 
 <!--
@@ -24,7 +24,7 @@ Please add a minimal example to reproduce the error.
 In short, we would like to be able to get the same
 result as you so that we can easily fix the bug.
 
-Feel free tto use screenshots to show what is happening.
+Feel free to use screenshots to show what is happening.
 -->
 
     Sample code to reproduce the problem

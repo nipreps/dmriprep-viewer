@@ -14,7 +14,11 @@
           explainer-text="Select a subject below to see their report. Or select the study ID at the top to see a group summary. You can filter the subject list using the text input. You can close this sidebar by clicking on the 'x' in the top right or by simply clicking outside of the sidebar."
         ></explainer>
         <b-nav vertical pills class="w-100">
-          <b-nav-item class="mx-1" :active="showStudyQc" @click="showStudyQc = true">
+          <b-nav-item
+            class="mx-1"
+            :active="showStudyQc"
+            @click="showStudyQc = true"
+          >
             {{ groupReport.studyId ? groupReport.studyId : "Study" }}
           </b-nav-item>
           <input
@@ -107,27 +111,31 @@ export default {
     async downloadRatings() {
       const reviewedRatings = _.filter(
         Object.values(this.subjectRatings),
-        (o) => {return o.reviewed;}
-      );
-
-      const csvRows = reviewedRatings.map(
         (o) => {
-          return _.pick(o, [
-            "subject", "overallRating", "anatRating", "dwiRating", "whenRated"
-          ]);
+          return o.reviewed;
         }
       );
 
+      const csvRows = reviewedRatings.map((o) => {
+        return _.pick(o, [
+          "subject",
+          "overallRating",
+          "anatRating",
+          "dwiRating",
+          "whenRated",
+        ]);
+      });
+
       if (csvRows.length === 0) {
-        return
+        return;
       }
 
       const delimiter = ",";
       const header = Object.keys(csvRows[0]).join(delimiter) + "\n";
 
       let csv = header;
-      csvRows.forEach( o => {
-          csv += Object.values(o).join(delimiter) + "\n";
+      csvRows.forEach((o) => {
+        csv += Object.values(o).join(delimiter) + "\n";
       });
 
       let csvData = new Blob([csv], { type: "text/csv" });

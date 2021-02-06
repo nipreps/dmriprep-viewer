@@ -1,8 +1,7 @@
 ---
 name: Other
-about: For all other issues. 
-title: ''
-labels: ''
-assignees: ''
-
+about: For all other issues.
+title: ""
+labels: ""
+assignees: ""
 ---

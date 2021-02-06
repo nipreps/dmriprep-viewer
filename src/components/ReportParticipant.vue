@@ -185,16 +185,16 @@ export default {
           this.report = this.reportProp;
         }
       },
-      deep: true
+      deep: true,
     },
     ratingProp: {
       immediate: true,
-      handler: function() {
+      handler: function () {
         if (this.ratingProp) {
           this.rating = this.ratingProp;
         }
       },
-      deep: true
+      deep: true,
     },
     report: {
       immediate: true,
@@ -203,7 +203,7 @@ export default {
           this.spriteSlice = this.get_mid_slice();
         }
       },
-      deep: true
+      deep: true,
     },
   },
 };

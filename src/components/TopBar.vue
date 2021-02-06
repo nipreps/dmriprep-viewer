@@ -66,10 +66,24 @@
       >
         <b-iconstack>
           <!-- <b-icon stacked icon="hand-thumbs-up" scale="0.75" shift-v="6" shift-h="-6" aria-hidden="true"></b-icon> -->
-          <b-icon stacked icon="check-circle" scale="0.75" shift-v="6" shift-h="-6" aria-hidden="true"></b-icon>
+          <b-icon
+            stacked
+            icon="check-circle"
+            scale="0.75"
+            shift-v="6"
+            shift-h="-6"
+            aria-hidden="true"
+          ></b-icon>
           <b-icon stacked icon="slash" scale="1.5" aria-hidden="true"></b-icon>
           <!-- <b-icon stacked icon="hand-thumbs-down" scale="0.75" shift-v="-6" shift-h="6" aria-hidden="true"></b-icon> -->
-          <b-icon stacked icon="x-circle" scale="0.75" shift-v="-6" shift-h="6" aria-hidden="true"></b-icon>
+          <b-icon
+            stacked
+            icon="x-circle"
+            scale="0.75"
+            shift-v="-6"
+            shift-h="6"
+            aria-hidden="true"
+          ></b-icon>
         </b-iconstack>
       </b-button>
       <b-modal
@@ -83,11 +97,7 @@
         <div class="mb-2">
           Rate this subject
         </div>
-        <b-form
-          ref="form"
-          @submit.stop.prevent="handleSubmit"
-          v-if="rating"
-        >
+        <b-form ref="form" @submit.stop.prevent="handleSubmit" v-if="rating">
           <b-form-group
             id="input-group-anat"
             label="T1w"
@@ -155,7 +165,11 @@
       </b-modal>
       <b-dropdown variant="outline-primary" class="mb-2 header-button">
         <template #button-content>
-          <b-icon icon="three-dots" id="more-button" aria-hidden="true"></b-icon>
+          <b-icon
+            icon="three-dots"
+            id="more-button"
+            aria-hidden="true"
+          ></b-icon>
         </template>
         <b-dropdown-item-button
           id="download-csv"
@@ -193,9 +207,7 @@
     <b-tooltip target="rating-button" triggers="hover" v-if="!isGroupReport"
       >rate this subject</b-tooltip
     >
-    <b-tooltip target="more-button" triggers="hover"
-      >more options</b-tooltip
-    >
+    <b-tooltip target="more-button" triggers="hover">more options</b-tooltip>
   </b-button-toolbar>
 </template>
 
@@ -228,7 +240,7 @@ export default {
     isGroupReport: {
       type: Boolean,
       default: false,
-    }
+    },
   },
   data() {
     return {
@@ -242,17 +254,17 @@ export default {
       return rating != null;
     },
     checkFormValidity() {
-      const valid = (
-        this.rating.anatRating != null
-        && this.rating.dwiRating != null
-        && this.rating.overallRating != null);
-      return valid
+      const valid =
+        this.rating.anatRating != null &&
+        this.rating.dwiRating != null &&
+        this.rating.overallRating != null;
+      return valid;
     },
     onOk(bvModalEvt) {
       // Prevent modal from closing
-      bvModalEvt.preventDefault()
+      bvModalEvt.preventDefault();
       // Trigger submit handler
-      this.handleSubmit()
+      this.handleSubmit();
     },
     handleHidden() {
       // If rater cancelled the rating form, reset the reviewed and whenRated
@@ -264,15 +276,15 @@ export default {
     },
     handleSubmit() {
       if (!this.checkFormValidity()) {
-        return
+        return;
       }
 
-      this.rating.whenRated = (new Date()).toString();
+      this.rating.whenRated = new Date().toString();
       this.rating.reviewed = true;
 
       this.$nextTick(() => {
-        this.$bvModal.hide('rating-modal')
-      })
+        this.$bvModal.hide("rating-modal");
+      });
     },
     download() {
       var fileToSave = new Blob([JSON.stringify(this.report)], {
@@ -288,7 +300,7 @@ export default {
   mounted() {
     if (this.reportProp) {
       this.report = this.reportProp;
-      this.subjectId = this.reportProp["subject_id"]
+      this.subjectId = this.reportProp["subject_id"];
     }
     if (this.ratingProp) {
       this.rating = this.ratingProp;
@@ -298,7 +310,7 @@ export default {
     reportProp() {
       if (this.reportProp) {
         this.report = this.reportProp;
-        this.subjectId = this.reportProp["subject_id"]
+        this.subjectId = this.reportProp["subject_id"];
       }
     },
     ratingProp() {

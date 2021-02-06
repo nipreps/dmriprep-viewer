@@ -1,10 +1,9 @@
 ---
 name: Feature request
 about: Suggest a new feature or enhancement to an existing component.
-title: ''
-labels: 'enhancement'
-assignees: ''
-
+title: ""
+labels: "enhancement"
+assignees: ""
 ---
 
 <!--
