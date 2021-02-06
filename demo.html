@@ -1,0 +1,19 @@
+<meta charset="utf-8">
+<title>dmriprepViewer demo</title>
+<script src="https://unpkg.com/vue"></script>
+<script src="./dmriprepViewer.umd.js"></script>
+
+<link rel="stylesheet" href="./dmriprepViewer.css">
+
+
+<div id="app">
+  <demo></demo>
+</div>
+
+<script>
+new Vue({
+  components: {
+    demo: dmriprepViewer
+  }
+}).$mount('#app')
+</script>
