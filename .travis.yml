@@ -7,7 +7,7 @@ node_js:
 #  - node_modules
 branches:
   only:
-    - master
+    - main
 notifications:
   email: false
 before_script:
