@@ -1,12 +1,13 @@
 <template>
   <div id="app">
-    <router-view />
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Vue from "vue";
 import BootstrapVue from "bootstrap-vue";
+import "vue-router";
+import Vue from "vue";
 // eslint-disable-next-line
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";

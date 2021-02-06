@@ -1,5 +1,5 @@
 <template>
-  <b-container fluid class="px-0">
+  <b-container fluid class="px-0 m-3">
     <b-container fluid class="px-0" v-if="groupReport">
       <b-sidebar
         id="sidebar-backdrop"
@@ -14,7 +14,7 @@
           explainer-text="Select a subject below to see their report. Or select the study ID at the top to see a group summary. You can filter the subject list using the text input. You can close this sidebar by clicking on the 'x' in the top right or by simply clicking outside of the sidebar."
         ></explainer>
         <b-nav vertical pills class="w-100">
-          <b-nav-item :active="showStudyQc" @click="showStudyQc = true">
+          <b-nav-item class="mx-1" :active="showStudyQc" @click="showStudyQc = true">
             {{ groupReport.studyId ? groupReport.studyId : "Study" }}
           </b-nav-item>
           <input
@@ -23,22 +23,42 @@
             placeholder="filter subjects"
           />
           <b-nav-item
+            class="mx-1"
             v-for="subject in filteredSubjects"
             :key="subject"
             :active="subject === subjectSelected"
             @click="subjectSelected = subject"
-            >{{ subject }}</b-nav-item
           >
+            <b-icon
+              class="mr-2"
+              align-self="end"
+              icon="check-circle-fill"
+              scale="0.9"
+              variant="success"
+              v-if="subjectRatings[subject].reviewed"
+            ></b-icon>
+            <b-icon
+              class="mr-2"
+              icon="circle"
+              scale="0.5"
+              variant="secondary"
+              v-else
+            ></b-icon>
+            {{ subject }}
+          </b-nav-item>
         </b-nav>
       </b-sidebar>
       <groupReport
         v-if="showStudyQc && groupReport"
         v-on:subjectSelected="updateSelectedSubject"
+        v-on:ratingsDownloadRequested="downloadRatings"
         :reportProp="groupReport"
       ></groupReport>
       <report
         v-else-if="subjectSelected && subjectReports[subjectSelected]['report']"
         :reportProp="subjectReports[subjectSelected]['report']"
+        :ratingProp="subjectRatings[subjectSelected]"
+        v-on:ratingsDownloadRequested="downloadRatings"
       ></report>
       <spinner v-else></spinner>
     </b-container>
@@ -77,12 +97,48 @@ export default {
       sourceType: null,
       subjectFilter: "",
       subjectReports: null,
+      subjectRatings: null,
       subjectSelected: null,
       subjectsBrushed: [],
       url: null,
     };
   },
   methods: {
+    async downloadRatings() {
+      const reviewedRatings = _.filter(
+        Object.values(this.subjectRatings),
+        (o) => {return o.reviewed;}
+      );
+
+      const csvRows = reviewedRatings.map(
+        (o) => {
+          return _.pick(o, [
+            "subject", "overallRating", "anatRating", "dwiRating", "whenRated"
+          ]);
+        }
+      );
+
+      if (csvRows.length === 0) {
+        return
+      }
+
+      const delimiter = ",";
+      const header = Object.keys(csvRows[0]).join(delimiter) + "\n";
+
+      let csv = header;
+      csvRows.forEach( o => {
+          csv += Object.values(o).join(delimiter) + "\n";
+      });
+
+      let csvData = new Blob([csv], { type: "text/csv" });
+      let csvUrl = URL.createObjectURL(csvData);
+
+      let hiddenElement = document.createElement("a");
+      hiddenElement.href = csvUrl;
+      hiddenElement.target = "_blank";
+      hiddenElement.download = "dwiqc_ratings.csv";
+      hiddenElement.click();
+    },
     updateSelectedSubject(subject) {
       this.subjectSelected = subject;
     },
@@ -230,6 +286,25 @@ export default {
       );
       return reports;
     },
+    async initSubjectRatings(participantFileMap) {
+      const ratings = await _.reduce(
+        Object.keys(participantFileMap),
+        (o, k) => (
+          (o[k] = {
+            subject: k,
+            source: participantFileMap[k],
+            overallRating: null,
+            anatRating: null,
+            dwiRating: null,
+            whenRated: null,
+            reviewed: false,
+          }),
+          o
+        ),
+        {}
+      );
+      return ratings;
+    },
     async loadGroupReport() {
       if (this.sourceType === "file") {
         const gr = await this.readJsonFile(this.groupFile);
@@ -250,6 +325,9 @@ export default {
         if (this.sourceType === "file") {
           const report = await this.readJsonFile(sr["source"]);
           sr["report"] = report["content"];
+          if (report["content"]["subject_id"] === "sub-test") {
+            sr["report"]["subject_id"] = subject_id;
+          }
         } else if (this.sourceType === "s3") {
           const resp = await axios.get(
             this.localhostProxy(
@@ -257,6 +335,9 @@ export default {
             )
           );
           sr["report"] = resp.data;
+          if (resp.data["subject_id"] === "sub-test") {
+            sr["report"]["subject_id"] = subject_id;
+          }
         } else if (this.sourceType === "url") {
           console.log("URL sources are currently not supported.");
         }
@@ -399,6 +480,9 @@ export default {
       immediate: true,
       handler: async function () {
         this.subjectReports = await this.initSubjectReports(
+          this.subjectFileMap
+        );
+        this.subjectRatings = await this.initSubjectRatings(
           this.subjectFileMap
         );
       },

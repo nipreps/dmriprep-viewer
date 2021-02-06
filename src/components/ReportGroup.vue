@@ -1,7 +1,12 @@
 <template>
   <b-container fluid class="px-0">
     <b-container fluid class="px-0" v-if="groupReport">
-      <topBar :reportProp="groupReport" sidebarOn></topBar>
+      <topBar
+        :reportProp="groupReport"
+        sidebarOn
+        isGroupReport
+        v-on:ratingsDownloadRequested="ratingsDownloadRequested"
+      ></topBar>
 
       <explainer explainer-text="Todo: explain this"></explainer>
 
@@ -149,6 +154,9 @@ export default {
     },
     updateSelectedSubject(subject) {
       this.$emit("subjectSelected", subject);
+    },
+    ratingsDownloadRequested() {
+      this.$emit("ratingsDownloadRequested");
     },
     copyBrushedSubjectsToClipboard() {
       navigator.clipboard.writeText(this.brushedSubjectsIntersection.join());

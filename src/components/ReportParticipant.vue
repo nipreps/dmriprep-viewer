@@ -1,7 +1,11 @@
 <template>
   <b-container fluid class="px-0">
     <b-container fluid class="px-0" v-if="report">
-      <topBar :reportProp="report"></topBar>
+      <topBar
+        :reportProp="report"
+        :ratingProp="rating"
+        v-on:ratingsDownloadRequested="ratingsDownloadRequested"
+      ></topBar>
       <b-row>
         <b-col>
           <h1>{{ report.subject_id }}</h1>
@@ -132,6 +136,10 @@ export default {
     reportProp: {
       type: Object,
     },
+    ratingProp: {
+      type: Object,
+      default: null,
+    },
   },
   data() {
     return {
@@ -141,6 +149,7 @@ export default {
       autoRotate: false,
       showReflection: true,
       report: null,
+      rating: null,
     };
   },
   methods: {
@@ -150,10 +159,16 @@ export default {
     updateGlobalPosition(position) {
       this.globalPosition = position;
     },
+    ratingsDownloadRequested() {
+      this.$emit("ratingsDownloadRequested");
+    },
   },
   mounted() {
     if (this.reportProp) {
       this.report = this.reportProp;
+    }
+    if (this.ratingProp) {
+      this.rating = this.ratingProp;
     }
 
     this.$nextTick(() => {
@@ -170,6 +185,16 @@ export default {
           this.report = this.reportProp;
         }
       },
+      deep: true
+    },
+    ratingProp: {
+      immediate: true,
+      handler: function() {
+        if (this.ratingProp) {
+          this.rating = this.ratingProp;
+        }
+      },
+      deep: true
     },
     report: {
       immediate: true,
@@ -178,6 +203,7 @@ export default {
           this.spriteSlice = this.get_mid_slice();
         }
       },
+      deep: true
     },
   },
 };
