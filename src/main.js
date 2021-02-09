@@ -4,7 +4,7 @@ import Vue from "vue";
 import App from "./App";
 import router from "./router/index";
 
-const debug = process.env.NODE_ENV !== 'production';
+const debug = process.env.NODE_ENV !== "production";
 
 Vue.config.productionTip = false;
 Vue.config.performance = debug;
