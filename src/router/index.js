@@ -1,11 +1,11 @@
 import Vue from "vue";
-import VueRouter from "vue-router";
+import Router from "vue-router";
 import LandingPage from "@/components/LandingPage";
 import genReport from "@/components/GenReport";
 
-Vue.use(VueRouter);
+Vue.use(Router);
 
-export default new VueRouter({
+export default new Router({
   routes: [
     {
       path: "/",
