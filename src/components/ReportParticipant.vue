@@ -13,7 +13,9 @@
           <p class="lead">Motion and distortion corrected file</p>
 
           <div style="background-color: black;">
-            <explainer explainer-text="Todo: explain the sprite"></explainer>
+            <explainer
+              :explainer-text="explainerText.dwiTimeSeriesSprite"
+            ></explainer>
             <sprite4d
               v-for="view in report.dwi_corrected"
               :key="view.orientation"
@@ -35,7 +37,7 @@
             :max="report.dwi_corrected[0].num_slices - 1"
           ></vue-slider>
 
-          <explainer explainer-text="Todo: explain the line chart"></explainer>
+          <explainer :explainer-text="explainerText.lineChart"></explainer>
           <div style="height: 200px; width: 100%; display: inline-flex;">
             <line-chart
               id="motion_params"
@@ -47,7 +49,7 @@
             ></line-chart>
           </div>
 
-          <explainer explainer-text="Todo: explain the carpet plot"></explainer>
+          <explainer :explainer-text="explainerText.carpetPlot"></explainer>
           <CarpetPlot :data="report.carpetplot" :highlightIdx="time" />
 
           <vue-slider
@@ -57,12 +59,14 @@
             :max="report.dwi_corrected[0].num_slices - 1"
           ></vue-slider>
 
-          <explainer explainer-text="Todo: explain the carpet plot"></explainer>
+          <explainer :explainer-text="explainerText.qSpace"></explainer>
           <QSpaceGroup :report="report" :time="time" />
 
           <h2 class="mt-3 pt-3">Registration + Brain Mask</h2>
           <p class="lead">Brain mask computed on T1w, and mapped to B0</p>
-          <explainer explainer-text="Todo: explain this component"></explainer>
+          <explainer
+            :explainer-text="explainerText.brainMaskSprite"
+          ></explainer>
           <BrainSprite
             id="brainMaskSprite"
             ref="brainMaskSprite"
@@ -77,9 +81,7 @@
           <h2 class="mt-3 pt-3">DTI: ColorFA</h2>
           <p class="lead">Color FA mapped on B0</p>
 
-          <explainer
-            explainer-text="Todo: explain this component too"
-          ></explainer>
+          <explainer :explainer-text="explainerText.colorFASprite"></explainer>
           <BrainSprite
             id="colorFASprite"
             ref="colorFASprite"
@@ -150,6 +152,15 @@ export default {
       showReflection: true,
       report: null,
       rating: null,
+      explainerText: {
+        dwiTimeSeriesSprite: "TODO: Explain the dwi corrected 4D sprite.",
+        lineChart: "TODO: Explain the motion params line chart.",
+        carpetPlot: "TODO: Explain the carpet plot.",
+        qSpace: "TODO: Explain the qspace viewer.",
+        brainMaskSprite:
+          "TODO: Explain the registration and brain mask sprite.",
+        colorFASprite: "TODO: Explain the colorFA sprite.",
+      },
     };
   },
   methods: {
