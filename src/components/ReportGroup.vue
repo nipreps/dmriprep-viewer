@@ -8,8 +8,7 @@
         v-on:ratingsDownloadRequested="ratingsDownloadRequested"
       ></topBar>
 
-      <explainer explainer-text="Todo: explain this"></explainer>
-
+      <explainer :explainer-text="explainerText.qcMetrics"></explainer>
       <b-form-group class="text-left" label="Select scatterplot metrics">
         <b-form-checkbox-group
           id="checkbox-group-scatter"
@@ -114,6 +113,9 @@ export default {
       brushedSubjectsIntersection: [],
       scatterMetrics: [],
       violinMetrics: [],
+      explainerText: {
+        qcMetrics: "TODO: Explain the various qc metrics",
+      },
     };
   },
   props: {
