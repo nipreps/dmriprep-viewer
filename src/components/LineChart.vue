@@ -171,7 +171,7 @@ export default {
       this.g
         .append("path")
         .attr("class", "series-1")
-        .datum(this.data)
+        .data(this.data)
         .attr("fill", "none")
         .attr("stroke", "steelblue")
         .attr("stroke-linejoin", "round")
@@ -182,7 +182,7 @@ export default {
       this.g
         .append("path")
         .attr("class", "series-2")
-        .datum(this.data)
+        .data(this.data)
         .attr("fill", "none")
         .attr("stroke", "red")
         .attr("stroke-linejoin", "round")
