@@ -5,6 +5,7 @@
         :reportProp="report"
         :ratingProp="rating"
         v-on:ratingsDownloadRequested="ratingsDownloadRequested"
+        v-on:ratingsUploaded="ratingsUploaded"
       ></topBar>
       <b-row>
         <b-col>
@@ -172,6 +173,9 @@ export default {
     },
     ratingsDownloadRequested() {
       this.$emit("ratingsDownloadRequested");
+    },
+    ratingsUploaded(e) {
+      this.$emit("ratingsUploaded", e);
     },
   },
   mounted() {

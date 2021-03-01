@@ -56,6 +56,7 @@
         v-if="showStudyQc && groupReport"
         v-on:subjectSelected="updateSelectedSubject"
         v-on:ratingsDownloadRequested="downloadRatings"
+        v-on:ratingsUploaded="uploadRatings"
         :reportProp="groupReport"
       ></groupReport>
       <report
@@ -63,6 +64,7 @@
         :reportProp="subjectReports[subjectSelected]['report']"
         :ratingProp="subjectRatings[subjectSelected]"
         v-on:ratingsDownloadRequested="downloadRatings"
+        v-on:ratingsUploaded="uploadRatings"
       ></report>
       <spinner v-else></spinner>
     </b-container>
@@ -108,6 +110,9 @@ export default {
     };
   },
   methods: {
+    uploadRatings(e) {
+      this.subjectRatings = Object.assign(this.subjectRatings, e);
+    },
     async downloadRatings() {
       const reviewedRatings = _.filter(
         Object.values(this.subjectRatings),
@@ -300,7 +305,6 @@ export default {
         (o, k) => (
           (o[k] = {
             subject: k,
-            source: participantFileMap[k],
             overallRating: null,
             anatRating: null,
             dwiRating: null,
