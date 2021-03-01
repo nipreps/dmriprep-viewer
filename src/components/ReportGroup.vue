@@ -6,6 +6,7 @@
         sidebarOn
         isGroupReport
         v-on:ratingsDownloadRequested="ratingsDownloadRequested"
+        v-on:ratingsUploaded="ratingsUploaded"
       ></topBar>
 
       <explainer :explainer-text="explainerText.qcMetrics"></explainer>
@@ -159,6 +160,9 @@ export default {
     },
     ratingsDownloadRequested() {
       this.$emit("ratingsDownloadRequested");
+    },
+    ratingsUploaded(e) {
+      this.$emit("ratingsUploaded", e);
     },
     copyBrushedSubjectsToClipboard() {
       navigator.clipboard.writeText(this.brushedSubjectsIntersection.join());
