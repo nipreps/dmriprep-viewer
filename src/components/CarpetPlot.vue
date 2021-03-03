@@ -70,27 +70,43 @@ export default {
     },
     x() {
       // Build X scales and axis:
-      const myGroups = d3.map(this.dataFlattened, function (d) {
+      const myGroups = d3
+        .map(this.dataFlattened, function (d) {
           return d.i;
-        }).keys();
-      return d3.scaleBand().range([0, this.innerWidth]).domain(myGroups).padding(0.05);
+        })
+        .keys();
+      return d3
+        .scaleBand()
+        .range([0, this.innerWidth])
+        .domain(myGroups)
+        .padding(0.05);
     },
     y() {
       // Build Y scales and axis:
-      const myVars = d3.map(this.dataFlattened, function (d) {
+      const myVars = d3
+        .map(this.dataFlattened, function (d) {
           return d.j;
-        }).keys();
-      return d3.scaleBand().range([this.innerHeight, 0]).domain(myVars).padding(0.05);
+        })
+        .keys();
+      return d3
+        .scaleBand()
+        .range([this.innerHeight, 0])
+        .domain(myVars)
+        .padding(0.05);
     },
     myColor() {
       // Build color scale
       // const maxVal = d3.max(this.dataFlattened, d => d.value)
       // const minVal = d3.min(this.dataFlattened, d => d.value)
 
-      return d3.scaleSequential().interpolator(d3.interpolateInferno)
-        // .domain([minVal, maxVal]);
-        .domain([0, 1]);
-    }
+      return (
+        d3
+          .scaleSequential()
+          .interpolator(d3.interpolateInferno)
+          // .domain([minVal, maxVal]);
+          .domain([0, 1])
+      );
+    },
   },
   mounted() {
     this.mounted = true;

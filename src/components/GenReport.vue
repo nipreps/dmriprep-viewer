@@ -336,7 +336,9 @@ export default {
       let sr;
       // use the abstract equality operator to test for both null and undefined
       if (this.sourceType === "file") {
-        const report = await this.readJsonFile(this.subjectReports[subject_id]["source"]);
+        const report = await this.readJsonFile(
+          this.subjectReports[subject_id]["source"]
+        );
         sr = report["content"];
         if (report["content"]["subject_id"] === "sub-test") {
           sr["subject_id"] = subject_id;
@@ -484,7 +486,9 @@ export default {
         if (this.subjectSelected) {
           this.reportReady = false;
           this.showStudyQc = false;
-          this.selectedSubjectReport = await this.updateSubjectReports(this.subjectSelected);
+          this.selectedSubjectReport = await this.updateSubjectReports(
+            this.subjectSelected
+          );
           this.reportReady = true;
         }
       },
