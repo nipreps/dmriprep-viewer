@@ -60,8 +60,8 @@
         :reportProp="groupReport"
       ></groupReport>
       <report
-        v-else-if="subjectSelected && subjectReports[subjectSelected]['report']"
-        :reportProp="subjectReports[subjectSelected]['report']"
+        v-else-if="subjectSelected && reportReady"
+        :reportProp="selectedSubjectReport"
         :ratingProp="subjectRatings[subjectSelected]"
         v-on:ratingsDownloadRequested="downloadRatings"
         v-on:ratingsUploaded="uploadRatings"
@@ -96,8 +96,10 @@ export default {
       groupReport: null,
       manifestEntries: [],
       re: /sub-[a-z0-9]+/gi,
+      reportReady: false,
       s3Prefix: null,
       s3Uri: null,
+      selectedSubjectReport: null,
       showInitialSidebar: true,
       showStudyQc: true,
       sourceType: null,
@@ -331,30 +333,28 @@ export default {
       }
     },
     async updateSubjectReports(subject_id) {
-      let sr = this.subjectReports[subject_id];
-      if (sr["report"] == null) {
-        // use the abstract equality operator to test for both null and undefined
-        if (this.sourceType === "file") {
-          const report = await this.readJsonFile(sr["source"]);
-          sr["report"] = report["content"];
-          if (report["content"]["subject_id"] === "sub-test") {
-            sr["report"]["subject_id"] = subject_id;
-          }
-        } else if (this.sourceType === "s3") {
-          const resp = await axios.get(
-            this.localhostProxy(
-              `https://${this.bucket}.s3.amazonaws.com/${sr["source"]}`
-            )
-          );
-          sr["report"] = resp.data;
-          if (resp.data["subject_id"] === "sub-test") {
-            sr["report"]["subject_id"] = subject_id;
-          }
-        } else if (this.sourceType === "url") {
-          console.log("URL sources are currently not supported.");
+      let sr;
+      // use the abstract equality operator to test for both null and undefined
+      if (this.sourceType === "file") {
+        const report = await this.readJsonFile(this.subjectReports[subject_id]["source"]);
+        sr = report["content"];
+        if (report["content"]["subject_id"] === "sub-test") {
+          sr["subject_id"] = subject_id;
         }
+      } else if (this.sourceType === "s3") {
+        const resp = await axios.get(
+          this.localhostProxy(
+            `https://${this.bucket}.s3.amazonaws.com/${this.subjectReports[subject_id]["source"]}`
+          )
+        );
+        sr = resp.data;
+        if (resp.data["subject_id"] === "sub-test") {
+          sr["subject_id"] = subject_id;
+        }
+      } else if (this.sourceType === "url") {
+        console.log("URL sources are currently not supported.");
       }
-      sr["whenRequested"] = new Date();
+      return sr;
     },
     localhostProxy(url) {
       const local_domains = ["localhost", "127.0.0.1"];
@@ -480,10 +480,12 @@ export default {
       },
     },
     subjectSelected: {
-      handler: function () {
+      handler: async function () {
         if (this.subjectSelected) {
+          this.reportReady = false;
           this.showStudyQc = false;
-          this.updateSubjectReports(this.subjectSelected);
+          this.selectedSubjectReport = await this.updateSubjectReports(this.subjectSelected);
+          this.reportReady = true;
         }
       },
     },

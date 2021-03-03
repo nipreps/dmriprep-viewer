@@ -60,8 +60,8 @@
             :max="report.dwi_corrected[0].num_slices - 1"
           ></vue-slider>
 
-          <explainer :explainer-text="explainerText.qSpace"></explainer>
-          <QSpaceGroup :report="report" :time="time" />
+          <!-- <explainer :explainer-text="explainerText.qSpace"></explainer>
+          <QSpaceGroup :report="report" :time="time" /> -->
 
           <h2 class="mt-3 pt-3">Registration + Brain Mask</h2>
           <p class="lead">Brain mask computed on T1w, and mapped to B0</p>
@@ -103,7 +103,7 @@
 <script>
 import BrainSprite from "./BrainSprite.vue";
 import CarpetPlot from "./CarpetPlot";
-import QSpaceGroup from "./QSpaceGroup";
+// import QSpaceGroup from "./QSpaceGroup";
 import explainer from "./Explainer";
 import lineChart from "./LineChart";
 import sprite4d from "./Sprite4D";
@@ -128,7 +128,7 @@ export default {
   components: {
     BrainSprite,
     CarpetPlot,
-    QSpaceGroup,
+    // QSpaceGroup,
     explainer,
     lineChart,
     sprite4d,
@@ -138,6 +138,7 @@ export default {
   props: {
     reportProp: {
       type: Object,
+      default: null,
     },
     ratingProp: {
       type: Object,
@@ -195,9 +196,9 @@ export default {
   watch: {
     reportProp: {
       immediate: true,
-      handler: function () {
-        if (this.reportProp) {
-          this.report = this.reportProp;
+      handler(reportProp) {
+        if (reportProp) {
+          this.report = reportProp;
         }
       },
       deep: true,
