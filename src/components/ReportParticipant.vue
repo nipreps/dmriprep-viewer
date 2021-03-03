@@ -138,6 +138,7 @@ export default {
   props: {
     reportProp: {
       type: Object,
+      default: null,
     },
     ratingProp: {
       type: Object,
@@ -195,9 +196,9 @@ export default {
   watch: {
     reportProp: {
       immediate: true,
-      handler: function () {
-        if (this.reportProp) {
-          this.report = this.reportProp;
+      handler(reportProp) {
+        if (reportProp) {
+          this.report = reportProp;
         }
       },
       deep: true,
