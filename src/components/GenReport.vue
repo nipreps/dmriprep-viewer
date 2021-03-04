@@ -126,9 +126,7 @@ export default {
       const csvRows = reviewedRatings.map((o) => {
         return _.pick(o, [
           "subject",
-          "overallRating",
-          "anatRating",
-          "dwiRating",
+          "rating",
           "whenRated",
         ]);
       });
@@ -309,9 +307,7 @@ export default {
         (o, k) => (
           (o[k] = {
             subject: k,
-            overallRating: null,
-            anatRating: null,
-            dwiRating: null,
+            rating: null,
             whenRated: null,
             reviewed: false,
           }),
