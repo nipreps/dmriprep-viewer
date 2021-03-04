@@ -124,11 +124,7 @@ export default {
       );
 
       const csvRows = reviewedRatings.map((o) => {
-        return _.pick(o, [
-          "subject",
-          "rating",
-          "whenRated",
-        ]);
+        return _.pick(o, ["subject", "rating", "whenRated"]);
       });
 
       if (csvRows.length === 0) {
@@ -150,7 +146,10 @@ export default {
       hiddenElement.href = csvUrl;
       hiddenElement.target = "_blank";
 
-      const curtime = (new Date()).toISOString().replace(/[-:]/g, '').split('.')[0]
+      const curtime = new Date()
+        .toISOString()
+        .replace(/[-:]/g, "")
+        .split(".")[0];
       hiddenElement.download = "dwiqc_ratings_" + curtime + ".csv";
       hiddenElement.click();
     },

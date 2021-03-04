@@ -95,7 +95,7 @@
         v-if="!isGroupReport"
       >
         <div class="mb-2">
-          Rate this subject: {{ rating ? rating.rating : '' }}
+          Rate this subject: {{ rating ? rating.rating : "" }}
         </div>
         <b-form ref="form" @submit.stop.prevent="handleSubmit" v-if="rating">
           <b-form-group
@@ -110,9 +110,10 @@
                 id="overall-rating"
                 v-model="rating.rating"
                 type="range"
-                min="-5" max="5">
-                :state="state(rating.rating)"
-                required
+                min="-5"
+                max="5"
+              >
+                :state="state(rating.rating)" required
               </b-form-input>
             </b-input-group>
 
@@ -277,8 +278,7 @@ export default {
       return rating != null;
     },
     checkFormValidity() {
-      const valid =
-        this.rating.rating != null;
+      const valid = this.rating.rating != null;
       return valid;
     },
     onOk(bvModalEvt) {
