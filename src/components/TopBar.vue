@@ -95,71 +95,38 @@
         v-if="!isGroupReport"
       >
         <div class="mb-2">
-          Rate this subject
+          Rate this subject: {{ rating ? rating.rating : "" }}
         </div>
         <b-form ref="form" @submit.stop.prevent="handleSubmit" v-if="rating">
           <b-form-group
-            id="input-group-anat"
-            label="T1w"
-            label-for="t1w-rating"
-            description="Rate the anatomical image quality"
-            label-cols="2"
-            content-cols="12"
-            invalid-feedback="rating required"
-            :state="state(rating.anatRating)"
-          >
-            <b-form-rating
-              v-model="rating.anatRating"
-              show-clear
-              show-value
-              show-value-max
-              icon-clear="slash-circle"
-              :state="state(rating.anatRating)"
-              required
-            ></b-form-rating>
-          </b-form-group>
-
-          <b-form-group
-            id="input-group-dwi"
-            label="DWI"
-            label-for="dwi-rating"
-            description="Rate the diffusion image quality"
-            label-cols="2"
-            content-cols="12"
-            invalid-feedback="rating required"
-            :state="state(rating.dwiRating)"
-          >
-            <b-form-rating
-              v-model="rating.dwiRating"
-              show-clear
-              show-value
-              show-value-max
-              icon-clear="slash-circle"
-              :state="state(rating.dwiRating)"
-              required
-            ></b-form-rating>
-          </b-form-group>
-
-          <b-form-group
             id="input-group-overall"
-            label="Overall"
             label-for="overall-rating"
-            description="Rate the overall quality"
-            label-cols="2"
-            content-cols="12"
+            description="Rate the overall image quality, with +5 meaning you are certain this subject should pass QC and -5 meaning you are certain this subject should fail QC."
             invalid-feedback="rating required"
-            :state="state(rating.overallRating)"
+            :state="state(rating.rating)"
           >
-            <b-form-rating
+            <b-input-group prepend="-5" append="+5" class="mt-2">
+              <b-form-input
+                id="overall-rating"
+                v-model="rating.rating"
+                type="range"
+                min="-5"
+                max="5"
+              >
+                :state="state(rating.rating)" required
+              </b-form-input>
+            </b-input-group>
+
+            <!-- <b-form-rating
               id="overall-rating"
-              v-model="rating.overallRating"
+              v-model="rating.rating"
               show-clear
               show-value
               show-value-max
               icon-clear="slash-circle"
-              :state="state(rating.overallRating)"
+              :state="state(rating.rating)"
               required
-            ></b-form-rating>
+            ></b-form-rating> -->
           </b-form-group>
         </b-form>
       </b-modal>
@@ -311,10 +278,7 @@ export default {
       return rating != null;
     },
     checkFormValidity() {
-      const valid =
-        this.rating.anatRating != null &&
-        this.rating.dwiRating != null &&
-        this.rating.overallRating != null;
+      const valid = this.rating.rating != null;
       return valid;
     },
     onOk(bvModalEvt) {

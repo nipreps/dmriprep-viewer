@@ -21,6 +21,7 @@ export default {
   data() {
     return {
       margin: { top: 10, right: 10, bottom: 10, left: 20 },
+      maxWidth: 650,
       width: null,
       padding: 20,
       radius: 4,
@@ -32,7 +33,11 @@ export default {
   },
   computed: {
     height() {
-      return this.width + this.padding;
+      if (this.metrics.length) {
+        return this.width; // + this.padding;
+      } else {
+        return 0;
+      }
     },
     size() {
       return (
@@ -140,7 +145,7 @@ export default {
     },
   },
   mounted() {
-    this.width = this.$refs.chart.clientWidth;
+    this.width = Math.min(this.$refs.chart.clientWidth, this.maxWidth);
     this.brushedSubjects = this.data.map((d) => d.participant_id);
     this.createChart();
     this.mounted = true;
@@ -346,7 +351,10 @@ export default {
       }
     },
     handleResize() {
-      this.width = this.$refs.chart.clientWidth;
+      this.width = Math.min(
+        this.$refs.chart.clientWidth,
+        this.$refs.chart.clientHeight
+      );
 
       const svg = d3
         .select("#scattersvg")
@@ -371,6 +379,6 @@ export default {
 <style scoped>
 .scatterplot-matrix {
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
 }
 </style>

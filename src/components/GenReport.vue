@@ -124,13 +124,7 @@ export default {
       );
 
       const csvRows = reviewedRatings.map((o) => {
-        return _.pick(o, [
-          "subject",
-          "overallRating",
-          "anatRating",
-          "dwiRating",
-          "whenRated",
-        ]);
+        return _.pick(o, ["subject", "rating", "whenRated"]);
       });
 
       if (csvRows.length === 0) {
@@ -151,7 +145,12 @@ export default {
       let hiddenElement = document.createElement("a");
       hiddenElement.href = csvUrl;
       hiddenElement.target = "_blank";
-      hiddenElement.download = "dwiqc_ratings.csv";
+
+      const curtime = new Date()
+        .toISOString()
+        .replace(/[-:]/g, "")
+        .split(".")[0];
+      hiddenElement.download = "dwiqc_ratings_" + curtime + ".csv";
       hiddenElement.click();
     },
     updateSelectedSubject(subject) {
@@ -307,9 +306,7 @@ export default {
         (o, k) => (
           (o[k] = {
             subject: k,
-            overallRating: null,
-            anatRating: null,
-            dwiRating: null,
+            rating: null,
             whenRated: null,
             reviewed: false,
           }),
@@ -425,15 +422,20 @@ export default {
       }
     },
     subjectsAll: function () {
-      const collator = new Intl.Collator(undefined, {
-        numeric: true,
-        sensitivity: "base",
-      });
-      return [
+      // const collator = new Intl.Collator(undefined, {
+      //   numeric: true,
+      //   sensitivity: "base",
+      // });
+      // return [
+      //   ...new Set(
+      //     Object.keys(this.subjectFileMap).concat(this.subjectsInGroupReport)
+      //   ),
+      // ].sort(collator.compare);
+      return _.shuffle([
         ...new Set(
           Object.keys(this.subjectFileMap).concat(this.subjectsInGroupReport)
         ),
-      ].sort(collator.compare);
+      ]);
     },
   },
   watch: {
