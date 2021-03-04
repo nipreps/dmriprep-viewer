@@ -151,7 +151,9 @@ export default {
       let hiddenElement = document.createElement("a");
       hiddenElement.href = csvUrl;
       hiddenElement.target = "_blank";
-      hiddenElement.download = "dwiqc_ratings.csv";
+
+      const curtime = (new Date()).toISOString().replace(/[-:]/g, '').split('.')[0]
+      hiddenElement.download = "dwiqc_ratings_" + curtime + ".csv";
       hiddenElement.click();
     },
     updateSelectedSubject(subject) {
