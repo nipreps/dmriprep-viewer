@@ -95,28 +95,24 @@
         v-if="!isGroupReport"
       >
         <div class="mb-2">
-          Rate this subject: {{ rating ? rating.rating : "" }}
+          Rate this subject:
         </div>
         <b-form ref="form" @submit.stop.prevent="handleSubmit" v-if="rating">
           <b-form-group
             id="input-group-overall"
             label-for="overall-rating"
-            description="Rate the overall image quality, with +5 meaning you are certain this subject should pass QC and -5 meaning you are certain this subject should fail QC."
+            description="Rate the overall image quality."
             invalid-feedback="rating required"
             :state="state(rating.rating)"
           >
-            <b-input-group prepend="-5" append="+5" class="mt-2">
-              <b-form-input
-                id="overall-rating"
-                v-model="rating.rating"
-                type="range"
-                min="-5"
-                max="5"
-              >
-                :state="state(rating.rating)" required
-              </b-form-input>
-            </b-input-group>
-
+            <b-form-radio-group
+              id="overall-rating"
+              v-model="rating.rating"
+              :options="ratingOptions"
+              button-variant="outline-primary"
+              size="md"
+              buttons
+            ></b-form-radio-group>
             <!-- <b-form-rating
               id="overall-rating"
               v-model="rating.rating"
@@ -271,6 +267,13 @@ export default {
       rating: null,
       subjectId: "loading...",
       ratingsCsvFile: null,
+      ratingOptions: [
+        { text: "Definitely Fail", value: "-2" },
+        { text: "Probably Fail", value: "-1" },
+        { text: "Not Sure", value: "0" },
+        { text: "Probably Pass", value: "1" },
+        { text: "Definitely Pass", value: "2" },
+      ],
     };
   },
   methods: {
