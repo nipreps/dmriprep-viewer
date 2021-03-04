@@ -423,15 +423,20 @@ export default {
       }
     },
     subjectsAll: function () {
-      const collator = new Intl.Collator(undefined, {
-        numeric: true,
-        sensitivity: "base",
-      });
-      return [
+      // const collator = new Intl.Collator(undefined, {
+      //   numeric: true,
+      //   sensitivity: "base",
+      // });
+      // return [
+      //   ...new Set(
+      //     Object.keys(this.subjectFileMap).concat(this.subjectsInGroupReport)
+      //   ),
+      // ].sort(collator.compare);
+      return _.shuffle([
         ...new Set(
           Object.keys(this.subjectFileMap).concat(this.subjectsInGroupReport)
         ),
-      ].sort(collator.compare);
+      ]);
     },
   },
   watch: {
