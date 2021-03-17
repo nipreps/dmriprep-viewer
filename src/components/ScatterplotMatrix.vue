@@ -146,7 +146,7 @@ export default {
   },
   mounted() {
     this.width = Math.min(this.$refs.chart.clientWidth, this.maxWidth);
-    this.brushedSubjects = this.data.map((d) => d.participant_id);
+    this.brushedSubjects = this.data.map((d) => d.subject_session_id);
     this.createChart();
     this.mounted = true;
   },
@@ -271,7 +271,7 @@ export default {
             .style("top", d3.event.pageY + 10 + "px");
         })
         .on("click", (d) => {
-          that.$emit("updateSelectedSubject", d.participant_id);
+          that.$emit("updateSelectedSubject", d.subject_session_id);
         });
 
       circle.moveToFront();
@@ -340,14 +340,14 @@ export default {
               that.y[j](d[that.columns[j]]) >= y0 &&
               that.y[j](d[that.columns[j]]) <= y1
           )
-          .map((d) => d.participant_id);
+          .map((d) => d.subject_session_id);
       }
 
       // If the brush is empty, select all circles.
       function brushended() {
         if (d3.event.selection !== null) return;
         circle.classed("hidden", false);
-        that.brushedSubjects = that.data.map((d) => d.participant_id);
+        that.brushedSubjects = that.data.map((d) => d.subject_session_id);
       }
     },
     handleResize() {
