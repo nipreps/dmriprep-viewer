@@ -214,7 +214,7 @@ export default {
           .filter(
             (d) => that.x(d[that.metric]) >= x0 && that.x(d[that.metric]) <= x1
           )
-          .map((d) => d.participant_id);
+          .map((d) => d.subject_session_id);
       }
 
       // If the brush is empty, select all circles.

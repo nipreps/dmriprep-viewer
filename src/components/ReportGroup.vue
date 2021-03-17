@@ -134,12 +134,12 @@ export default {
     this.brushedSubjects = this.metricOptions.reduce(
       (o, key) => ({
         ...o,
-        [key]: this.groupReport.subjects.map((d) => d.participant_id),
+        [key]: this.groupReport.subjects.map((d) => d.subject_session_id),
       }),
       {}
     );
     this.brushedSubjects.scatterplotMatrix = this.groupReport.subjects.map(
-      (d) => d.participant_id
+      (d) => d.subject_session_id
     );
   },
   methods: {
@@ -152,7 +152,7 @@ export default {
       ).reduce(
         (accumulator, currentValue) =>
           accumulator.filter((d) => currentValue.includes(d)),
-        this.groupReport.subjects.map((d) => d.participant_id)
+        this.groupReport.subjects.map((d) => d.subject_session_id)
       );
     },
     updateSelectedSubject(subject) {
@@ -171,7 +171,7 @@ export default {
   computed: {
     metricOptions() {
       return Object.keys(this.groupReport.subjects[0])
-        .filter((k) => k !== "participant_id")
+        .filter((k) => !["participant_id", "file_name"].includes(k))
         .sort();
     },
   },

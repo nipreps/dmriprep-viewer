@@ -95,7 +95,8 @@ export default {
       groupFile: null,
       groupReport: null,
       manifestEntries: [],
-      re: /sub-[a-z0-9]+/gi,
+      subRe: /sub-[a-z0-9]+/gi,
+      sesRe: /ses-[a-z0-9]+/gi,
       reportReady: false,
       s3Prefix: null,
       s3Uri: null,
@@ -112,6 +113,14 @@ export default {
     };
   },
   methods: {
+    parseSubjectSession(s) {
+      return [
+        [...new Set(s.match(this.subRe))][0],
+        [...new Set(s.match(this.sesRe))][0],
+      ]
+        .join("_")
+        .replace(/_+$/, "");
+    },
     uploadRatings(e) {
       this.subjectRatings = Object.assign(this.subjectRatings, e);
     },
@@ -236,10 +245,10 @@ export default {
         })
         .then(() => {
           this.groupFile = this.manifestEntries.filter(
-            (k) => k.match(that.re) === null
+            (k) => k.match(that.subRe) === null
           );
           this.files = this.manifestEntries.filter(
-            (k) => k.match(that.re) !== null
+            (k) => k.match(that.subRe) !== null
           );
           this.selectRootGroupFile();
           this.loadGroupReport();
@@ -328,6 +337,13 @@ export default {
         );
         this.groupReport = resp.data;
       }
+      this.groupReport.subjects.forEach(
+        (o) =>
+          (o["subject_session_id"] =
+            "session_id" in o
+              ? [o["subject_id"], o["session_id"]].join("_").replace(/_+$/, "")
+              : o["subject_id"])
+      );
     },
     async updateSubjectReports(subject_id) {
       let sr;
@@ -395,7 +411,7 @@ export default {
     },
     subjectsInGroupReport: function () {
       if (this.groupReport) {
-        return this.groupReport.subjects.map((o) => o["participant_id"]);
+        return this.groupReport.subjects.map((o) => o["subject_session_id"]);
       } else {
         return [];
       }
@@ -405,13 +421,13 @@ export default {
         if (this.sourceType === "file") {
           return _.reduce(
             this.files,
-            (o, k) => ((o[[...new Set(k.name.match(this.re))][0]] = k), o),
+            (o, k) => ((o[this.parseSubjectSession(k.name)] = k), o),
             {}
           );
         } else if (this.sourceType === "s3") {
           return _.reduce(
             this.files,
-            (o, k) => ((o[[...new Set(k.match(this.re))][0]] = k), o),
+            (o, k) => ((o[this.parseSubjectSession(k)] = k), o),
             {}
           );
         } else {
@@ -433,7 +449,7 @@ export default {
       // ].sort(collator.compare);
       return _.shuffle([
         ...new Set(
-          Object.keys(this.subjectFileMap).concat(this.subjectsInGroupReport)
+          Object.keys(this.subjectFileMap) // .concat(this.subjectsInGroupReport)
         ),
       ]);
     },
