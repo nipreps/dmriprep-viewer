@@ -155,7 +155,7 @@ export default {
       report: null,
       rating: null,
       explainerText: {
-        dwiTimeSeriesSprite: "TODO: Explain the dwi corrected 4D sprite.",
+        dwiTimeSeriesSprite: "Axial, sagittal and coronal slices from each 3D image in the preprocessed dMRI series. ",
         lineChart: "TODO: Explain the motion params line chart.",
         carpetPlot: "TODO: Explain the carpet plot.",
         qSpace: "TODO: Explain the qspace viewer.",
