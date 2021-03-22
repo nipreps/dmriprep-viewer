@@ -50,11 +50,10 @@ export default {
       brain: null,
       showOrig: true,
       done: false,
-      ready: false,
     };
   },
   methods: {
-    initBrainSprite() {
+    refreshBrainSprite() {
       /* eslint-disable-next-line */
       const brain = new brainsprite({
         canvas: this.id,
@@ -71,11 +70,23 @@ export default {
       this.done = true;
     },
   },
+  watch: {
+    $props: {
+      handler() {
+        this.showOrig = true;
+        this.done = false;
+        this.$nextTick(() => {
+          setTimeout(() => {
+            this.refreshBrainSprite();
+          }, 100);
+        });
+      },
+    },
+  },
   mounted() {
     this.$nextTick(() => {
       setTimeout(() => {
-        this.ready = true;
-        this.initBrainSprite();
+        this.refreshBrainSprite();
       }, 100);
     });
   },

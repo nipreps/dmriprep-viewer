@@ -91,7 +91,7 @@ export default {
   },
   mounted() {
     this.width = this.$refs.chart.clientWidth;
-    this.brushedSubjects = this.data.map((d) => d.participant_id);
+    this.brushedSubjects = this.data.map((d) => d.subject_session_id);
 
     let highestPoint = this.getHighestPoint();
     while (highestPoint < this.margin.top) {
@@ -222,7 +222,7 @@ export default {
         if (d3.event.selection !== null) return;
         const circle = d3.selectAll("#" + that.svgId + " circle");
         circle.classed("hidden", false);
-        that.brushedSubjects = that.data.map((d) => d.participant_id);
+        that.brushedSubjects = that.data.map((d) => d.subject_session_id);
       }
 
       // Color scale for dots
@@ -254,7 +254,7 @@ export default {
         .style("cursor", "pointer")
         .attr("stroke", "white")
         .on("mouseover", (d) => {
-          that.hoveredSubject = d.data.participant_id;
+          that.hoveredSubject = d.data.subject_session_id;
           d3.select(d3.event.currentTarget)
             .transition()
             .duration(100)
@@ -264,7 +264,7 @@ export default {
             .transition()
             .duration(200)
             .style("display", "initial")
-            .text(d.data.participant_id);
+            .text(d.data.subject_session_id);
         })
         .on("mouseout", () => {
           that.hoveredSubject = null;
@@ -281,7 +281,7 @@ export default {
             .style("top", d3.event.pageY + 10 + "px");
         })
         .on("click", (d) => {
-          that.$emit("updateSelectedSubject", d.data.participant_id);
+          that.$emit("updateSelectedSubject", d.data.subject_session_id);
         });
 
       // Box plot
