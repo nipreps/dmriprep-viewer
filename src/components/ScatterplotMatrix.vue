@@ -255,7 +255,7 @@ export default {
             .transition()
             .duration(200)
             .style("display", "initial")
-            .text(d.participant_id);
+            .text(d.subject_session_id);
         })
         .on("mouseout", () => {
           d3.select(d3.event.currentTarget)

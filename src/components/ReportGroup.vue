@@ -171,7 +171,16 @@ export default {
   computed: {
     metricOptions() {
       return Object.keys(this.groupReport.subjects[0])
-        .filter((k) => !["participant_id", "file_name"].includes(k))
+        .filter(
+          (k) =>
+            ![
+              "participant_id",
+              "subject_id",
+              "subject_session_id",
+              "session_id",
+              "file_name",
+            ].includes(k)
+        )
         .sort();
     },
   },
