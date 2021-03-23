@@ -9,14 +9,14 @@
       >
         <b-icon icon="layout-sidebar" aria-hidden="true"></b-icon>
       </b-button>
-      <b-button
+      <!-- <b-button
         id="back-button"
         to="/report"
         variant="outline-primary"
         class="mb-2 header-button"
       >
         <b-icon icon="search" aria-hidden="true"></b-icon>
-      </b-button>
+      </b-button> -->
       <!-- <b-button
         id="info-button"
         variant="outline-primary"
@@ -209,9 +209,9 @@
     <b-tooltip target="sidebar-button" triggers="hover"
       >toggle sidebar</b-tooltip
     >
-    <b-tooltip target="back-button" triggers="hover"
+    <!-- <b-tooltip target="back-button" triggers="hover"
       >back to the input page</b-tooltip
-    >
+    > -->
     <!-- <b-tooltip target="info-button" triggers="hover"
       >info about this subject/study</b-tooltip
     > -->
