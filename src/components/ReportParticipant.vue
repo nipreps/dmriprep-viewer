@@ -155,13 +155,18 @@ export default {
       report: null,
       rating: null,
       explainerText: {
-        dwiTimeSeriesSprite: "TODO: Explain the dwi corrected 4D sprite.",
-        lineChart: "TODO: Explain the motion params line chart.",
-        carpetPlot: "TODO: Explain the carpet plot.",
-        qSpace: "TODO: Explain the qspace viewer.",
+        dwiTimeSeriesSprite:
+          "Axial, sagittal and coronal slices from each 3D image in the preprocessed dMRI series. ",
+        lineChart:
+          "Time series of Framewise Displacement (Blue) and RMS of head translation (Red)",
+        carpetPlot:
+          "The slice-by-image matrix of deviation from the predicted dMRI signal. Brighter colors indicate a more aberrant slice. Values can be negative or positive.",
+        qSpace:
+          "Shows the q-space coordinate of the image currently in the viewer. Expect different contrast as distance from the origin increases.",
         brainMaskSprite:
-          "TODO: Explain the registration and brain mask sprite.",
-        colorFASprite: "TODO: Explain the colorFA sprite.",
+          "If a T1w image was included in preprocessing, its mask is shown as a red contour line. Otherwise a mask of the b=0 reference image is shown.",
+        colorFASprite:
+          "RGB values corresponding to principal direction of a tensor fit. Red is L-R, green is A-P and blue is I-S.",
       },
     };
   },

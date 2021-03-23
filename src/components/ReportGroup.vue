@@ -115,7 +115,8 @@ export default {
       scatterMetrics: [],
       violinMetrics: [],
       explainerText: {
-        qcMetrics: "TODO: Explain the various qc metrics",
+        qcMetrics:
+          "Quality Control (QC) metrics are computed before and after the preprocessing pipeline is run on dMRI data. In the sections below, any QC measure computed on the unprocessed dMRI data will begin with 'raw_' while the same measure calculated on the preprocessed images will begin with 't1_' (assuming this the output space of the data is T1w). Basic properties of the scans such as the number of directions and dimensions of the images are available as well. Select measures below to see how they are distributed relative to on another.",
       },
     };
   },
