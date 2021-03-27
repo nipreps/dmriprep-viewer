@@ -7,6 +7,7 @@
         isGroupReport
         v-on:ratingsDownloadRequested="ratingsDownloadRequested"
         v-on:ratingsUploaded="ratingsUploaded"
+        v-on:nextSubjectRequested="nextSubjectRequested"
       ></topBar>
 
       <explainer :explainer-text="explainerText.qcMetrics"></explainer>
@@ -155,6 +156,9 @@ export default {
           accumulator.filter((d) => currentValue.includes(d)),
         this.groupReport.subjects.map((d) => d.subject_session_id)
       );
+    },
+    nextSubjectRequested() {
+      this.$emit("nextSubjectRequested");
     },
     updateSelectedSubject(subject) {
       this.$emit("subjectSelected", subject);
