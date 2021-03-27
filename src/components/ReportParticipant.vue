@@ -6,6 +6,7 @@
         :ratingProp="rating"
         v-on:ratingsDownloadRequested="ratingsDownloadRequested"
         v-on:ratingsUploaded="ratingsUploaded"
+        v-on:nextSubjectRequested="nextSubjectRequested"
       ></topBar>
       <b-row>
         <b-col>
@@ -182,6 +183,9 @@ export default {
     },
     ratingsUploaded(e) {
       this.$emit("ratingsUploaded", e);
+    },
+    nextSubjectRequested() {
+      this.$emit("nextSubjectRequested");
     },
   },
   mounted() {

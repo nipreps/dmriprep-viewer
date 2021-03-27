@@ -126,6 +126,14 @@
           </b-form-group>
         </b-form>
       </b-modal>
+      <b-button
+        id="next-subject-button"
+        variant="outline-primary"
+        class="mb-2 header-button"
+        @click="nextSubject"
+      >
+        <b-icon icon="arrow-right-circle" aria-hidden="true"></b-icon>
+      </b-button>
       <b-dropdown variant="outline-primary" class="mb-2 header-button">
         <template #button-content>
           <b-icon
@@ -224,6 +232,9 @@
     <b-tooltip target="rating-button" triggers="hover" v-if="!isGroupReport"
       >rate this subject</b-tooltip
     >
+    <b-tooltip target="next-subject-button" triggers="hover"
+      >view the next subject</b-tooltip
+    >
     <b-tooltip target="more-button" triggers="hover">more options</b-tooltip>
   </b-button-toolbar>
 </template>
@@ -316,6 +327,9 @@ export default {
         name: "report.json",
       });
       FileSaver.saveAs(fileToSave, "report.json");
+    },
+    nextSubject() {
+      this.$emit("nextSubjectRequested");
     },
     ratingsDownloadRequested() {
       this.$emit("ratingsDownloadRequested");

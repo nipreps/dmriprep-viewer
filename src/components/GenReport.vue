@@ -57,6 +57,7 @@
         v-on:subjectSelected="updateSelectedSubject"
         v-on:ratingsDownloadRequested="downloadRatings"
         v-on:ratingsUploaded="uploadRatings"
+        v-on:nextSubjectRequested="nextSubjectRequested"
         :reportProp="groupReport"
       ></groupReport>
       <report
@@ -65,6 +66,7 @@
         :ratingProp="subjectRatings[subjectSelected]"
         v-on:ratingsDownloadRequested="downloadRatings"
         v-on:ratingsUploaded="uploadRatings"
+        v-on:nextSubjectRequested="nextSubjectRequested"
       ></report>
       <spinner v-else></spinner>
     </b-container>
@@ -164,6 +166,13 @@ export default {
     },
     updateSelectedSubject(subject) {
       this.subjectSelected = subject;
+    },
+    nextSubjectRequested() {
+      const nextIdx = this.subjectSelected
+        ? (this.filteredSubjects.indexOf(this.subjectSelected) + 1) %
+          this.filteredSubjects.length
+        : 0;
+      this.subjectSelected = this.filteredSubjects[nextIdx];
     },
     loadFromQuery() {
       if (this.$route.query) {
