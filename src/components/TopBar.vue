@@ -356,7 +356,7 @@ export default {
   mounted() {
     if (this.reportProp) {
       this.report = this.reportProp;
-      this.subjectId = this.reportProp["subject_id"];
+      this.subjectId = this.reportProp["file_name"];
     }
     if (this.ratingProp) {
       this.rating = this.ratingProp;
@@ -366,7 +366,7 @@ export default {
     reportProp() {
       if (this.reportProp) {
         this.report = this.reportProp;
-        this.subjectId = this.reportProp["subject_id"];
+        this.subjectId = this.reportProp["file_name"];
       }
     },
     ratingProp() {

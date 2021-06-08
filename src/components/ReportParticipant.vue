@@ -46,26 +46,13 @@
               :data="report.eddy_params"
               :outlier_indices="report.outlier_volumes"
               xlabel="TR"
-              ylabel="RMS"
+              ylabel="(REL)/RMS"
               :highlightIdx="time"
             ></line-chart>
           </div>
 
-          <explainer :explainer-text="explainerText.carpetPlot"></explainer>
-          <CarpetPlot :data="report.carpetplot" :highlightIdx="time" />
-
-          <vue-slider
-            ref="timeSlider"
-            v-model="time"
-            :min="0"
-            :max="report.dwi_corrected[0].num_slices - 1"
-          ></vue-slider>
-
-          <explainer :explainer-text="explainerText.qSpace"></explainer>
-          <QSpaceGroup :report="report" :time="time" />
-
           <h2 class="mt-3 pt-3">Registration + Brain Mask</h2>
-          <p class="lead">Brain mask computed on T1w, and mapped to B0</p>
+          <p class="lead">Brain mask computed on T1w, and mapped to EPI</p>
           <explainer
             :explainer-text="explainerText.brainMaskSprite"
           ></explainer>
@@ -79,21 +66,6 @@
             :base="report.b0.img"
             :overlay="report.anat_mask.img"
           />
-
-          <h2 class="mt-3 pt-3">DTI: ColorFA</h2>
-          <p class="lead">Color FA mapped on B0</p>
-
-          <explainer :explainer-text="explainerText.colorFASprite"></explainer>
-          <BrainSprite
-            id="colorFASprite"
-            ref="colorFASprite"
-            :base_dim_x="report.b0.pix"
-            :base_dim_y="report.b0.pix"
-            :overlay_dim_x="report.colorFA.pix"
-            :overlay_dim_y="report.colorFA.pix"
-            :base="report.b0.img"
-            :overlay="report.colorFA.img"
-          />
         </b-col>
       </b-row>
     </b-container>
@@ -103,8 +75,6 @@
 
 <script>
 import BrainSprite from "./BrainSprite.vue";
-import CarpetPlot from "./CarpetPlot";
-import QSpaceGroup from "./QSpaceGroup";
 import explainer from "./Explainer";
 import lineChart from "./LineChart";
 import sprite4d from "./Sprite4D";
@@ -128,8 +98,6 @@ export default {
   name: "report",
   components: {
     BrainSprite,
-    CarpetPlot,
-    QSpaceGroup,
     explainer,
     lineChart,
     sprite4d,
@@ -160,14 +128,8 @@ export default {
           "Axial, sagittal and coronal slices from each 3D image in the preprocessed dMRI series. ",
         lineChart:
           "Time series of Framewise Displacement (Blue) and RMS of head translation (Red)",
-        carpetPlot:
-          "The slice-by-image matrix of deviation from the predicted dMRI signal. Brighter colors indicate a more aberrant slice. Values can be negative or positive.",
-        qSpace:
-          "Shows the q-space coordinate of the image currently in the viewer. Expect different contrast as distance from the origin increases.",
         brainMaskSprite:
           "If a T1w image was included in preprocessing, its mask is shown as a red contour line. Otherwise a mask of the b=0 reference image is shown.",
-        colorFASprite:
-          "RGB values corresponding to principal direction of a tensor fit. Red is L-R, green is A-P and blue is I-S.",
       },
     };
   },
