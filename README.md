@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/233696081.svg)](https://zenodo.org/badge/latestdoi/233696081)
+
 # dmriprep-viewer
 
 This viewer is for the visualization of interactive reports from both
@@ -6,6 +8,24 @@ This viewer is for the visualization of interactive reports from both
 workflows create a `report.json` file which is injected into the HTML of a
 reportlet. This library then renders the object in a series of interactive
 widgets.
+
+If you use dmriprep-viewer in your research, please cite it using the zenodo link above or the following bibtex entry
+
+```
+@software{adam_richie_halford_2021_5076263,
+  author       = {Adam Richie-Halford and
+                  Anisha Keshavan and
+                  Matt Cieslak and
+                  Oscar Esteban},
+  title        = {{nipreps/dmriprep-viewer}},
+  month        = jul,
+  year         = 2021,
+  publisher    = {Zenodo},
+  version      = {v0.1.0},
+  doi          = {10.5281/zenodo.5076263},
+  url          = {https://doi.org/10.5281/zenodo.5076263}
+}
+```
 
 ## Relevant files:
 
