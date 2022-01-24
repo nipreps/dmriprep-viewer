@@ -222,7 +222,7 @@ export default {
       }
       const allKeys = _.map(keys, (k) => k.innerHTML);
       const reportsFiltered = _.filter(allKeys, (k) =>
-        k.endsWith("dwiqc.json")
+        k.endsWith("vaqc.json")
       );
       const keysFixed = _.uniq(reportsFiltered);
       return keysFixed;
@@ -346,6 +346,7 @@ export default {
         );
         this.groupReport = resp.data;
       }
+      // Update the subject_session_id field?
       this.groupReport.subjects.forEach(
         (o) =>
           (o["subject_session_id"] =

@@ -11,7 +11,7 @@
       </b-row>
 
       <b-form-group
-        label="Choose a directory containing dwiqc.json files generated with dmriprep or qsiprep:"
+        label="Choose a directory containing vaqc.json files generated with dmriprep or qsiprep:"
         description="All computation happens on the client side. Your report will not be uploaded to any server."
         class="mt-5 text-left"
       >
@@ -97,14 +97,14 @@ export default {
       if (this.files) {
         this.state = "showLoader";
 
-        // We may have many files. Find all of the *_dwiqc.json files
+        // We may have many files. Find all of the *_vaqc.json files
         this.reportFiles = this.files.filter((file) =>
-          file.name.endsWith("_dwiqc.json")
+          file.name.endsWith("_vaqc.json")
         );
 
         // And find the group report file if available
         this.groupReportFiles = this.files.filter(
-          (file) => file.name === "dwiqc.json"
+          (file) => file.name === "vaqc.json"
         );
 
         this.state = "showReports";
