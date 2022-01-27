@@ -21,7 +21,7 @@
     "node-forge": "^0.10.0",
     "selfsigned": "^1.10.11",
     "stats": "^1.0.0",
-    "three": "^0.132.2",
+    "three": "^0.137.0",
     "vue": "^2.6.14",
     "vue-papa-parse": "^2.0.0",
     "vue-resize": "^1.0.1",
